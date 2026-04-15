@@ -41,20 +41,14 @@ async function getData() {
 }
 
 export default async function HomePage() {
-  const [{ categories, products }, config] = await Promise.all([getData(), getSiteConfig()]);
+  const [{ categories, products }] = await Promise.all([getData(), getSiteConfig()]);
 
   return (
     <div className="page-wrapper">
       <Header />
 
-      <section className="home-hero">
-        <h1 className="home-hero__title">{config.siteName}</h1>
-        <p className="home-hero__tagline">{config.tagline}</p>
-      </section>
-
       {categories.length > 0 && (
         <section className="home-section">
-          <h2 className="home-section__title">Categorii</h2>
           <div className="cat-page-grid">
             {categories.map((cat) => (
               <a key={cat.id} href={`/produse/${cat.slug}`} className="cat-page-card">
