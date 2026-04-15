@@ -35,6 +35,8 @@ create table if not exists public.products (
   name             text not null,
   slug             text not null unique,
   sku              text,
+  quantity         text,
+  points           numeric(6,2),
   short_description text,
   description      text,
   price            numeric(10,2),

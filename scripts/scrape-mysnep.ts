@@ -264,6 +264,7 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
 // --------------- Scrape one product ---------------
 type ProdData = {
   source_id: string; slug: string; name: string; sku: string | null;
+  quantity: string | null; points: number | null; stock_status: string;
   price: number | null; short_description: string; description: string;
   image_src: string | null; source_url: string; category_codes: string[];
 };
@@ -321,6 +322,28 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       const allText = document.body.innerText || "";
       const skuMatch = bodyText.match(/Cod:\s*(\w+)/i) || allText.match(/Cod:\s*(\w+)/i);
       const sku = skuMatch ? skuMatch[1] : null;
+
+      // Quantity: .small > p (e.g. "8 ml", "1 Litru", "60 gummies")
+      let quantity: string | null = null;
+      const smalls = Array.from(document.querySelectorAll(".small")) as HTMLElement[];
+      for (const s of smalls) {
+        if (inBad(s)) continue;
+        const p = s.querySelector("p");
+        const t = (p?.textContent || "").trim();
+        if (t && t.length > 0 && t.length < 60 && !/Cod:/i.test(t)) { quantity = t; break; }
+      }
+
+      // Points: "Puncte Volum: N.NN" or "punti: N.NN"
+      const pointsMatch = allText.match(/Puncte\s*Volum[:\s]*([\d.,]+)/i) || allText.match(/punti[:\s]*([\d.,]+)/i);
+      const points = pointsMatch ? Number(pointsMatch[1].replace(",", ".")) : null;
+
+      // Stock: "disponibil"/"disponibile" = in_stock; "non disponibil"/"indisponibil"/"epuizat"/"esaurito" = out_of_stock
+      let stock_status = "in_stock";
+      if (/non\s+disponibil|non\s+disponibile|indisponibil|epuizat|esaurito|out\s+of\s+stock|esgotado/i.test(allText)) {
+        stock_status = "out_of_stock";
+      } else if (!/disponibil|disponibile|in\s+stock/i.test(allText)) {
+        stock_status = "unknown";
+      }
 
       // Image
       const imgEl = document.querySelector("img[src*='Articoli/big']") as HTMLImageElement | null;
@@ -409,7 +432,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         }
       }
 
-      return { name, price, sku, image_src, description, short };
+      return { name, price, sku, quantity, points, stock_status, image_src, description, short };
     });
 
     const codeMatch = url.match(/-A(\d+)/);
@@ -420,6 +443,9 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       slug: fallbackSlug,
       name: data.name || fallbackSlug,
       sku: data.sku || fallbackSku,
+      quantity: data.quantity,
+      points: data.points,
+      stock_status: data.stock_status,
       price: data.price,
       short_description: data.short,
       description: data.description,
@@ -455,6 +481,9 @@ async function upsertProduct(p: ProdData, imageR2: string | null, categorySlug: 
     name: p.name,
     slug: p.slug,
     sku: p.sku,
+    quantity: p.quantity,
+    points: p.points,
+    stock_status: p.stock_status,
     price: p.price,
     short_description: p.short_description,
     description: p.description,
