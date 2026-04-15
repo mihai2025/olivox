@@ -584,8 +584,15 @@ async function main() {
   if (!DRY_RUN && !R2_ACCESS_KEY_ID) { console.error("Missing R2 env"); process.exit(1); }
 
   console.log("mysnep scraper starting", { DRY_RUN, LIMIT, ONLY_CAT });
-  const browser = await chromium.launch({ headless: true });
-  const ctx: BrowserContext = await browser.newContext({ locale: "ro-RO", userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36" });
+  const HEADLESS = process.env.MYSNEP_HEADLESS !== "false";
+  const browser = await chromium.launch({ headless: HEADLESS });
+  const storageFile = resolve(process.cwd(), ".mysnep-session.json");
+  const ctxOpts: Parameters<typeof browser.newContext>[0] = { locale: "ro-RO", userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36" };
+  if (existsSync(storageFile)) {
+    ctxOpts.storageState = storageFile;
+    console.log("Using saved mysnep session from .mysnep-session.json");
+  }
+  const ctx: BrowserContext = await browser.newContext(ctxOpts);
 
   // MYSNEP_COOKIES: copy-paste from browser devtools (format: "name1=value1; name2=value2")
   // Needed if the logged-in view shows different SKUs / prices / points than guest view.
