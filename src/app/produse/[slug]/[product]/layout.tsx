@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { supabase } from "@/lib/supabase";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 interface Props {
   params: Promise<{ slug: string; product: string }>;
@@ -66,18 +64,9 @@ export default async function ProductLayout({ params, children }: Props) {
   const product = await getProduct(productSlug);
   const categoryName = await getCategoryName(categorySlug);
 
-  if (!product) {
-    return (
-      <div className="page-wrapper">
-        <Header />
-        {children}
-        <Footer />
-      </div>
-    );
-  }
+  if (!product) return <>{children}</>;
 
   const url = `https://olivox.ro/produse/${categorySlug}/${productSlug}`;
-
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -91,14 +80,10 @@ export default async function ProductLayout({ params, children }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <div className="page-wrapper">
-        <Header />
-        <nav className="breadcrumb">
-          <a href="/">Acasa</a> / <a href={`/produse/${categorySlug}`}>{categoryName}</a> / <span>{product.name}</span>
-        </nav>
-        {children}
-        <Footer />
-      </div>
+      <nav className="breadcrumb">
+        <a href="/">Acasa</a> / <a href={`/produse/${categorySlug}`}>{categoryName}</a> / <span>{product.name}</span>
+      </nav>
+      {children}
     </>
   );
 }

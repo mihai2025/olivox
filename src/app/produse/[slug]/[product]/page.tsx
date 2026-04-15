@@ -10,10 +10,17 @@ interface Product {
   r2_image_url: string;
   image_url: string;
   price: number;
+  currency?: string;
   short_description: string;
   description: string;
+  ingredients?: string | null;
+  warnings?: string | null;
+  datasheet_r2_url?: string | null;
+  datasheet_url?: string | null;
   category_slugs: string[];
   sku?: string | null;
+  quantity?: string | null;
+  points?: number | null;
   stock_status?: string | null;
 }
 
@@ -85,80 +92,123 @@ export default function ProductPage() {
   if (!product) return <div className="products-loading">Produsul nu a fost gasit.</div>;
 
   const image = product.r2_image_url || product.image_url;
+  const currency = product.currency || "RON";
   const total = Number(product.price) * Number(quantity);
+  const inStock = product.stock_status !== "out_of_stock";
 
   return (
-    <div className="product-detail">
-      <div className="product-detail__grid">
-        <div className="product-detail__media">
-          {image && <img src={image} alt={product.name} className="product-detail__img" />}
+    <div className="pd-wrap">
+      <section className="pd-hero">
+        <div className="pd-hero__media">
+          {image && <img src={image} alt={product.name} className="pd-hero__img" />}
         </div>
 
-        <div className="product-detail__info">
-          <h1 className="product-detail__name">{product.name}</h1>
-          <div className="product-detail__price">{product.price} RON</div>
+        <div className="pd-hero__info">
+          <div className="pd-hero__meta">
+            {product.sku && <span className="pd-hero__sku">Cod: {product.sku}</span>}
+            {product.quantity && <span className="pd-hero__qty">{product.quantity}</span>}
+            <span className={`pd-hero__stock ${inStock ? "is-in" : "is-out"}`}>
+              {inStock ? "In stoc" : "Indisponibil"}
+            </span>
+          </div>
+
+          <h1 className="pd-hero__name">{product.name}</h1>
+
           {product.short_description && (
-            <div
-              className="product-detail__short"
-              dangerouslySetInnerHTML={{ __html: product.short_description }}
-            />
+            <p className="pd-hero__short">{product.short_description.replace(/<[^>]+>/g, "")}</p>
           )}
 
+          <div className="pd-hero__price-row">
+            <div className="pd-hero__price">
+              {Number(product.price).toFixed(2).replace(".", ",")} <span className="pd-hero__currency">{currency}</span>
+            </div>
+            {product.points != null && Number(product.points) > 0 && (
+              <div className="pd-hero__points">Puncte volum: <strong>{Number(product.points).toFixed(2)}</strong></div>
+            )}
+          </div>
+
           {success ? (
-            <div className="order-success">
-              <h2>Multumim pentru comanda!</h2>
-              <p>Comanda a fost inregistrata. Te vom contacta in cel mai scurt timp pentru confirmare.</p>
+            <div className="pd-success">
+              <h3>Multumim pentru comanda!</h3>
+              <p>Te contactam in cel mai scurt timp pentru confirmare.</p>
             </div>
           ) : (
-            <form className="order-form" onSubmit={handleSubmit}>
-              <div className="order-form__row">
-                <label>Nume complet *</label>
-                <input type="text" required value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
-              </div>
-              <div className="order-form__row">
-                <label>Telefon *</label>
-                <input type="tel" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
-              </div>
-              <div className="order-form__row">
-                <label>Email</label>
-                <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />
-              </div>
-              <div className="order-form__row">
-                <label>Adresa livrare *</label>
-                <textarea required rows={3} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Judet, localitate, strada, numar" />
-              </div>
-              <div className="order-form__row">
-                <label>Cantitate</label>
-                <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
-              </div>
-              <div className="order-form__row">
-                <label>Metoda livrare</label>
-                <select value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
-                  <option value="Sameday curier">Sameday curier</option>
-                  <option value="Sameday easybox">Sameday easybox</option>
-                </select>
-              </div>
-              <div className="order-form__row">
-                <label>Observatii</label>
-                <textarea rows={2} value={observations} onChange={(e) => setObservations(e.target.value)} />
+            <form className="pd-form" onSubmit={handleSubmit}>
+              <div className="pd-form__grid">
+                <div className="pd-form__row">
+                  <label>Nume complet *</label>
+                  <input type="text" required value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
+                </div>
+                <div className="pd-form__row">
+                  <label>Telefon *</label>
+                  <input type="tel" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
+                </div>
+                <div className="pd-form__row pd-form__row--full">
+                  <label>Email</label>
+                  <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />
+                </div>
+                <div className="pd-form__row pd-form__row--full">
+                  <label>Adresa livrare *</label>
+                  <textarea required rows={2} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Judet, localitate, strada, numar" />
+                </div>
+                <div className="pd-form__row">
+                  <label>Cantitate</label>
+                  <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
+                </div>
+                <div className="pd-form__row">
+                  <label>Metoda livrare</label>
+                  <select value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
+                    <option value="Sameday curier">Sameday curier</option>
+                    <option value="Sameday easybox">Sameday easybox</option>
+                  </select>
+                </div>
+                <div className="pd-form__row pd-form__row--full">
+                  <label>Observatii</label>
+                  <textarea rows={2} value={observations} onChange={(e) => setObservations(e.target.value)} />
+                </div>
               </div>
 
-              <div className="order-form__total">Total: <strong>{total} RON</strong></div>
-              {errorMsg && <p className="order-form__error">{errorMsg}</p>}
-              <button type="submit" className="btn-order" disabled={submitting}>
-                {submitting ? "Se trimite..." : "Comanda acum"}
+              <div className="pd-form__summary">
+                <span>Total</span>
+                <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
+              </div>
+              {errorMsg && <p className="pd-form__error">{errorMsg}</p>}
+              <button type="submit" className="pd-form__submit" disabled={submitting || !inStock}>
+                {submitting ? "Se trimite..." : inStock ? "Comanda acum" : "Indisponibil momentan"}
               </button>
             </form>
           )}
         </div>
-      </div>
+      </section>
 
-      {product.description && (
-        <section className="content-section" style={{ marginTop: 32 }}>
-          <h2>Descriere</h2>
-          <div dangerouslySetInnerHTML={{ __html: product.description }} />
-        </section>
-      )}
+      <div className="pd-cards">
+        {product.description && (
+          <article className="pd-card">
+            <div className="eyebrow">Descriere</div>
+            <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.description }} />
+          </article>
+        )}
+        {product.ingredients && (
+          <article className="pd-card">
+            <div className="eyebrow">Ce este inauntru</div>
+            <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.ingredients }} />
+          </article>
+        )}
+        {product.warnings && (
+          <article className="pd-card pd-card--warn">
+            <div className="eyebrow">Avertismente</div>
+            <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.warnings }} />
+          </article>
+        )}
+        {(product.datasheet_r2_url || product.datasheet_url) && (
+          <article className="pd-card">
+            <div className="eyebrow">Specificatii tehnice</div>
+            <a href={product.datasheet_r2_url || product.datasheet_url || "#"} target="_blank" rel="noopener" className="pd-card__pdf">
+              Descarca fisa produs (PDF)
+            </a>
+          </article>
+        )}
+      </div>
     </div>
   );
 }
