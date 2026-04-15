@@ -1,0 +1,1663 @@
+{
+	"info": {
+		"_postman_id": "47214277-d784-493a-aa06-8825c1dab360",
+		"name": "API FANCourier RO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32152708"
+	},
+	"item": [
+		{
+			"name": "Autentificare",
+			"item": [
+				{
+					"name": "Autentificare",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//var jsonData = JSON.parse(responseBody);\r",
+									"//postman.setEnvironmentVariable(\"FANtoken\", jsonData.token);\r",
+									"if(responseCode.code=== 200)  {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var response_fantoken = jsonData.data.token;\r",
+									"    pm.collectionVariables.set(\"FANtoken\", response_fantoken)\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/login?username=clienttest&password=testing",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "clienttest",
+									"description": "Username-ul folosit la logarea in aplicatia SelfAWB"
+								},
+								{
+									"key": "password",
+									"value": "testing",
+									"description": "Parola folosita la logarea in aplicatia SelfAWB"
+								}
+							]
+						},
+						"description": "Pentru a utiliza API-ul, trebuie mai intai generat token-ul.\n\nAcesta nu are un expiration date si poate fi utilizat pe tot parcursul integrarii."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generare AWB",
+			"item": [
+				{
+					"name": "Tipuri Servicii",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/services",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Optiuni Servicii",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/service-options?clientId=7032158&service=Standard",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"service-options"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "service",
+									"value": "Standard",
+									"description": "obligatoriu // Pentru lista completa se poate accesa {{url}}/services"
+								},
+								{
+									"key": "service",
+									"value": "RedCode",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "Cont Colector",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "Express Loco 2H",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "Export",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "CollectPoint",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "Produse Albe",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "Transport Marfa",
+									"disabled": true
+								},
+								{
+									"key": "service",
+									"value": "FANbox",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Printare AWB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/awb/label?clientId=7032158&awbs[]=2144400120097&pdf=1&dpi=300",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"awb",
+								"label"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "awbs[]",
+									"value": "2144400120097",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "pdf",
+									"value": "1",
+									"description": "optional // a se completa cu 1 sau 0"
+								},
+								{
+									"key": "zpl",
+									"value": "1",
+									"description": "optional // a se completa cu 1 sau 0",
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "en",
+									"description": "optional // a se completa cu ro sau en",
+									"disabled": true
+								},
+								{
+									"key": "format",
+									"value": "A4",
+									"description": "optional // a se completa cu A4, A5 sau A6(disponibil doar pentru ePOD)",
+									"disabled": true
+								},
+								{
+									"key": "dpi",
+									"value": "300",
+									"description": "optional // rezolutia print-ului in DPI (puncte pe inch) pentru print ZPL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stergere AWB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/awb?clientId=7032158&awb=7000005431103",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"awb"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "awb",
+									"value": "7000005431103",
+									"description": "obligatoriu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AWB Intern",
+			"item": [
+				{
+					"name": "AWB Intern",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\": 7032158,\n\t\"shipments\": [\n\t\t{\n\t\t\t\"info\": {\n\t\t\t\t\"service\": \"Standard\",\n\t\t\t\t\"bank\": \"\",\n\t\t\t\t\"bankAccount\": \"\",\n\t\t\t\t\"packages\": {\n\t\t\t\t\t\"parcel\": 1,\n\t\t\t\t\t\"envelope\": 0\n\t\t\t\t},\n\t\t\t\t\"weight\": 2,\n\t\t\t\t\"cod\": 0,\n\t\t\t\t\"declaredValue\": 0,\n\t\t\t\t\"payment\": \"recipient\",\n\t\t\t\t\"refund\": null,\n\t\t\t\t\"returnPayment\": null,\n\t\t\t\t\"observation\": \"Observatie\",\n\t\t\t\t\"content\": \"Comanda #346\",\n\t\t\t\t\"dimensions\": {\n\t\t\t\t\t\"length\": 1,\n\t\t\t\t\t\"height\": 2,\n\t\t\t\t\t\"width\": 3\n\t\t\t\t},\n\t\t\t\t\"costCenter\": \"DEP IT\",\n\t\t\t\t\"options\": [\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"recipient\": {\n\t\t\t\t\"name\": \"Nume Destinatar\",\n\t\t\t\t\"phone\": \"0723456789\",\n\t\t\t\t\"secondaryPhone\": \"0723456789\",\n\t\t\t\t\"email\": \"adresa@email.com\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"county\": \"Bucuresti\",\n\t\t\t\t\t\"locality\": \"Bucuresti\",\n\t\t\t\t\t\"street\": \"Fabrica de Glucoza\",\n\t\t\t\t\t\"streetNo\": \"11C\",\n\t\t\t\t\t\"zipCode\": \"020331\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/intern-awb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intern-awb"
+							]
+						},
+						"description": "Generare AWB Intern"
+					},
+					"response": []
+				},
+				{
+					"name": "AWB Intern FANbox",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\": 7032158,\n\t\"shipments\": [\n\t\t{\n\t\t\t\"info\": {\n\t\t\t\t\"service\": \"FANbox\",\n\t\t\t\t\"bank\": \"\",\n\t\t\t\t\"bankAccount\": \"\",\n\t\t\t\t\"packages\": {\n\t\t\t\t\t\"parcel\": 1,\n\t\t\t\t\t\"envelopes\": 0\n\t\t\t\t},\n\t\t\t\t\"weight\": 2,\n\t\t\t\t\"cod\": 0,\n\t\t\t\t\"declaredValue\": 0,\n\t\t\t\t\"payment\": \"sender\",\n\t\t\t\t\"refund\": null,\n\t\t\t\t\"returnPayment\": null,\n\t\t\t\t\"observation\": \"FRAGIl\",\n\t\t\t\t\"content\": \"Comanda #346\",\n\t\t\t\t\"dimensions\": {\n\t\t\t\t\t\"length\": 3,\n\t\t\t\t\t\"height\": 4,\n\t\t\t\t\t\"width\": 6\n\t\t\t\t},\n\t\t\t\t\"costCenter\": null,\n\t\t\t\t\"options\": [\n\t\t\t\t\t\"V\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"recipient\": {\n\t\t\t\t\"name\": \"Nume destinatar\",\n\t\t\t\t\"phone\": \"0723456789\",\n\t\t\t\t\"email\": \"recipient@ema.il\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"county\": \"Bucuresti\",\n\t\t\t\t\t\"locality\": \"Bucuresti\",\n\t\t\t\t\t\"street\": \"Drm. Osiei\",\n\t\t\t\t\t\"streetNo\": \"76\",\n\t\t\t\t\t\"pickupLocation\": \"FANbox Kaufland Militari Residence (Locker)\",\n\t\t\t\t\t\"zipCode\": \"062395\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/intern-awb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intern-awb"
+							]
+						},
+						"description": "Generare AWB Intern"
+					},
+					"response": []
+				},
+				{
+					"name": "AWB Intern Ocazional",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\": 323245,\n\t\"shipments\": [\n\t\t{\n\t\t\t\"info\": {\n\t\t\t\t\"service\": \"Standard\",\n\t\t\t\t\"bank\": \"\",\n\t\t\t\t\"bankAccount\": \"\",\n\t\t\t\t\"packages\": {\n\t\t\t\t\t\"parcel\": 1,\n\t\t\t\t\t\"envelopes\": 0\n\t\t\t\t},\n\t\t\t\t\"weight\": 2,\n\t\t\t\t\"cod\": 0,\n\t\t\t\t\"declaredValue\": 0,\n\t\t\t\t\"payment\": \"sender\",\n\t\t\t\t\"refund\": null,\n\t\t\t\t\"returnPayment\": null,\n\t\t\t\t\"observation\": \"FRAGIl\",\n\t\t\t\t\"content\": \"Comanda#346\",\n\t\t\t\t\"dimensions\": {\n\t\t\t\t\t\"length\": 3,\n\t\t\t\t\t\"height\": 4,\n\t\t\t\t\t\"width\": 6\n\t\t\t\t},\n\t\t\t\t\"costCenter\": null,\n\t\t\t\t\"options\": [\n\t\t\t\t]\n\t\t\t},\n            \"sender\": {\n                \"name\": \"Nume espeditor\",\n\t            \"contactperson\": \"Nume expeditor\",\n\t            \"email\": \"adresa@email.com\",\n\t            \"phone\": \"0711111112\",\n                \"secondaryPhone\": \"0723456785\",\n                \"address\": {\n        \t        \"county\": \"Bucuresti\",\n                    \"locality\": \"Bucuresti\",\n                    \"street\": \"Unirii (Bulevard)\",\n                    \"streetNo\": \"1\",\n                    \"zipCode\": \"040101\",\n                    \"building\": \"1\",\n                    \"entrance\": \"1\",\n                    \"floor\": \"1\",\n                    \"apartment\": \"1\"\n            }\n        },\n\t\t\t\"recipient\": {\n                \"name\": \"Nume Destinatar\",\n\t\t\t\t\"phone\": \"0723456789\",\n\t\t\t\t\"secondaryPhone\": \"0723456789\",\n\t\t\t\t\"email\": \"adresa@email.com\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"county\": \"Bucuresti\",\n\t\t\t\t\t\"locality\": \"Bucuresti\",\n\t\t\t\t\t\"street\": \"Fabrica de Glucoza\",\n\t\t\t\t\t\"streetNo\": \"11C\",\n\t\t\t\t\t\"zipCode\": \"020331\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/intern-awb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intern-awb"
+							]
+						},
+						"description": "Generare AWB Intern"
+					},
+					"response": []
+				},
+				{
+					"name": "Judete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/counties",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"counties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Localitati",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/localities?county=Ilfov",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"localities"
+							],
+							"query": [
+								{
+									"key": "county",
+									"value": "Ilfov",
+									"description": "optional // vor fi returnate doar localitatile din judetul respectiv"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strazi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/streets",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"streets"
+							],
+							"query": [
+								{
+									"key": "county",
+									"value": "Bucuresti",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "locality",
+									"value": "Bucuresti",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "perPage",
+									"value": "",
+									"description": "optional // valoare maxima = 1000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pickup Points",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/pickup-points?type=fanbox",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"pickup-points"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "fanbox",
+									"description": "obligatoriu - fanbox // paypoint // office"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pickup Points Individual",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/pickup-points?id=F1000005",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"pickup-points"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "F1000005",
+									"description": "– obligatoriu // ID-ul se poate afla accesand {{url}}/pickup-points?type="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarif AWB Intern",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 7032158,\r\n\t\"info\": {\r\n\t\t\"service\": \"Cont Colector\",\r\n\t\t\"payment\": \"expeditor\",\r\n\t\t\"weight\": 1,\r\n\t\t\"options\": [\r\n\t\t\t\"A\",\r\n\t\t\t\"S\"\r\n\t\t],\r\n\t\t\"dimensions\": {\r\n\t\t\t\"height\": 5,\r\n\t\t\t\"width\": 6,\r\n\t\t\t\"length\": 7\r\n\t\t},\r\n\t\t\"packages\": {\r\n\t\t\t\"parcel\": 1,\r\n\t\t\t\"envelope\": 0\r\n\t\t},\r\n\t\t\"declaredValue\": null\r\n\t},\r\n\t\"recipient\": {\r\n\t\t\"locality\": \"Constanta\",\r\n\t\t\"county\": \"Constanta\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_reports}}/awb/internal-tariff",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"awb",
+								"internal-tariff"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[service]",
+									"value": "Cont Colector",
+									"description": "obligatoriu // tip serviciu din {{url}}/services",
+									"disabled": true
+								},
+								{
+									"key": "info[payment]",
+									"value": "expeditor",
+									"description": "obligatoriu // expeditor sau destinatar\n",
+									"disabled": true
+								},
+								{
+									"key": "info[weight]",
+									"value": "1",
+									"description": "obligatoriu // greutatea totala a expeditiei",
+									"disabled": true
+								},
+								{
+									"key": "info[options]",
+									"value": "X",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][height]",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][width]",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][length]",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "info[packages][parcel]",
+									"value": "1",
+									"description": "obligatoriu // daca se foloseste info[packages][envelope],\npoate fi exclus\n",
+									"disabled": true
+								},
+								{
+									"key": "info[packages][envelope]",
+									"value": "",
+									"description": "obligatoriu // daca se foloseste info[packages][parcel],\npoate fi exclus",
+									"disabled": true
+								},
+								{
+									"key": "info[declaredValue]",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "recipient[locality]",
+									"value": "Bucuresti",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "sender[locality]",
+									"value": "Bucuresti",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "sender[county]",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "recipient[county]",
+									"value": "Bucuresti",
+									"description": "obligatoriu",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AWB Extern",
+			"item": [
+				{
+					"name": "AWB Extern",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\": 7032158,\n\t\"shipments\": [\n\t\t{\n\t\t\t\"info\": {\n\t\t\t\t\"deliveryMode\": \"rutier\",\n\t\t\t\t\"service\": \"Export\",\n\t\t\t\t\"contentType\": \"document\",\n\t\t\t\t\"bank\": \"WRC\",\n\t\t\t\t\"bankAccount\": \"RO38BRDE450SV88376004500\",\n\t\t\t\t\"packages\": {\n\t\t\t\t\t\"parcel\": 1,\n\t\t\t\t\t\"envelope\": 0\n\t\t\t\t},\n\t\t\t\t\"dimensions\": {\n\t\t\t\t\t\"length\": 1,\n\t\t\t\t\t\"height\": 1,\n\t\t\t\t\t\"width\": 1\n\t\t\t\t},\n\t\t\t\t\"weight\": 5,\n\t\t\t\t\"declaredValue\": 1000,\n\t\t\t\t\"observation\": \"langa casa\",\n\t\t\t\t\"costCenter\": \"cost center\",\n\t\t\t\t\"options\": []\n\t\t\t},\n\t\t\t\"recipient\": {\n\t\t\t\t\"name\": \"Recipient 2\",\n\t\t\t\t\"phone\": \"0723456789\",\n\t\t\t\t\"email\": \"recipient@ema.il\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"country\": \"Bulgaria\",\n\t\t\t\t\t\"region\": \"Sofia\",\n\t\t\t\t\t\"locality\": \"Sofia\",\n\t\t\t\t\t\"street\": \"ul. Ivan Denkoglu\",\n\t\t\t\t\t\"streetNo\": \"17\",\n\t\t\t\t\t\"zipCode\": \"1000\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/extern-awb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"extern-awb"
+							]
+						},
+						"description": "Generare AWB Export"
+					},
+					"response": []
+				},
+				{
+					"name": "AWB Extern Ocazional",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\": 323245,\n\t\"shipments\": [\n\t\t{\n\t\t\t\"info\": {\n\t\t\t\t\"deliveryMode\": \"rutier\",\n\t\t\t\t\"service\": \"Export\",\n\t\t\t\t\"contentType\": \"document\",\n\t\t\t\t\"bank\": \"\",\n\t\t\t\t\"bankAccount\": \"\",\n\t\t\t\t\"packages\": {\n\t\t\t\t\t\"parcel\": 1,\n\t\t\t\t\t\"envelope\": 0\n\t\t\t\t},\n\t\t\t\t\"dimensions\": {\n\t\t\t\t\t\"length\": 1,\n\t\t\t\t\t\"height\": 1,\n\t\t\t\t\t\"width\": 1\n\t\t\t\t},\n\t\t\t\t\"weight\": 5,\n\t\t\t\t\"declaredValue\": 1000,\n                \"cod\": null,\n                \"refund\": null,\n\t\t\t\t\"observation\": \"langa casa\",\n\t\t\t\t\"content\": \"continut\",\n\t\t\t\t\"costCenter\": \"cost center\",\n\t\t\t\t\"options\": []\n\t\t\t},\n\t\t\t\"sender\": {\n\t\t\t\t\"name\": \"Sender 2\",\n\t\t\t\t\"phone\": \"0725100296\",\n\t\t\t\t\"contactPerson\": \"My current contact person\",\n\t\t\t\t\"secondaryPhone\": \"123123\",\n\t\t\t\t\"email\": \"sender@email.ro\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"county\": \"Bucuresti\",\n\t\t\t\t\t\"locality\": \"Bucuresti\",\n\t\t\t\t\t\"zipCode\": \"112233\",\n\t\t\t\t\t\"building\": \"optional\",\n\t\t\t\t\t\"entrance\": \"optional\",\n\t\t\t\t\t\"floor\": \"optional\",\n\t\t\t\t\t\"street\": \"Stefan cel Mare\",\n\t\t\t\t\t\"streetNo\": \"1\",\n\t\t\t\t\t\"apartment\": \"optional\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"recipient\": {\n\t\t\t\t\"name\": \"Recipient 2\",\n\t\t\t\t\"phone\": \"0723456789\",\n\t\t\t\t\"email\": \"recipient@email.ro\",\n\t\t\t\t\"address\": {\n\t\t\t\t\t\"country\": \"Bulgaria\",\n\t\t\t\t\t\"region\": \"Sofia\",\n\t\t\t\t\t\"locality\": \"Sofia\",\n\t\t\t\t\t\"street\": \"Stefan cel Mare\",\n\t\t\t\t\t\"streetNo\": \"1\",\n\t\t\t\t\t\"zipCode\": \"4240\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/extern-awb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"extern-awb"
+							]
+						},
+						"description": "Generare AWB Export"
+					},
+					"response": []
+				},
+				{
+					"name": "Tari",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_reports}}/countries",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Judete externe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"info\": {        \"service\":\"Standard\",        \"payment\":\"expeditor\",        \"weight\":1,        \"packages\": {            \"parcel\":1,            \"envelope\": 0        },        \"declaredValue\": 100,        \"dimensions\": {            \"width\":1,            \"height\": 1,            \"length\":1        }    },    \"recipient\":{            \"county\":\"Bucuresti\",            \"locality\":\"Bucuresti\"    }}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_reports}}/external-counties",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"external-counties"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "",
+									"description": "optional // aici pot fi folosite urmatoarele tari : Moldova; Grecia; Bulgaria;",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Localitati externe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"info\": {        \"service\":\"Standard\",        \"payment\":\"expeditor\",        \"weight\":1,        \"packages\": {            \"parcel\":1,            \"envelope\": 0        },        \"declaredValue\": 100,        \"dimensions\": {            \"width\":1,            \"height\": 1,            \"length\":1        }    },    \"recipient\":{            \"county\":\"Bucuresti\",            \"locality\":\"Bucuresti\"    }}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_reports}}/external-localities?country=Moldova&county=Basarabeasca",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"external-localities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Moldova",
+									"description": "optional // aici pot fi folosite urmatoarele tari : Moldova; Grecia; Bulgaria;"
+								},
+								{
+									"key": "county",
+									"value": "Basarabeasca",
+									"description": "optional"
+								},
+								{
+									"key": "perPage",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarif AWB Export",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 7032158,\r\n\t\"info\": {\r\n\t\t\"service\": \"Export\",\r\n\t\t\"deliveryMode\": \"aerian\",\r\n\t\t\"documentType\": \"non document\",\r\n\t\t\"weight\": 1,\r\n\t\t\"dimensions\": {\r\n\t\t\t\"height\": 5,\r\n\t\t\t\"width\": 5,\r\n\t\t\t\"length\": 5\r\n\t\t},\r\n\t\t\"packages\": {\r\n\t\t\t\"parcel\": 1,\r\n\t\t\t\"envelope\": 0\r\n\t\t}\r\n\t},\r\n\t\"recipient\": {\r\n\t\t\"country\": \"Turcia\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_reports}}/awb/external-tariff",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"awb",
+								"external-tariff"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[service]",
+									"value": "Export",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[deliveryMode]",
+									"value": "rutier",
+									"description": "obligatoriu // rutier sau aerian",
+									"disabled": true
+								},
+								{
+									"key": "info[documentType]",
+									"value": "document",
+									"description": "obligatoriu // \"non document\" sau \"document\"",
+									"disabled": true
+								},
+								{
+									"key": "info[weight]",
+									"value": "1",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][height]",
+									"value": "1",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][width]",
+									"value": "1",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[dimensions][length]",
+									"value": "1",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "info[packages][parcel]",
+									"value": "1",
+									"description": "obligatoriu // daca se foloseste info[packages][envelope],\npoate fi exclus\n",
+									"disabled": true
+								},
+								{
+									"key": "info[packages][envelope]",
+									"value": "0",
+									"description": "obligatoriu // daca se foloseste info[packages][parcel],\npoate fi exclus\n",
+									"disabled": true
+								},
+								{
+									"key": "recipient[country]",
+									"value": "Bulgaria",
+									"description": "obligatoriu",
+									"disabled": true
+								},
+								{
+									"key": "sender[locality]",
+									"value": "Sofia",
+									"description": "optional // se foloseste doar in cazul conturilor SelfAWB Ocazional\n",
+									"disabled": true
+								},
+								{
+									"key": "sender[county]",
+									"value": "Sofia",
+									"description": "optional // se foloseste doar in cazul conturilor SelfAWB Ocazional\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comanda Curier",
+			"item": [
+				{
+					"name": "Plasare Comanda Curier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"info\": {\n\t\t\"packages\": {\n\t\t\t\"parcel\": 1,\n\t\t\t\"envelope\": 0\n\t\t},\n\t\t\"weight\": 1,\n\t\t\"dimensions\": {\n\t\t\t\"width\": 10,\n\t\t\t\"length\": 10,\n\t\t\t\"height\": 10\n\t\t},\n\t\t\"orderType\": \"Standard\",\n\t\t\"pickupDate\": \"2024-06-23\",\n\t\t\"pickupHours\": {\n\t\t\t\"first\": \"09:00\",\n\t\t\t\"second\": \"16:00\"\n\t\t},\n\t\t\"observations\": \"test\"\n\t},\n\t\"clientId\": 7032158\n    // recipient este obligatoriu daca orderType este ExpressLoco\n    // \"recipient\": {\n    //     \"name\": \"Recipient Name\",\n    //     \"phone\": \"0711111111\",\n    //     \"address\": {\n    //     \t\"county\": \"Bucuresti\",\n    //         \"locality\": \"Bucuresti\",\n    //         \"street\": \"Fabrica de Glucoza\",\n    //         \"streetNo\": \"11C\",\n    //         \"zipCode\": \"020332\",\n    //         \"building\": \"1\",\n    //         \"entrance\": \"1\",\n    //         \"floor\": \"1\",\n    //         \"apartment\": \"1\"\n    //     }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Se utilizeaza pentru generarea unei comenzi de curier.\n\nIn cazul in care se ridica mai multe colete de la aceeasi adresa, poate fi apelat doar o singura data."
+					},
+					"response": []
+				},
+				{
+					"name": "Plasare Comanda Curier Ocazional",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"info\": {\n        \"awbnumber\": null,\n        \"packages\": {\n            \"parcel\": 1,\n            \"envelope\": 0\n        },\n        \"weight\": 1,\n        \"dimensions\": {\n            \"width\": 10,\n            \"length\": 10,\n            \"height\": 10\n        },\n        \"orderType\": \"Standard\",\n        \"pickupDate\": \"2024-07-12\",\n        \"pickupHours\": {\n            \"first\": \"10:00\",\n            \"second\": \"12:00\"\n        },\n        \"observations\": \"test\"\n    },\n    \"clientId\": 323245,\n    // SENDER ESTE OBLIGATORIU DOAR DACA SE GENEREAZA FOLOSIND UN CONT SELFAWB OCAZIONAL\n    \"sender\": {\n        \"name\": \"Nume expeditor\",\n\t    \"contactperson\": \"Nume expeditor\",\n\t    \"email\": \"adresa@email.com\",\n\t    \"phone\": \"0711111112\",\n        \"address\": {\n        \t\"county\": \"Bucuresti\",\n            \"locality\": \"Bucuresti\",\n            \"street\": \"Unirii (Bulevard)\",\n            \"streetNo\": \"1\",\n            \"zipCode\": \"040101\",\n            \"building\": \"1\",\n            \"entrance\": \"1\",\n            \"floor\": \"1\",\n            \"apartment\": \"1\"\n        }\n    }\n    // recipient este obligatoriu daca orderType este ExpressLoco\n    // \"recipient\": {\n    //     \"name\": \"Recipient Name\",\n    //     \"phone\": \"0711111111\",\n    //     \"address\": {\n    //     \t\"county\": \"Bucuresti\",\n    //         \"locality\": \"Bucuresti\",\n    //         \"street\": \"Fabrica de Glucoza\",\n    //         \"streetNo\": \"11C\",\n    //         \"zipCode\": \"020332\",\n    //         \"building\": \"1\",\n    //         \"entrance\": \"1\",\n    //         \"floor\": \"1\",\n    //         \"apartment\": \"1\"\n    //     }\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Se utilizeaza pentru generarea unei comenzi de curier.\n\nIn cazul in care se ridica mai multe colete de la aceeasi adresa, poate fi apelat doar o singura data."
+					},
+					"response": []
+				},
+				{
+					"name": "Stergere Comanda Curier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/order?clientId=7032158&id=3206250",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "id",
+									"value": "3206250",
+									"description": "obligatoriu"
+								}
+							]
+						},
+						"description": "Se utilizeaza pentru **anularea** unei comenzi de curier."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Raportare AWB",
+			"item": [
+				{
+					"name": "Borderou",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/awb?clientId=7032158&date=2024-07-11",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"awb"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "date",
+									"value": "2024-07-11",
+									"description": "obligatoriu // formatul datei este YYYY-MM-DD"
+								},
+								{
+									"key": "perPage",
+									"value": "100",
+									"description": "optional // maxim 100 de rezultate",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event-uri AWB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/awb-events",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"awb-events"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "ro",
+									"description": "optional // se va completa cu valoarea ro sau en",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AWB Tracking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/awb/tracking?clientId=7032158&awb[]=2149400120091",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"awb",
+								"tracking"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "awb[]",
+									"value": "2149400120091",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "language",
+									"value": "",
+									"description": "optional // se va completa cu ro sau en",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Viramente bancare",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dateNow= new Date();",
+									"pm.environment.set('currentDate', dateNow.toISOString());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/bank-transfers?clientId=7032158&date=2024-07-11",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"bank-transfers"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "date",
+									"value": "2024-07-11",
+									"description": "obligatoriu // formatul datei este YYYY-MM-DD"
+								},
+								{
+									"key": "perPage",
+									"value": "100",
+									"description": "optional // maxim 100 de rezultate",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirmari AWB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/get-awb-confirmations?clientId=7032158&awb[]=7000005453951",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"get-awb-confirmations"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "awb[]",
+									"value": "7000005453951",
+									"description": "obligatoriu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Raportare Comenzi",
+			"item": [
+				{
+					"name": "Raport Comenzi",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dateNow= new Date();",
+									"pm.environment.set('currentDate', dateNow.toISOString());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/orders?clientId=7032158&date=2024-07-11",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "date",
+									"value": "2024-07-11",
+									"description": "obligatoriu // formatul datei este YYYY-MM-DD"
+								},
+								{
+									"key": "perPage",
+									"value": "100",
+									"description": "optional // maxim 100 de rezultate",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event-uri Comenzi Curier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/order-events?language=ro",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"order-events"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "ro",
+									"description": "optional // a se completa cu ro sau en"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Comenzi Curier",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dateNow= new Date();",
+									"pm.environment.set('currentDate', dateNow.toISOString());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/orders/tracking?clientId=7032158&orderId[]=20091090",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"orders",
+								"tracking"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "7032158",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "orderId[]",
+									"value": "20091090",
+									"description": "obligatoriu"
+								},
+								{
+									"key": "language",
+									"value": "ro",
+									"description": "optional // se va completa cu ro sau en\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Detalii Cont",
+			"item": [
+				{
+					"name": "Sucursale",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{FANtoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_reports}}/branches",
+							"host": [
+								"{{url_reports}}"
+							],
+							"path": [
+								"branches"
+							],
+							"query": [
+								{
+									"key": "county",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "locality",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "FANtoken",
+			"value": "170735|USTy7xno16Xkz0eHAIZSQbRDclOYklW33bkkjnWh",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "https://api.fancourier.ro",
+			"type": "string"
+		},
+		{
+			"key": "url_reports",
+			"value": "https://api.fancourier.ro/reports",
+			"type": "string"
+		}
+	]
+}
