@@ -586,6 +586,19 @@ async function main() {
   console.log("mysnep scraper starting", { DRY_RUN, LIMIT, ONLY_CAT });
   const browser = await chromium.launch({ headless: true });
   const ctx: BrowserContext = await browser.newContext({ locale: "ro-RO", userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36" });
+
+  // MYSNEP_COOKIES: copy-paste from browser devtools (format: "name1=value1; name2=value2")
+  // Needed if the logged-in view shows different SKUs / prices / points than guest view.
+  if (process.env.MYSNEP_COOKIES) {
+    const cookies = process.env.MYSNEP_COOKIES.split(";").map(kv => {
+      const [name, ...rest] = kv.trim().split("=");
+      return { name: name.trim(), value: rest.join("=").trim(), domain: ".mysnep.com", path: "/" };
+    }).filter(c => c.name && c.value);
+    if (cookies.length) {
+      await ctx.addCookies(cookies);
+      console.log(`Loaded ${cookies.length} cookie(s) from MYSNEP_COOKIES`);
+    }
+  }
   // Polyfill __name (esbuild/tsx injects it into page.evaluate callbacks)
   await ctx.addInitScript(() => {
     // @ts-expect-error shim
