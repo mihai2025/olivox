@@ -1019,8 +1019,6 @@ Mulțumim pentru comanda dvs cu nr #{{id_comanda}} în sumă de {{valoare}} lei.
 Hai să verificăm împreună detaliile ei:
 
 Produs: {{produs}}
-Brand: {{brand}}
-Model: {{model}}
 Text pe husă: {{text_husa}}
 
 Te rog verifică modelul exact din SETĂRI → DESPRE TELEFON → MODEL.
@@ -2006,14 +2004,6 @@ function EditorPanel({ auth }: { auth: string }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Brand/Model selector (for mockup overlay)
-  const [brands, setBrands] = useState<{id: number; name: string}[]>([]);
-  const [models, setModels] = useState<{id: number; name: string; mockup_url: string}[]>([]);
-  const [selectedBrandId, setSelectedBrandId] = useState("");
-  const [selectedModelId, setSelectedModelId] = useState("");
-  const [mockupUrl, setMockupUrl] = useState("");
-  const [loadingModels, setLoadingModels] = useState(false);
-
   // Font options
   const FONTS = [
     { id: "kalam", label: "Kalam", family: "PrintKalam", file: "/font/kalam.ttf" },
@@ -2089,23 +2079,6 @@ function EditorPanel({ auth }: { auth: string }) {
     const t = setTimeout(check, 500);
     return () => clearTimeout(t);
   }, [selectedFont, fontSize, currentFont.family]);
-
-  // Brands/models removed for olivox
-  useEffect(() => {
-    setBrands([]);
-  }, []);
-
-  useEffect(() => {
-    setModels([]);
-    setLoadingModels(false);
-  }, [selectedBrandId]);
-
-  // Update mockup when model changes
-  useEffect(() => {
-    if (!selectedModelId) { setMockupUrl(""); return; }
-    const model = models.find(m => String(m.id) === selectedModelId);
-    setMockupUrl(model?.mockup_url || "");
-  }, [selectedModelId, models]);
 
   // Load products with print images
   useEffect(() => {
@@ -2301,46 +2274,6 @@ function EditorPanel({ auth }: { auth: string }) {
     finally { setSaving(false); }
   };
 
-  // Download with mockup overlay composited
-  const handleDownloadMockup = async () => {
-    if (!canvasRef.current || !mockupUrl) return;
-    setSaving(true);
-    try {
-      const srcCanvas = canvasRef.current;
-      // Load mockup image
-      const mockImg = new Image();
-      mockImg.crossOrigin = "anonymous";
-      await new Promise<void>((resolve, reject) => {
-        mockImg.onload = () => resolve();
-        mockImg.onerror = () => reject(new Error("Mockup load failed"));
-        mockImg.src = mockupUrl;
-      });
-      // Create composite canvas same size as source
-      const comp = document.createElement("canvas");
-      comp.width = W;
-      comp.height = H;
-      const ctx = comp.getContext("2d")!;
-      // Draw original canvas content
-      ctx.drawImage(srcCanvas, 0, 0);
-      // Draw mockup centered, filling height, clipped to canvas bounds
-      const mockScale = H / mockImg.height;
-      const mockW = mockImg.width * mockScale;
-      const mockX = (W - mockW) / 2;
-      ctx.globalAlpha = 0.85;
-      ctx.drawImage(mockImg, mockX, 0, mockW, H);
-      ctx.globalAlpha = 1;
-      // Download
-      const blob = await new Promise<Blob>((resolve) => comp.toBlob((b) => resolve(b!), "image/jpeg", 0.95));
-      const dlUrl = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = dlUrl;
-      a.download = "husa personalizata mockup.jpg";
-      a.click();
-      URL.revokeObjectURL(dlUrl);
-    } catch (e) { console.error("Mockup download failed:", e); }
-    finally { setSaving(false); }
-  };
-
   const labelStyle = { fontSize: "0.72rem" as const, fontWeight: 600 as const, marginBottom: 3 };
   const rowStyle = { display: "flex" as const, alignItems: "center" as const, gap: 6 };
 
@@ -2417,21 +2350,6 @@ function EditorPanel({ auth }: { auth: string }) {
         </div>
       </div>
 
-      {/* Brand / Model selector */}
-      <div className="editor-brand-model-row">
-        <select className="editor-select" value={selectedBrandId} onChange={(e) => { setSelectedBrandId(e.target.value); setSelectedModelId(""); setMockupUrl(""); }}>
-          <option value="">Brand</option>
-          {brands.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
-        </select>
-        <select className="editor-select" value={selectedModelId} onChange={(e) => setSelectedModelId(e.target.value)} disabled={!selectedBrandId || loadingModels}>
-          <option value="">{loadingModels ? "Se incarca..." : "Model"}</option>
-          {models.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
-        </select>
-        {mockupUrl && (
-          <button className="awb-btn" onClick={() => { setSelectedBrandId(""); setSelectedModelId(""); setMockupUrl(""); }} style={{ fontSize: "0.65rem", padding: "2px 8px" }}>Sterge mockup</button>
-        )}
-      </div>
-
       {/* Editor layout: canvas + controls */}
       <div className="print-editor-layout" style={{ marginTop: 16 }}>
         {/* Left: Canvas preview with mockup overlay */}
@@ -2449,9 +2367,6 @@ function EditorPanel({ auth }: { auth: string }) {
               onMouseLeave={handleCanvasMouseUp}
               onWheel={handleCanvasWheel}
               style={{ height: 340, width: "auto", borderRadius: 6, display: "block", cursor: "move" }} />
-            {mockupUrl && (
-              <img src={mockupUrl} alt="Mockup" className="editor-mockup-overlay" style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", height: "100%", width: "auto", pointerEvents: "none", zIndex: 2 }} />
-            )}
           </div>
         </div>
 
@@ -2552,11 +2467,6 @@ function EditorPanel({ auth }: { auth: string }) {
 
       {/* Download buttons */}
       <div style={{ marginTop: 14, display: "flex", justifyContent: "flex-end", gap: 8 }}>
-        {mockupUrl && (
-          <button className="awb-btn" onClick={handleDownloadMockup} disabled={saving || !hasSource} style={{ fontSize: "0.78rem", padding: "8px 20px", background: "transparent", color: "var(--color-primary)", borderRadius: 6, fontWeight: 600, border: "1px solid var(--color-primary)" }}>
-            {saving ? "Se descarca..." : "Descarca Mockup"}
-          </button>
-        )}
         <button className="awb-btn" onClick={handleDownload} disabled={saving || !hasSource} style={{ fontSize: "0.78rem", padding: "8px 20px", background: "var(--color-primary)", color: "#fff", borderRadius: 6, fontWeight: 600 }}>
           {saving ? "Se descarca..." : "Descarca"}
         </button>
@@ -3222,7 +3132,7 @@ function AwbSection({ order, auth, onUpdate }: { order: Order; auth: string; onU
   const buildWhatsAppMsg = () => {
     const shippingLabel = order.shipping_method === "easybox" ? "Easybox (Locker Sameday)" : order.shipping_method === "sameday" ? "Sameday (la adresa)" : "FanCourier (la adresa)";
     const prodName = order.product_name || `${order.brand_name} ${order.model_name}`;
-    const tpl = pickWaTemplate() || `Bună {{nume_client}}, mulțumim pentru comanda #{{id_comanda}} în sumă de {{valoare}} lei. Produs: {{produs}}, Brand: {{brand}}, Model: {{model}}. Livrare: {{metoda_livrare}}, Adresa: {{adresa}}. Confirmă detaliile.`;
+    const tpl = pickWaTemplate() || `Bună {{nume_client}}, mulțumim pentru comanda #{{id_comanda}} în sumă de {{valoare}} lei. Produs: {{produs}}. Livrare: {{metoda_livrare}}, Adresa: {{adresa}}. Confirmă detaliile.`;
     return tpl
       .replace(/\{\{nume_client\}\}/g, order.customer_name || "")
       .replace(/\{\{id_comanda\}\}/g, String(order.id))
@@ -3684,9 +3594,6 @@ function OrderDetails({ order, auth, onUpdate }: { order: Order; auth: string; o
   const [judete, setJudete] = useState<{id:number;name:string}[]>([]);
   const [localitati, setLocalitati] = useState<string[]>([]);
   const [judetId, setJudetId] = useState("");
-  const [brands, setBrands] = useState<{id:number;name:string}[]>([]);
-  const [models, setModels] = useState<{id:number;name:string}[]>([]);
-  const [selectedBrandId, setSelectedBrandId] = useState("");
   // Easybox locker editing
   const [lockers, setLockers] = useState<{id:number;name:string;address:string;city:string;county:string}[]>([]);
   const [loadingLockers, setLoadingLockers] = useState(false);
@@ -3719,10 +3626,8 @@ function OrderDetails({ order, auth, onUpdate }: { order: Order; auth: string; o
       .finally(() => setLoadingLockers(false));
   }, [editing, lockers.length]);
 
-  // Brands removed for olivox; keep judete loader
   useEffect(() => {
     if (!editing) return;
-    setBrands([]);
     fetch("/api/judete").then((r) => r.json()).then((data) => {
       if (Array.isArray(data)) {
         setJudete(data);
@@ -3737,11 +3642,6 @@ function OrderDetails({ order, auth, onUpdate }: { order: Order; auth: string; o
     if (!judetId || !editing) return;
     fetch(`/api/localitati?judetId=${judetId}`).then((r) => r.json()).then(setLocalitati).catch(() => {});
   }, [judetId, editing]);
-
-  // Models removed for olivox
-  useEffect(() => {
-    setModels([]);
-  }, [selectedBrandId, editing]);
 
   const handleJudetChange = (val: string) => {
     setJudetId(val);
@@ -3811,8 +3711,7 @@ function OrderDetails({ order, auth, onUpdate }: { order: Order; auth: string; o
           <button className="admin-action-btn" onClick={() => setEditing(true)} title="Editeaza">✎</button>
         </div>
         <table><tbody>
-          <tr><td>Brand / Model</td><td>{order.brand_name} {order.model_name}</td></tr>
-          {order.custom_name && <tr><td>Text</td><td style={{ fontWeight: 700 }}><span style={{ display: "inline-block", width: 12, height: 12, borderRadius: "50%", background: order.text_color || "#000", border: "1px solid #ddd", verticalAlign: "middle", marginRight: 6 }}></span><span style={{ color: order.text_color || "#000", background: (order.text_color || "").toUpperCase() === "#FFFFFF" || (order.text_color || "").toUpperCase() === "#FFF" ? "#555" : "transparent", padding: (order.text_color || "").toUpperCase() === "#FFFFFF" || (order.text_color || "").toUpperCase() === "#FFF" ? "2px 8px" : 0, borderRadius: 4 }}>{order.custom_name}</span></td></tr>}
+          {order.custom_name &&<tr><td>Text</td><td style={{ fontWeight: 700 }}><span style={{ display: "inline-block", width: 12, height: 12, borderRadius: "50%", background: order.text_color || "#000", border: "1px solid #ddd", verticalAlign: "middle", marginRight: 6 }}></span><span style={{ color: order.text_color || "#000", background: (order.text_color || "").toUpperCase() === "#FFFFFF" || (order.text_color || "").toUpperCase() === "#FFF" ? "#555" : "transparent", padding: (order.text_color || "").toUpperCase() === "#FFFFFF" || (order.text_color || "").toUpperCase() === "#FFF" ? "2px 8px" : 0, borderRadius: 4 }}>{order.custom_name}</span></td></tr>}
           <tr><td>Nume</td><td>{order.customer_name}</td></tr>
           <tr><td>Telefon</td><td><a href={`tel:${order.customer_phone}`}>{order.customer_phone}</a></td></tr>
           {order.customer_email && <tr><td>Email</td><td>{order.customer_email}</td></tr>}
@@ -3929,23 +3828,6 @@ function OrderDetails({ order, auth, onUpdate }: { order: Order; auth: string; o
         <div className="order-edit-row">
           <label>Valoare (RON)</label>
           <input type="number" value={f.order_value || 0} onChange={(e) => setF({ ...f, order_value: Number(e.target.value) })} style={{ width: 100 }} />
-        </div>
-        <div className="order-edit-row">
-          <label>Brand</label>
-          <select value={selectedBrandId} onChange={(e) => { const val = e.target.value; setSelectedBrandId(val); const b = brands.find((x) => x.id === Number(val)); if (b) setF((prev) => ({ ...prev, brand_name: b.name, model_name: "" })); setModels([]); }}>
-            <option value="">{f.brand_name || "Selecteaza"}</option>
-            {brands.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}
-          </select>
-        </div>
-        <div className="order-edit-row">
-          <label>Model</label>
-          <select value={f.model_name} onChange={(e) => setF((prev) => ({ ...prev, model_name: e.target.value }))}>
-            <option value="">Selecteaza model</option>
-            {f.model_name && !models.some(m => m.name === f.model_name) && (
-              <option value={f.model_name}>{f.model_name}</option>
-            )}
-            {models.map((m) => <option key={m.id} value={m.name}>{m.name}</option>)}
-          </select>
         </div>
         <div className="order-edit-row">
           <label>Text pe husa</label>
