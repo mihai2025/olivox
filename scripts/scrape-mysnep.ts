@@ -116,25 +116,26 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
     await page.goto(catUrl, { waitUntil: "domcontentloaded" });
     await sleep(700);
     return await page.evaluate(() => {
-      // description: common patterns on mysnep — first paragraph in main content, or .descrizione, or intro div before product grid
-      const candidates = [
-        document.querySelector(".descrizione"),
-        document.querySelector(".cat-desc"),
-        document.querySelector(".intro"),
-        document.querySelector("#contenuto p"),
-        document.querySelector("main p"),
-      ].filter(Boolean) as HTMLElement[];
+      const BAD_ANCESTORS = ["#Cookiebot", ".CybotCookiebotDialog", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
+      const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©/i;
+      const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
+
       let description = "";
-      for (const c of candidates) {
-        const t = (c.textContent || "").trim();
-        if (t.length > 40) { description = c.innerHTML || t; break; }
+      for (const sel of [".descrizione", ".cat-desc", ".intro", "#intro", "#contenuto > p", "main > p"]) {
+        const els = Array.from(document.querySelectorAll(sel)) as HTMLElement[];
+        for (const c of els) {
+          if (inBad(c)) continue;
+          const t = (c.textContent || "").trim();
+          if (t.length > 40 && !BAD_TEXT.test(t)) { description = c.innerHTML || t; break; }
+        }
+        if (description) break;
       }
       if (!description) {
-        // fallback: first <p> with meaningful length
         const ps = Array.from(document.querySelectorAll("p"));
         for (const p of ps) {
+          if (inBad(p)) continue;
           const t = (p.textContent || "").trim();
-          if (t.length > 40 && !/cookie|privacy|©/i.test(t)) { description = p.outerHTML; break; }
+          if (t.length > 40 && !BAD_TEXT.test(t)) { description = p.outerHTML; break; }
         }
       }
       // image: look for a banner/hero image or first large category image that is NOT a product thumbnail
@@ -183,16 +184,31 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
       await sleep(1200);
     }
 
-    const items = await page.$$eval("a[href*='-A']", (as) =>
-      as.map((a) => ({ href: (a as HTMLAnchorElement).href, text: (a.textContent || "").trim() }))
-    );
+    // Only products that have a "nel_carrello" add-to-cart button are main-grid products
+    // (cross-sells / related widgets don't have this button)
+    const items = await page.$$eval("a[href^='javascript:nel_carrello']", (cartLinks) => {
+      const results: { href: string; text: string }[] = [];
+      for (const cart of cartLinks) {
+        const container = cart.closest("tr, td, div, li, article") || cart.parentElement;
+        if (!container) continue;
+        const anchors = Array.from(container.querySelectorAll("a[href$='.html']")) as HTMLAnchorElement[];
+        for (const a of anchors) {
+          if (a.href.startsWith("javascript:")) continue;
+          if (!/-A\d+/i.test(a.href)) continue;
+          if (/-AC\d+/i.test(a.href)) continue;
+          const text = (a.textContent || "").trim();
+          results.push({ href: a.href, text });
+          break;
+        }
+      }
+      return results;
+    });
 
     for (const it of items) {
       const m = it.href.match(/\/([a-z0-9-]+)-A(\d+)(?:-[A-Z0-9]+)?\.html/i);
       if (!m) continue;
       const code = `A${m[2]}`;
       if (seen.has(code)) continue;
-      if (!/\/[a-z0-9-]+-A\d+/i.test(it.href)) continue;
       seen.add(code);
       out.push({ code, slug: slugify(m[1]), url: it.href.replace(/[?#].*$/, ""), name: it.text || m[1] });
     }
@@ -214,19 +230,41 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
     await sleep(500);
     const data = await page.evaluate(() => {
       const BAD_ANCESTORS = ["#Cookiebot", ".CybotCookiebotDialog", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
-      const BAD_TEXT = /cookie|Cookie|Questa tipologia|Cybot|PHPSESSID|politica|Privacy/i;
+      const BAD_TEXT = /cookie|Cookie|Questa tipologia|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente/i;
+      const BAD_NAMES = /vezi articolele|articoli correlati|prodotti correlati|articole similare|produse similare|prodotti consigliati|scorri per gli articoli|ai nevoie|proponiamo/i;
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
-      // Name: try h1 → h2 → title; first non-empty, non-bad-ancestor, reasonable length
+      // Name: prefer heading closest to main product image
       let name = "";
-      for (const sel of ["h1", "h2", ".productname", ".nome-prodotto", ".titolo"]) {
-        const els = Array.from(document.querySelectorAll(sel));
-        for (const el of els) {
-          if (inBad(el)) continue;
-          const t = (el.textContent || "").trim();
-          if (t.length > 2 && t.length < 200 && !BAD_TEXT.test(t)) { name = t; break; }
+      const mainImg = document.querySelector("img[src*='Articoli/big']") as HTMLElement | null;
+      if (mainImg) {
+        let cur: Element | null = mainImg.parentElement;
+        for (let i = 0; i < 8 && cur && !name; i++) {
+          const headings = cur.querySelectorAll("h1, h2, h3");
+          for (const h of Array.from(headings)) {
+            if (inBad(h)) continue;
+            const t = (h.textContent || "").trim();
+            if (t.length > 2 && t.length < 200 && !BAD_TEXT.test(t) && !BAD_NAMES.test(t)) {
+              name = t.replace(/\s*Cod:\s*\d+\s*$/i, "").trim();
+              break;
+            }
+          }
+          cur = cur.parentElement;
         }
-        if (name) break;
+      }
+      if (!name) {
+        for (const sel of ["h1", "h2", "h3", ".productname"]) {
+          const els = Array.from(document.querySelectorAll(sel));
+          for (const el of els) {
+            if (inBad(el)) continue;
+            const t = (el.textContent || "").trim();
+            if (t.length > 2 && t.length < 200 && !BAD_TEXT.test(t) && !BAD_NAMES.test(t)) {
+              name = t.replace(/\s*Cod:\s*\d+\s*$/i, "").trim();
+              break;
+            }
+          }
+          if (name) break;
+        }
       }
 
       // Price: scan only main content, not headers/footers
@@ -266,15 +304,22 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
         description = good.slice(0, 6).map(p => p.outerHTML).join("");
       }
 
-      // Short: first clean paragraph
+      // Short: derive from the description we just extracted (its first paragraph)
       let short = "";
-      for (const p of Array.from(document.querySelectorAll("p"))) {
-        if (inBad(p)) continue;
-        const t = (p.textContent || "").trim();
-        if (t.length < 40) continue;
-        if (BAD_TEXT.test(t)) continue;
-        short = t.slice(0, 280);
-        break;
+      if (description) {
+        const tmp = document.createElement("div");
+        tmp.innerHTML = description;
+        for (const p of Array.from(tmp.querySelectorAll("p"))) {
+          const t = (p.textContent || "").trim();
+          if (t.length < 30) continue;
+          if (BAD_TEXT.test(t)) continue;
+          short = t.slice(0, 280);
+          break;
+        }
+        if (!short) {
+          const allText = (tmp.textContent || "").trim();
+          short = allText.slice(0, 280);
+        }
       }
 
       return { name, price, sku, image_src, description, short };
