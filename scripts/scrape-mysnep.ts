@@ -117,11 +117,12 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
     await sleep(700);
     return await page.evaluate(() => {
       const BAD_ANCESTORS = ["#Cookiebot", "[class*='Cybot']", "[class*='Cookiebot']", "[class*='cookie']", "[class*='Cookie']", "[class*='consent']", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
-      const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©/i;
+      const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©|articole gă?site|articoli trovati|occorrenze trovate|rezultatele c[ăa]ut[ăa]rii|risultati della ricerca|per pagin[aă]|afi[șs]ate \d+ pe pagin|pubblicit|fornitore|raccolti|sign[- ]in|autentific/i;
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
       let description = "";
       const looksLikeProductCard = (el: HTMLElement) => !!el.querySelector("a[href*='-A'][href*='.html']");
+      const isMeaningful = (t: string) => t.length > 120 && !BAD_TEXT.test(t) && !/\bCod:\s*\d/i.test(t);
 
       for (const sel of [".descrizione", ".cat-desc", ".intro", "#intro", "#contenuto > p", "main > p"]) {
         const els = Array.from(document.querySelectorAll(sel)) as HTMLElement[];
@@ -129,7 +130,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
           if (inBad(c)) continue;
           if (looksLikeProductCard(c)) continue;
           const t = (c.textContent || "").trim();
-          if (t.length > 40 && !BAD_TEXT.test(t)) { description = c.innerHTML || t; break; }
+          if (isMeaningful(t)) { description = c.innerHTML || t; break; }
         }
         if (description) break;
       }
@@ -139,7 +140,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
           if (inBad(p)) continue;
           if (looksLikeProductCard(p)) continue;
           const t = (p.textContent || "").trim();
-          if (t.length > 40 && !BAD_TEXT.test(t)) { description = p.outerHTML; break; }
+          if (isMeaningful(t)) { description = p.outerHTML; break; }
         }
       }
       // image: look for a banner/hero image or first large category image that is NOT a product thumbnail
