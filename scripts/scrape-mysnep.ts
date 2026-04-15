@@ -185,7 +185,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
 }
 
 // --------------- List products in a category (with pagination) ---------------
-type ProdRef = { code: string; slug: string; url: string; name: string; sku: string | null };
+type ProdRef = { code: string; slug: string; url: string; name: string; sku: string | null; stock_status: string };
 async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdRef[]> {
   const out: ProdRef[] = [];
   const seen = new Set<string>();
@@ -212,8 +212,8 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
     }
 
     const items = await page.$$eval("a[href*='-A']", (as) => {
-      // First pass: map code -> { sku, nameText } from the anchor whose text contains "Cod: NNNN"
-      const meta = new Map<string, { sku: string | null; nameText: string }>();
+      // First pass: map code -> { sku, nameText, stock } from card anchor with "Cod: NNN"
+      const meta = new Map<string, { sku: string | null; nameText: string; stock: string }>();
       for (const a of as as HTMLAnchorElement[]) {
         if (a.href.startsWith("javascript:")) continue;
         if (/-AC\d+/i.test(a.href)) continue;
@@ -222,14 +222,23 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
         const code = `A${m[2]}`;
         const txt = (a.textContent || "").trim();
         const skuMatch = txt.match(/Cod:\s*(\w+)/i);
-        if (skuMatch) {
-          const nameText = txt.replace(/\s*Cod:\s*\w+\s*/i, "").trim();
-          meta.set(code, { sku: skuMatch[1], nameText });
+        if (!skuMatch) continue;
+        const nameText = txt.replace(/\s*Cod:\s*\w+\s*/i, "").trim();
+        // Walk up to the card container; check its text for availability tokens
+        let cardText = "";
+        let cur: Element | null = a.parentElement;
+        for (let i = 0; i < 6 && cur; i++) {
+          cardText = (cur.textContent || "");
+          if (/(EUR|RON)\s*\d/i.test(cardText)) break;
+          cur = cur.parentElement;
         }
+        let stock = "unknown";
+        if (/non\s+disponibil|indisponibil|epuizat|esaurito|out\s+of\s+stock/i.test(cardText)) stock = "out_of_stock";
+        else if (/disponibil/i.test(cardText)) stock = "in_stock";
+        meta.set(code, { sku: skuMatch[1], nameText, stock });
       }
 
-      // Second pass: keep ONE anchor per product code
-      const results: { href: string; text: string; sku: string | null }[] = [];
+      const results: { href: string; text: string; sku: string | null; stock: string }[] = [];
       const seen = new Set<string>();
       for (const a of as as HTMLAnchorElement[]) {
         if (a.href.startsWith("javascript:")) continue;
@@ -243,7 +252,7 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
         const txt = info.nameText || (a.textContent || "").trim();
         if (!txt) continue;
         seen.add(code);
-        results.push({ href: a.href, text: txt, sku: info.sku });
+        results.push({ href: a.href, text: txt, sku: info.sku, stock: info.stock });
       }
       return results;
     });
@@ -254,7 +263,7 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
       const code = `A${m[2]}`;
       if (seen.has(code)) continue;
       seen.add(code);
-      out.push({ code, slug: slugify(m[1]), url: it.href.replace(/[?#].*$/, ""), name: it.text || m[1], sku: it.sku });
+      out.push({ code, slug: slugify(m[1]), url: it.href.replace(/[?#].*$/, ""), name: it.text || m[1], sku: it.sku, stock_status: it.stock });
     }
     if (LIMIT && out.length >= LIMIT) break;
   }
@@ -273,7 +282,7 @@ type ProdData = {
   variants: { id: string; name: string }[];
 };
 
-async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fallbackSku: string | null = null): Promise<ProdData | null> {
+async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fallbackSku: string | null = null, fallbackStock: string = "unknown"): Promise<ProdData | null> {
   try {
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await sleep(500);
@@ -320,7 +329,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       let bodyText = "";
       const main = document.querySelector("main") || document.querySelector("#contenuto") || document.body;
       bodyText = (main as HTMLElement).innerText || "";
-      const allText = document.body.innerText || "";
+      const allText = (document.body.innerText || "") + " " + (document.body.textContent || "");
       const priceMatch = bodyText.match(/(EUR|RON|USD)\s*([\d.,]+)/i) || allText.match(/(EUR|RON|USD)\s*([\d.,]+)/i);
       const currency = priceMatch ? priceMatch[1].toUpperCase() : "EUR";
       const price = priceMatch ? Number(priceMatch[2].replace(/\./g, "").replace(",", ".")) : null;
@@ -333,14 +342,14 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         allText.match(/Cod:\s*(\w+)/i);
       const sku = skuMatch ? skuMatch[1] : null;
 
-      // Quantity: .small > p (e.g. "8 ml", "1 Litru", "60 gummies")
+      // Quantity: .size-case, .small (e.g. "10 ml", "1 Litru", "60 gummies")
       let quantity: string | null = null;
-      const smalls = Array.from(document.querySelectorAll(".small")) as HTMLElement[];
-      for (const s of smalls) {
+      const qtyContainers = Array.from(document.querySelectorAll(".size-case, .size, .formato, .small")) as HTMLElement[];
+      for (const s of qtyContainers) {
         if (inBad(s)) continue;
-        const p = s.querySelector("p");
+        const p = s.querySelector("p") || s;
         const t = (p?.textContent || "").trim();
-        if (t && t.length > 0 && t.length < 60 && !/Cod:/i.test(t)) { quantity = t; break; }
+        if (t && t.length > 0 && t.length < 60 && !/Cod[:\s]|Puncte|punti|disponibil/i.test(t)) { quantity = t; break; }
       }
 
       // Points: "Puncte Volum: N.NN" or "punti: N.NN"
@@ -500,7 +509,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       sku: data.sku || fallbackSku,
       quantity: data.quantity,
       points: data.points,
-      stock_status: data.stock_status,
+      stock_status: data.stock_status === "unknown" ? fallbackStock : data.stock_status,
       price: data.price,
       currency: data.currency || "EUR",
       short_description: data.short,
@@ -535,7 +544,7 @@ async function upsertCategory(cat: CatRef, imageR2: string | null, description: 
 }
 
 async function upsertProduct(p: ProdData, imageR2: string | null, datasheetR2: string | null, categorySlug: string) {
-  if (DRY_RUN) { console.log("  [dry] product", p.slug, p.sku ? `(sku=${p.sku})` : "", p.variants.length ? `(${p.variants.length} variants)` : "", p.datasheet_url ? "(pdf)" : ""); return; }
+  if (DRY_RUN) { console.log("  [dry] product", p.slug, `sku=${p.sku || "-"}`, `qty=${p.quantity || "-"}`, `pts=${p.points ?? "-"}`, `${p.price ?? "-"} ${p.currency}`, `stock=${p.stock_status}`, p.variants.length ? `(${p.variants.length} variants)` : "", p.datasheet_url ? "(pdf)" : ""); return; }
   const build = (slug: string) => ({
     source_id: p.source_id,
     name: p.name,
@@ -607,7 +616,7 @@ async function main() {
 
     for (const p of prods) {
       console.log("  →", p.slug);
-      const data = await scrapeProduct(page, p.url, p.slug, p.sku);
+      const data = await scrapeProduct(page, p.url, p.slug, p.sku, p.stock_status);
       if (!data) continue;
 
       let imageR2: string | null = null;
