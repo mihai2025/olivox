@@ -109,6 +109,53 @@ async function discoverCategories(page: Page): Promise<CatRef[]> {
   return cats;
 }
 
+// --------------- Fetch category details (description + image) ---------------
+type CatDetail = { description: string; image_src: string | null };
+async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetail> {
+  try {
+    await page.goto(catUrl, { waitUntil: "domcontentloaded" });
+    await sleep(700);
+    return await page.evaluate(() => {
+      // description: common patterns on mysnep — first paragraph in main content, or .descrizione, or intro div before product grid
+      const candidates = [
+        document.querySelector(".descrizione"),
+        document.querySelector(".cat-desc"),
+        document.querySelector(".intro"),
+        document.querySelector("#contenuto p"),
+        document.querySelector("main p"),
+      ].filter(Boolean) as HTMLElement[];
+      let description = "";
+      for (const c of candidates) {
+        const t = (c.textContent || "").trim();
+        if (t.length > 40) { description = c.innerHTML || t; break; }
+      }
+      if (!description) {
+        // fallback: first <p> with meaningful length
+        const ps = Array.from(document.querySelectorAll("p"));
+        for (const p of ps) {
+          const t = (p.textContent || "").trim();
+          if (t.length > 40 && !/cookie|privacy|©/i.test(t)) { description = p.outerHTML; break; }
+        }
+      }
+      // image: look for a banner/hero image or first large category image that is NOT a product thumbnail
+      const imgs = Array.from(document.querySelectorAll("img")) as HTMLImageElement[];
+      let image_src: string | null = null;
+      for (const img of imgs) {
+        const src = img.src;
+        if (!src) continue;
+        if (/Articoli\/big/i.test(src)) continue; // product thumb
+        if (/logo|icon|favicon|pixel|spacer|blank/i.test(src)) continue;
+        if ((img.naturalWidth || img.width) < 200 && (img.naturalHeight || img.height) < 200) continue;
+        image_src = src;
+        break;
+      }
+      return { description, image_src };
+    });
+  } catch {
+    return { description: "", image_src: null };
+  }
+}
+
 // --------------- List products in a category (with pagination) ---------------
 type ProdRef = { code: string; slug: string; url: string; name: string };
 async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdRef[]> {
@@ -224,13 +271,15 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
 }
 
 // --------------- Upsert helpers ---------------
-async function upsertCategory(cat: CatRef, imageR2: string | null) {
-  if (DRY_RUN) { console.log("  [dry] category", cat.slug); return; }
+async function upsertCategory(cat: CatRef, imageR2: string | null, description: string, imageSrc: string | null) {
+  if (DRY_RUN) { console.log("  [dry] category", cat.slug, description ? "(has desc)" : "(no desc)", imageSrc ? "(has img)" : "(no img)"); return; }
   const { error } = await supabase.from("product_categories").upsert({
     source_id: cat.code,
     name: cat.name,
     slug: cat.slug,
     source_url: cat.url,
+    description,
+    image_url: imageSrc,
     r2_image_url: imageR2,
   }, { onConflict: "slug" });
   if (error) console.error("  category upsert:", error.message);
@@ -278,7 +327,15 @@ async function main() {
 
   for (const cat of categories) {
     console.log(`\n=== ${cat.code} ${cat.name} ===`);
-    await upsertCategory(cat, null);
+
+    const detail = await fetchCategoryDetail(page, cat.url);
+    let catImageR2: string | null = null;
+    if (detail.image_src) {
+      const ext = (detail.image_src.split(".").pop() || "jpg").split("?")[0].slice(0, 5);
+      const key = `${R2_UPLOAD_PREFIX}/categories/${cat.slug}.${ext}`;
+      catImageR2 = await uploadImageToR2(detail.image_src, key);
+    }
+    await upsertCategory(cat, catImageR2, detail.description, detail.image_src);
 
     const prods = await listProductsInCategory(page, cat.url);
     console.log("  products:", prods.length);
