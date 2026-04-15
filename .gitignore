@@ -43,3 +43,6 @@ next-env.d.ts
 # claude local state
 .claude/
 /tmp/
+
+# scraper session
+.mysnep-session.json
