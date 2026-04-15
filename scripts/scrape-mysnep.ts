@@ -116,7 +116,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
     await page.goto(catUrl, { waitUntil: "domcontentloaded" });
     await sleep(700);
     return await page.evaluate(() => {
-      const BAD_ANCESTORS = ["#Cookiebot", ".CybotCookiebotDialog", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
+      const BAD_ANCESTORS = ["#Cookiebot", "[class*='Cybot']", "[class*='Cookiebot']", "[class*='cookie']", "[class*='Cookie']", "[class*='consent']", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
       const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©/i;
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
@@ -184,22 +184,32 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
       await sleep(1200);
     }
 
-    // Only products that have a "nel_carrello" add-to-cart button are main-grid products
-    // (cross-sells / related widgets don't have this button)
-    const items = await page.$$eval("a[href^='javascript:nel_carrello']", (cartLinks) => {
+    const items = await page.$$eval("a[href*='-A']", (as) => {
       const results: { href: string; text: string }[] = [];
-      for (const cart of cartLinks) {
-        const container = cart.closest("tr, td, div, li, article") || cart.parentElement;
-        if (!container) continue;
-        const anchors = Array.from(container.querySelectorAll("a[href$='.html']")) as HTMLAnchorElement[];
-        for (const a of anchors) {
-          if (a.href.startsWith("javascript:")) continue;
-          if (!/-A\d+/i.test(a.href)) continue;
-          if (/-AC\d+/i.test(a.href)) continue;
-          const text = (a.textContent || "").trim();
-          results.push({ href: a.href, text });
-          break;
+      const seen = new Set<string>();
+      for (const a of as as HTMLAnchorElement[]) {
+        if (a.href.startsWith("javascript:")) continue;
+        const m = a.href.match(/\/([a-z0-9-]+)-A(\d+)/i);
+        if (!m) continue;
+        if (/-AC\d+/i.test(a.href)) continue;
+        const code = `A${m[2]}`;
+        if (seen.has(code)) continue;
+
+        // Require: anchor has product image, OR nearby EUR price, OR nearby nel_carrello button
+        let isProduct = false;
+        if (a.querySelector("img[src*='Articoli/big']")) isProduct = true;
+        if (!isProduct) {
+          let cur: Element | null = a.parentElement;
+          for (let i = 0; i < 5 && cur && !isProduct; i++) {
+            if (cur.querySelector("[onclick*='nel_carrello'], [href*='nel_carrello']")) isProduct = true;
+            else if (/EUR\s*\d/.test((cur as HTMLElement).innerText || cur.textContent || "")) isProduct = true;
+            cur = cur.parentElement;
+          }
         }
+        if (!isProduct) continue;
+
+        seen.add(code);
+        results.push({ href: a.href, text: (a.textContent || "").trim() });
       }
       return results;
     });
@@ -229,7 +239,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await sleep(500);
     const data = await page.evaluate(() => {
-      const BAD_ANCESTORS = ["#Cookiebot", ".CybotCookiebotDialog", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
+      const BAD_ANCESTORS = ["#Cookiebot", "[class*='Cybot']", "[class*='Cookiebot']", "[class*='cookie']", "[class*='Cookie']", "[class*='consent']", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
       const BAD_TEXT = /cookie|Cookie|Questa tipologia|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente/i;
       const BAD_NAMES = /vezi articolele|articoli correlati|prodotti correlati|articole similare|produse similare|prodotti consigliati|scorri per gli articoli|ai nevoie|proponiamo/i;
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
