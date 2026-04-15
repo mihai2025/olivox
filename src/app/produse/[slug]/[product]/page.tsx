@@ -15,6 +15,8 @@ interface Product {
   description: string;
   ingredients?: string | null;
   warnings?: string | null;
+  usage_info?: string | null;
+  certifications?: string | null;
   datasheet_r2_url?: string | null;
   datasheet_url?: string | null;
   category_slugs: string[];
@@ -118,7 +120,7 @@ export default function ProductPage() {
 
           <div className="pd-hero__price-row">
             <div className="pd-hero__price">
-              {Number(product.price).toFixed(2).replace(".", ",")} <span className="pd-hero__currency">{currency}</span>
+              {Math.ceil(Number(product.price) || 0)} <span className="pd-hero__currency">{currency}</span>
             </div>
           </div>
         </div>
@@ -162,7 +164,7 @@ export default function ProductPage() {
             </div>
             <div className="pd-form__total">
               <span>Total</span>
-              <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
+              <strong>{Math.ceil(total)} {currency}</strong>
             </div>
           </div>
           {errorMsg && <p className="pd-form__error">{errorMsg}</p>}
@@ -185,10 +187,22 @@ export default function ProductPage() {
             <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.ingredients }} />
           </article>
         )}
+        {product.usage_info && (
+          <article className="pd-card">
+            <div className="eyebrow">Mod de utilizare</div>
+            <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.usage_info }} />
+          </article>
+        )}
         {product.warnings && (
           <article className="pd-card pd-card--warn">
             <div className="eyebrow">Avertismente</div>
             <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.warnings }} />
+          </article>
+        )}
+        {product.certifications && (
+          <article className="pd-card pd-card--certifications">
+            <div className="eyebrow">Certificari</div>
+            <div className="pd-card__body" dangerouslySetInnerHTML={{ __html: product.certifications }} />
           </article>
         )}
         {(product.datasheet_r2_url || product.datasheet_url) && (

@@ -277,6 +277,7 @@ type ProdData = {
   price: number | null; currency: string;
   short_description: string; description: string;
   ingredients: string | null; warnings: string | null;
+  usage_info: string | null; certifications: string | null;
   datasheet_url: string | null;
   image_src: string | null; source_url: string; category_codes: string[];
   variants: { id: string; name: string }[];
@@ -459,10 +460,11 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         if (plain.length < 20) description = "";
       }
 
-      // Other tabs: "Ce este înăuntru" / "Ingredienti" = ingredients, "Avertismente" / "Avvertenze" = warnings
-      // Tabs on mysnep are typically #two, #three, #four — map by tab-link label text
+      // Other tabs: map by tab-link label text
       let ingredients: string | null = null;
       let warnings: string | null = null;
+      let usage_info: string | null = null;
+      let certifications: string | null = null;
 
       const tabLinks = Array.from(document.querySelectorAll("a[href^='#']")) as HTMLAnchorElement[];
       for (const link of tabLinks) {
@@ -474,12 +476,16 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         const html = (target.innerHTML || "");
         const clean = cleanHtml(html);
         const plainLen = clean.replace(/<[^>]+>/g, "").trim().length;
-        if (plainLen < 20) continue;
+        if (plainLen < 15) continue;
 
         if (/ce este [îi]n[ăa]untru|cosa c['']?[èe] dentro|ingredient|compozi[țt]/i.test(label)) {
           if (!ingredients || clean.length > ingredients.length) ingredients = clean;
         } else if (/avertismente|avvertenze|warning|aten[țt]/i.test(label)) {
           if (!warnings || clean.length > warnings.length) warnings = clean;
+        } else if (/cum s[ăa][- ]?l folose[șs]ti|come si usa|mod de utilizare|usage|how to use|utilizare/i.test(label)) {
+          if (!usage_info || clean.length > usage_info.length) usage_info = clean;
+        } else if (/certific[ăa]ri|certifications?|certificati/i.test(label)) {
+          if (!certifications || clean.length > certifications.length) certifications = clean;
         }
       }
 
@@ -510,7 +516,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         }
       }
 
-      return { name, price, currency, sku, quantity, points, stock_status, image_src, description, short, variants, ingredients, warnings, datasheet_url };
+      return { name, price, currency, sku, quantity, points, stock_status, image_src, description, short, variants, ingredients, warnings, usage_info, certifications, datasheet_url };
     });
 
     const codeMatch = url.match(/-A(\d+)/);
@@ -530,6 +536,8 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       description: data.description,
       ingredients: data.ingredients,
       warnings: data.warnings,
+      usage_info: data.usage_info,
+      certifications: data.certifications,
       datasheet_url: data.datasheet_url,
       image_src: data.image_src,
       source_url: url,
@@ -573,6 +581,8 @@ async function upsertProduct(p: ProdData, imageR2: string | null, datasheetR2: s
     description: p.description,
     ingredients: p.ingredients,
     warnings: p.warnings,
+    usage_info: p.usage_info,
+    certifications: p.certifications,
     datasheet_url: p.datasheet_url,
     datasheet_r2_url: datasheetR2,
     r2_image_url: imageR2,

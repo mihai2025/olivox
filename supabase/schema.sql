@@ -49,6 +49,8 @@ create table if not exists public.products (
   variants         jsonb default '[]'::jsonb,
   ingredients      text,
   warnings         text,
+  usage_info       text,
+  certifications   text,
   datasheet_url    text,
   datasheet_r2_url text,
   category_slugs   text[] default array[]::text[],

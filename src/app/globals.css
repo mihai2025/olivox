@@ -2485,18 +2485,22 @@ a.pagination__btn {
   margin: 4px 0 10px;
 }
 .pd-hero__price {
-  font-family: var(--font-serif);
-  font-size: 2.1rem;
-  font-weight: 600;
+  font-family: var(--font);
+  font-size: 2.2rem;
+  font-weight: 800;
   color: var(--color-primary);
   line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 .pd-hero__currency {
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--color-accent);
-  letter-spacing: 0.05em;
-  margin-left: 2px;
+  letter-spacing: 0.08em;
+  margin-left: 5px;
+  text-transform: uppercase;
 }
 .pd-hero__points {
   font-size: 0.82rem;
@@ -2580,10 +2584,13 @@ a.pagination__btn {
   color: var(--color-text-muted);
 }
 .pd-form__total strong {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-family: var(--font);
+  font-size: 1.7rem;
+  font-weight: 800;
   color: var(--color-primary);
   line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .pd-form__submit {
@@ -2923,3 +2930,69 @@ a.pagination__btn {
   line-height: 1.4;
   white-space: normal;
 }
+
+/* Links inside product description cards — olive underline, no default blue */
+.pd-card__body a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+.pd-card__body a:hover { color: var(--color-accent); }
+
+/* If a description tab contains certification-style links (certification codes),
+   wrap them visually: each <a> on its own row with a shield icon.
+   We target <a> elements whose text matches a certification pattern via CSS attribute heuristic,
+   but also expose a reusable class for explicit use. */
+.pd-card--certifications .pd-card__body a,
+.pd-card__body a.pd-cert,
+.pd-card__body li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  margin: 4px 6px 4px 0;
+  background: var(--color-bg-soft);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.pd-card--certifications .pd-card__body a::before,
+.pd-card__body a.pd-cert::before,
+.pd-card__body li a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8873a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+.pd-card--certifications .pd-card__body a:hover,
+.pd-card__body a.pd-cert:hover,
+.pd-card__body li a:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.pd-card--certifications .pd-card__body a:hover::before,
+.pd-card__body a.pd-cert:hover::before,
+.pd-card__body li a:hover::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/></svg>");
+}
+.pd-card__body ul, .pd-card__body ol {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.pd-card__body li { margin: 0; }
