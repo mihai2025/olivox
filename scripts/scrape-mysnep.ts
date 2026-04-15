@@ -263,6 +263,11 @@ async function main() {
   console.log("mysnep scraper starting", { DRY_RUN, LIMIT, ONLY_CAT });
   const browser = await chromium.launch({ headless: true });
   const ctx: BrowserContext = await browser.newContext({ locale: "ro-RO", userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36" });
+  // Polyfill __name (esbuild/tsx injects it into page.evaluate callbacks)
+  await ctx.addInitScript(() => {
+    // @ts-expect-error shim
+    if (typeof globalThis.__name === "undefined") globalThis.__name = (fn: unknown) => fn;
+  });
   const page = await ctx.newPage();
 
   await setRomanian(page);
