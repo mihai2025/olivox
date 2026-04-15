@@ -445,7 +445,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       for (const link of tabLinks) {
         const href = link.getAttribute("href") || "";
         if (!/^#\w+$/.test(href)) continue;
-        const target = document.querySelector(href) as HTMLElement | null;
+        const target = document.getElementById(href.slice(1)) as HTMLElement | null;
         if (!target || inBad(target)) continue;
         const label = (link.textContent || "").trim().toLowerCase();
         const html = (target.innerHTML || "");
