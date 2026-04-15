@@ -117,12 +117,32 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
     await sleep(700);
     return await page.evaluate(() => {
       const BAD_ANCESTORS = ["#Cookiebot", "[class*='Cybot']", "[class*='Cookiebot']", "[class*='cookie']", "[class*='Cookie']", "[class*='consent']", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
-      const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©|articole gă?site|articoli trovati|occorrenze trovate|rezultatele c[ăa]ut[ăa]rii|risultati della ricerca|per pagin[aă]|afi[șs]ate \d+ pe pagin|pubblicit|fornitore|raccolti|sign[- ]in|autentific/i;
+      const BAD_TEXT = /cookie|Cookie|Cybot|PHPSESSID|persisten|sessione|browser viene chiuso|chiuso il browser|normativa vigente|politica|privacy|©|articole gă?site|articoli trovati|occorrenze trovate|rezultatele c[ăa]ut[ăa]rii|risultati della ricerca|per pagin[aă]|afi[șs]ate \d+ pe pagin|pubblicit|fornitore|raccolti|sign[- ]in|autentific|oportunitate de afaceri|opportunit[àa] commerciale|suplimenta veniturile|integrare il tuo reddito|contacta[țt]i|[îi]nregistra[țt]i|proponiamo|proponem/i;
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
       let description = "";
       const looksLikeProductCard = (el: HTMLElement) => !!el.querySelector("a[href*='-A'][href*='.html']");
       const isMeaningful = (t: string) => t.length > 120 && !BAD_TEXT.test(t) && !/\bCod:\s*\d/i.test(t);
+
+      const cleanHtml = (raw: string): string => {
+        const box = document.createElement("div");
+        box.innerHTML = raw;
+        const walker = document.createTreeWalker(box, NodeFilter.SHOW_COMMENT);
+        const toRemove: Node[] = [];
+        while (walker.nextNode()) toRemove.push(walker.currentNode);
+        for (const n of toRemove) n.parentNode?.removeChild(n);
+        let changed = true;
+        while (changed) {
+          changed = false;
+          for (const el of Array.from(box.querySelectorAll("*"))) {
+            if (el.tagName === "IMG" || el.tagName === "BR") continue;
+            const t = (el.textContent || "").trim();
+            const hasMedia = el.querySelector("img, br, video, iframe");
+            if (!t && !hasMedia) { el.remove(); changed = true; }
+          }
+        }
+        return (box.innerHTML || "").replace(/>\s+</g, "><").replace(/\s{2,}/g, " ").trim();
+      };
 
       for (const sel of [".descrizione", ".cat-desc", ".intro", "#intro", "#contenuto > p", "main > p"]) {
         const els = Array.from(document.querySelectorAll(sel)) as HTMLElement[];
@@ -143,6 +163,8 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
           if (isMeaningful(t)) { description = p.outerHTML; break; }
         }
       }
+
+      if (description) description = cleanHtml(description);
       // image: look for a banner/hero image or first large category image that is NOT a product thumbnail
       const imgs = Array.from(document.querySelectorAll("img")) as HTMLImageElement[];
       let image_src: string | null = null;
@@ -297,6 +319,46 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
       const imgEl = document.querySelector("img[src*='Articoli/big']") as HTMLImageElement | null;
       const image_src = imgEl ? imgEl.src : null;
 
+      // HTML cleaner: strip comments, empty tags, whitespace between tags, style-only wrappers
+      const cleanHtml = (raw: string): string => {
+        const box = document.createElement("div");
+        box.innerHTML = raw;
+        // Remove HTML comments
+        const walker = document.createTreeWalker(box, NodeFilter.SHOW_COMMENT);
+        const toRemove: Node[] = [];
+        while (walker.nextNode()) toRemove.push(walker.currentNode);
+        for (const n of toRemove) n.parentNode?.removeChild(n);
+        // Iteratively remove empty elements
+        let changed = true;
+        while (changed) {
+          changed = false;
+          for (const el of Array.from(box.querySelectorAll("*"))) {
+            if (el.tagName === "IMG" || el.tagName === "BR") continue;
+            const t = (el.textContent || "").trim();
+            const hasMedia = el.querySelector("img, br, video, iframe");
+            if (!t && !hasMedia) { el.remove(); changed = true; }
+          }
+        }
+        // Unwrap single-child style-only divs to reduce nesting noise
+        changed = true;
+        let iter = 0;
+        while (changed && iter++ < 5) {
+          changed = false;
+          for (const el of Array.from(box.querySelectorAll("div"))) {
+            if (el.parentElement === null) continue;
+            if (el.children.length !== 1) continue;
+            if ((el.textContent || "").trim() !== (el.children[0].textContent || "").trim()) continue;
+            const only = el.children[0];
+            el.replaceWith(only);
+            changed = true;
+          }
+        }
+        return (box.innerHTML || "")
+          .replace(/>\s+</g, "><")
+          .replace(/\s{2,}/g, " ")
+          .trim();
+      };
+
       // Description: prefer dedicated containers (mysnep uses #one as the "Descrizione" tab)
       let description = "";
       for (const sel of ["#one", "#descrizione", ".descrizione", "#scheda-prodotto", ".scheda-prodotto", ".product-description", ".tab-content"]) {
@@ -319,6 +381,8 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
         });
         description = good.slice(0, 6).map(p => p.outerHTML).join("");
       }
+
+      if (description) description = cleanHtml(description);
 
       // Short: derive from the description we just extracted (its first paragraph)
       let short = "";
