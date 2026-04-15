@@ -122,64 +122,62 @@ export default function ProductPage() {
             <div className="pd-hero__price">
               {Number(product.price).toFixed(2).replace(".", ",")} <span className="pd-hero__currency">{currency}</span>
             </div>
-            {product.points != null && Number(product.points) > 0 && (
-              <div className="pd-hero__points">Puncte volum: <strong>{Number(product.points).toFixed(2)}</strong></div>
-            )}
           </div>
-
-          {success ? (
-            <div className="pd-success">
-              <h3>Multumim pentru comanda!</h3>
-              <p>Te contactam in cel mai scurt timp pentru confirmare.</p>
-            </div>
-          ) : (
-            <form className="pd-form" onSubmit={handleSubmit}>
-              <div className="pd-form__grid">
-                <div className="pd-form__row">
-                  <label>Nume complet *</label>
-                  <input type="text" required value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
-                </div>
-                <div className="pd-form__row">
-                  <label>Telefon *</label>
-                  <input type="tel" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
-                </div>
-                <div className="pd-form__row pd-form__row--full">
-                  <label>Email</label>
-                  <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />
-                </div>
-                <div className="pd-form__row pd-form__row--full">
-                  <label>Adresa livrare *</label>
-                  <textarea required rows={2} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Judet, localitate, strada, numar" />
-                </div>
-                <div className="pd-form__row">
-                  <label>Cantitate</label>
-                  <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
-                </div>
-                <div className="pd-form__row">
-                  <label>Metoda livrare</label>
-                  <select value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
-                    <option value="Sameday curier">Sameday curier</option>
-                    <option value="Sameday easybox">Sameday easybox</option>
-                  </select>
-                </div>
-                <div className="pd-form__row pd-form__row--full">
-                  <label>Observatii</label>
-                  <textarea rows={2} value={observations} onChange={(e) => setObservations(e.target.value)} />
-                </div>
-              </div>
-
-              <div className="pd-form__summary">
-                <span>Total</span>
-                <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
-              </div>
-              {errorMsg && <p className="pd-form__error">{errorMsg}</p>}
-              <button type="submit" className="pd-form__submit" disabled={submitting || !inStock}>
-                {submitting ? "Se trimite..." : inStock ? "Comanda acum" : "Indisponibil momentan"}
-              </button>
-            </form>
-          )}
         </div>
       </section>
+
+      {success ? (
+        <div className="pd-success">
+          <h3>Multumim pentru comanda!</h3>
+          <p>Te contactam in cel mai scurt timp pentru confirmare.</p>
+        </div>
+      ) : (
+        <form className="pd-form pd-form--stacked" onSubmit={handleSubmit}>
+          <div className="eyebrow">Plaseaza comanda</div>
+          <div className="pd-form__grid">
+            <div className="pd-form__row">
+              <label>Nume complet *</label>
+              <input type="text" required value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
+            </div>
+            <div className="pd-form__row">
+              <label>Telefon *</label>
+              <input type="tel" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
+            </div>
+            <div className="pd-form__row">
+              <label>Email</label>
+              <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />
+            </div>
+            <div className="pd-form__row">
+              <label>Metoda livrare</label>
+              <select value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
+                <option value="Sameday curier">Sameday curier</option>
+                <option value="Sameday easybox">Sameday easybox</option>
+              </select>
+            </div>
+            <div className="pd-form__row pd-form__row--full">
+              <label>Adresa livrare *</label>
+              <textarea required rows={2} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Judet, localitate, strada, numar" />
+            </div>
+            <div className="pd-form__row">
+              <label>Cantitate</label>
+              <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
+            </div>
+            <div className="pd-form__row pd-form__row--full">
+              <label>Observatii</label>
+              <textarea rows={2} value={observations} onChange={(e) => setObservations(e.target.value)} />
+            </div>
+          </div>
+
+          <div className="pd-form__summary">
+            <span>Total</span>
+            <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
+          </div>
+          {errorMsg && <p className="pd-form__error">{errorMsg}</p>}
+          <button type="submit" className="pd-form__submit" disabled={submitting || !inStock}>
+            {submitting ? "Se trimite..." : inStock ? "Comanda acum" : "Indisponibil momentan"}
+          </button>
+        </form>
+      )}
 
       <div className="pd-cards">
         {product.description && (

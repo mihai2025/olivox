@@ -1,45 +1,98 @@
 import { Metadata } from "next";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getSiteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact | olivox.ro",
-  description: "Contacteaza-ne pentru intrebari despre produsele noastre. Telefon, email, adresa. Raspundem in maxim 24 ore.",
+  description: "Contacteaza echipa Olivox pentru intrebari despre produse sau comenzi. Telefon, email, livrare in 3-5 zile lucratoare.",
   robots: { index: true, follow: true },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const config = await getSiteConfig();
+
+  const emailHref = config.emailOrders ? `mailto:${config.emailOrders}` : "";
+  const phoneHref = config.phone ? `tel:${config.phone.replace(/\s+/g, "")}` : "";
+  const addressParts = [config.companyAddress, config.companyLocality, config.companyCounty].filter(Boolean);
+
   return (
-    <div className="page-wrapper">
-      <header className="header">
-        <div className="header__logo"><a href="/" style={{ textDecoration: "none", color: "inherit" }}>oli<span>vox</span>.ro</a></div>
-      </header>
-      <div className="legal-page">
-        <h1>Contact</h1>
+    <>
+      <Header />
+      <main className="contact-page">
+        <section className="contact-hero">
+          <div className="eyebrow">Suntem aici pentru tine</div>
+          <h1 className="contact-hero__title">Contact</h1>
+          <p className="contact-hero__lede">
+            Ai intrebari despre un produs, o comanda sau livrare? Scrie-ne sau suna-ne —
+            raspundem rapid si cu grija.
+          </p>
+        </section>
 
-        <h2>Date firma</h2>
-        <p><strong>HUSE PRINTATE SRL</strong></p>
-        <p>CIF: 46001845</p>
-        <p>Sat Văcărești, Str. Principală nr. 104, Teleorman, România</p>
+        <section className="contact-grid">
+          {config.emailOrders && (
+            <article className="contact-card">
+              <div className="eyebrow">Scrie-ne</div>
+              <h3>Email</h3>
+              <a className="contact-card__main" href={emailHref}>{config.emailOrders}</a>
+              <p className="contact-card__sub">Raspundem in maxim 24 ore lucratoare.</p>
+            </article>
+          )}
 
-        <h2>Contacteaza-ne</h2>
-        <p>Telefon: <a href="tel:0737965125"><strong>0737 965 125</strong></a> (Luni-Vineri, 9:00-18:00)</p>
-        <p>Email: <a href="mailto:comenzi@olivox.ro"><strong>comenzi@olivox.ro</strong></a></p>
-        <p>Raspundem la email in maxim 24 ore lucratoare.</p>
+          {config.phone && (
+            <article className="contact-card">
+              <div className="eyebrow">Suna-ne</div>
+              <h3>Telefon</h3>
+              <a className="contact-card__main" href={phoneHref}>{config.phone}</a>
+              <p className="contact-card__sub">Luni–Vineri, 09:00–18:00</p>
+            </article>
+          )}
 
-        <h2>Informatii comenzi</h2>
-        <ul>
-          <li>Comenzile se proceseaza in 1-2 zile lucratoare</li>
-          <li>Livrarea se face prin curier in 1-2 zile suplimentare</li>
-          <li>Livrarea este gratuita in toata Romania</li>
-          <li>Plata se face ramburs la livrare</li>
-        </ul>
+          {addressParts.length > 0 && (
+            <article className="contact-card">
+              <div className="eyebrow">Adresa</div>
+              <h3>Sediu</h3>
+              <p className="contact-card__main contact-card__main--sm">
+                {addressParts.join(", ")}
+              </p>
+            </article>
+          )}
+        </section>
 
-        <h2>Reclamatii</h2>
-        <p>ANPC: <a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">anpc.ro</a></p>
-        <p>Platforma SOL: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a></p>
-      </div>
+        <section className="contact-info">
+          <div className="contact-info__col">
+            <div className="eyebrow">Livrare</div>
+            <h2>Cum ajung produsele la tine</h2>
+            <ul className="contact-info__list">
+              <li><strong>3–5 zile lucratoare</strong> livrare in toata Romania</li>
+              <li>Expediem prin curier rapid (Sameday) sau easybox</li>
+              <li>Confirmam telefonic fiecare comanda inainte de expediere</li>
+              <li>Plata: ramburs la livrare sau transfer bancar</li>
+            </ul>
+          </div>
 
-      {/* ContactPage Schema */}
+          <div className="contact-info__col">
+            <div className="eyebrow">Firma</div>
+            <h2>Date de identificare</h2>
+            <dl className="contact-info__dl">
+              {config.companyName && (<><dt>Nume</dt><dd>{config.companyName}</dd></>)}
+              {config.companyCIF && (<><dt>CUI</dt><dd>{config.companyCIF}</dd></>)}
+              {addressParts.length > 0 && (<><dt>Sediu</dt><dd>{addressParts.join(", ")}</dd></>)}
+              {config.iban && (<><dt>IBAN</dt><dd>{config.iban}</dd></>)}
+            </dl>
+          </div>
+        </section>
+
+        <section className="contact-legal">
+          <p>
+            Pentru reclamatii privind produsele sau comenzile poti contacta ANPC la{" "}
+            <a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">anpc.ro</a>{" "}
+            sau platforma europeana SOL la{" "}
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
+          </p>
+        </section>
+      </main>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -48,16 +101,16 @@ export default function ContactPage() {
             "@type": "ContactPage",
             mainEntity: {
               "@type": "LocalBusiness",
-              name: "HUSE PRINTATE SRL",
-              telephone: "+40737965125",
-              email: "comenzi@olivox.ro",
-              address: {
+              name: config.companyName || "OLIVOX",
+              telephone: config.phone ? `+40${config.phone.replace(/^0/, "").replace(/\s+/g, "")}` : undefined,
+              email: config.emailOrders || undefined,
+              address: addressParts.length ? {
                 "@type": "PostalAddress",
-                streetAddress: "Str. Principală nr. 104, Sat Văcărești",
-                addressLocality: "Văcărești",
-                addressRegion: "Teleorman",
+                streetAddress: config.companyAddress || undefined,
+                addressLocality: config.companyLocality || undefined,
+                addressRegion: config.companyCounty || undefined,
                 addressCountry: "RO",
-              },
+              } : undefined,
               openingHours: "Mo-Fr 09:00-18:00",
             },
           }),
@@ -65,6 +118,6 @@ export default function ContactPage() {
       />
 
       <Footer />
-    </div>
+    </>
   );
 }
