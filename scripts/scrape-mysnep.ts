@@ -342,14 +342,23 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         allText.match(/Cod:\s*(\w+)/i);
       const sku = skuMatch ? skuMatch[1] : null;
 
-      // Quantity: .size-case, .small (e.g. "10 ml", "1 Litru", "60 gummies")
+      // Quantity: must match a unit pattern (ml/g/mg/l/kg/litru/gummies/capsule/tablete/bustine/porții)
       let quantity: string | null = null;
-      const qtyContainers = Array.from(document.querySelectorAll(".size-case, .size, .formato, .small")) as HTMLElement[];
+      const QTY_PATTERN = /^\s*\d+[\s,.]*\d*\s*(ml|g|mg|kg|l|litri?|litru|gummies?|capsule|caps\.?|tablete|tablets|bustine|por[țt]ii?|pastile|sti?cl[aeă]|bottles?|pcs)\b/i;
+      const qtyContainers = Array.from(document.querySelectorAll(".size-case, .size, .formato")) as HTMLElement[];
       for (const s of qtyContainers) {
         if (inBad(s)) continue;
-        const p = s.querySelector("p") || s;
-        const t = (p?.textContent || "").trim();
-        if (t && t.length > 0 && t.length < 60 && !/Cod[:\s]|Puncte|punti|disponibil/i.test(t)) { quantity = t; break; }
+        const t = ((s.querySelector("p")?.textContent || s.textContent) || "").trim();
+        if (QTY_PATTERN.test(t)) { quantity = t; break; }
+      }
+      // Fallback: any .small containing a unit-shaped text
+      if (!quantity) {
+        const smalls = Array.from(document.querySelectorAll(".small")) as HTMLElement[];
+        for (const s of smalls) {
+          if (inBad(s)) continue;
+          const t = ((s.querySelector("p")?.textContent || s.textContent) || "").trim();
+          if (QTY_PATTERN.test(t)) { quantity = t; break; }
+        }
       }
 
       // Points: "Puncte Volum: N.NN" or "punti: N.NN"
@@ -443,7 +452,12 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         description = good.slice(0, 6).map(p => p.outerHTML).join("");
       }
 
-      if (description) description = cleanHtml(description);
+      if (description) {
+        description = cleanHtml(description);
+        // If cleaned is effectively empty (only tags/whitespace), discard
+        const plain = description.replace(/<[^>]+>/g, "").trim();
+        if (plain.length < 20) description = "";
+      }
 
       // Other tabs: "Ce este înăuntru" / "Ingredienti" = ingredients, "Avertismente" / "Avvertenze" = warnings
       // Tabs on mysnep are typically #two, #three, #four — map by tab-link label text
