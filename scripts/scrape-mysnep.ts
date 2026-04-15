@@ -213,38 +213,69 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await sleep(500);
     const data = await page.evaluate(() => {
-      const text = (sel: string) => (document.querySelector(sel)?.textContent || "").trim();
-      const html = (sel: string) => (document.querySelector(sel) as HTMLElement | null)?.innerHTML || "";
+      const BAD_ANCESTORS = ["#Cookiebot", ".CybotCookiebotDialog", ".cookiebar", ".cookie-consent", ".privacy-banner", "#footer", "footer", "header", "#menu", "nav"];
+      const BAD_TEXT = /cookie|Cookie|Questa tipologia|Cybot|PHPSESSID|politica|Privacy/i;
+      const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
-      // Name — usually in h1 or .nome-prodotto, but the site structure varies
-      let name = text("h1") || text(".productname") || text(".nomeprodotto");
+      // Name: try h1 → h2 → title; first non-empty, non-bad-ancestor, reasonable length
+      let name = "";
+      for (const sel of ["h1", "h2", ".productname", ".nome-prodotto", ".titolo"]) {
+        const els = Array.from(document.querySelectorAll(sel));
+        for (const el of els) {
+          if (inBad(el)) continue;
+          const t = (el.textContent || "").trim();
+          if (t.length > 2 && t.length < 200 && !BAD_TEXT.test(t)) { name = t; break; }
+        }
+        if (name) break;
+      }
 
-      // Price — look for EUR pattern
-      const bodyText = document.body.innerText;
-      const priceMatch = bodyText.match(/EUR\s*([\d,.]+)/);
+      // Price: scan only main content, not headers/footers
+      let bodyText = "";
+      const main = document.querySelector("main") || document.querySelector("#contenuto") || document.body;
+      bodyText = (main as HTMLElement).innerText || "";
+      const priceMatch = bodyText.match(/EUR\s*([\d.,]+)/);
       const price = priceMatch ? Number(priceMatch[1].replace(/\./g, "").replace(",", ".")) : null;
 
-      // SKU — "Cod: XXXX"
       const skuMatch = bodyText.match(/Cod:\s*(\d+)/);
       const sku = skuMatch ? skuMatch[1] : null;
 
-      // Image — main product image, usually in /network/img/Articoli/big/
+      // Image
       const imgEl = document.querySelector("img[src*='Articoli/big']") as HTMLImageElement | null;
       const image_src = imgEl ? imgEl.src : null;
 
-      // Description — paragraphs after h1 are usually the description
-      // Try to find a div.descrizione or similar
-      let description = html(".descrizione") || html("#descrizione") || html(".product-description");
-      if (!description) {
-        // fallback: all <p> between h1 and first script
-        const ps = Array.from(document.querySelectorAll("p"));
-        description = ps.slice(0, 6).map(p => p.outerHTML).join("");
+      // Description: prefer dedicated containers (mysnep uses #one as the "Descrizione" tab)
+      let description = "";
+      for (const sel of ["#one", "#descrizione", ".descrizione", "#scheda-prodotto", ".scheda-prodotto", ".product-description", ".tab-content"]) {
+        const el = document.querySelector(sel) as HTMLElement | null;
+        if (el && !inBad(el)) {
+          const h = el.innerHTML || "";
+          if (h.replace(/<[^>]+>/g, "").trim().length > 50) { description = h; break; }
+        }
       }
 
-      // Short: first <p> or first 250 chars of description
+      // Fallback: walk all <p>, skip cookie/privacy/empty
+      if (!description) {
+        const ps = Array.from(document.querySelectorAll("p"));
+        const good = ps.filter(p => {
+          if (inBad(p)) return false;
+          const t = (p.textContent || "").trim();
+          if (t.length < 40) return false;
+          if (BAD_TEXT.test(t)) return false;
+          return true;
+        });
+        description = good.slice(0, 6).map(p => p.outerHTML).join("");
+      }
+
+      // Short: first clean paragraph
       let short = "";
-      const firstP = document.querySelector("p");
-      if (firstP) short = (firstP.textContent || "").trim().slice(0, 280);
+      for (const p of Array.from(document.querySelectorAll("p"))) {
+        if (inBad(p)) continue;
+        const t = (p.textContent || "").trim();
+        if (t.length < 40) continue;
+        if (BAD_TEXT.test(t)) continue;
+        short = t.slice(0, 280);
+        break;
+      }
 
       return { name, price, sku, image_src, description, short };
     });
