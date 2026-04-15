@@ -46,6 +46,7 @@ create table if not exists public.products (
   image_url        text,
   r2_image_url     text,
   gallery          jsonb default '[]'::jsonb,
+  variants         jsonb default '[]'::jsonb,
   category_slugs   text[] default array[]::text[],
   source_url       text,
   meta_title       text,

@@ -267,6 +267,7 @@ type ProdData = {
   quantity: string | null; points: number | null; stock_status: string;
   price: number | null; short_description: string; description: string;
   image_src: string | null; source_url: string; category_codes: string[];
+  variants: { id: string; name: string }[];
 };
 
 async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fallbackSku: string | null = null): Promise<ProdData | null> {
@@ -343,6 +344,19 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         stock_status = "out_of_stock";
       } else if (!/disponibil|disponibile|in\s+stock/i.test(allText)) {
         stock_status = "unknown";
+      }
+
+      // Variants: <select name="flavor" onchange="seleziona_correlato(...)">
+      const variants: { id: string; name: string }[] = [];
+      const variantSelect = document.querySelector("select[onchange*='seleziona_correlato'], select[name='flavor']") as HTMLSelectElement | null;
+      if (variantSelect) {
+        for (const opt of Array.from(variantSelect.options)) {
+          const id = (opt.value || "").trim();
+          const name = (opt.textContent || "").trim();
+          if (!id || !name) continue;
+          if (/^alege$|^scegli$|^select$/i.test(name)) continue;
+          variants.push({ id, name });
+        }
       }
 
       // Image
@@ -432,7 +446,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         }
       }
 
-      return { name, price, sku, quantity, points, stock_status, image_src, description, short };
+      return { name, price, sku, quantity, points, stock_status, image_src, description, short, variants };
     });
 
     const codeMatch = url.match(/-A(\d+)/);
@@ -452,6 +466,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       image_src: data.image_src,
       source_url: url,
       category_codes: [],
+      variants: data.variants || [],
     };
   } catch (e) {
     console.error("  product scrape failed:", url, (e as Error).message);
@@ -490,6 +505,7 @@ async function upsertProduct(p: ProdData, imageR2: string | null, categorySlug: 
     r2_image_url: imageR2,
     image_url: p.image_src,
     source_url: p.source_url,
+    variants: p.variants,
     category_slugs: [categorySlug],
     currency: "EUR",
   }, { onConflict: "slug" });
