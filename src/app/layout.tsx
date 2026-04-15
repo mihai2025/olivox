@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: DEFAULT_CONFIG.metaTitle,
   description: DEFAULT_CONFIG.metaDescription,
   keywords:
-    "ulei de masline, ulei masline extravirgin, suplimente naturale, olivox, produse premium, ulei presat la rece",
+    "suplimente alimentare, suplimente naturiste, cosmetice naturale, snep, olivox, programe nutritionale, alimente functionale, uleiuri esentiale, wellness Romania",
   openGraph: {
     title: DEFAULT_CONFIG.metaTitle,
     description: DEFAULT_CONFIG.metaDescription,

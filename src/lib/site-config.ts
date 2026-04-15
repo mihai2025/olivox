@@ -31,7 +31,7 @@ export interface SiteConfig {
 export const DEFAULT_CONFIG: SiteConfig = {
   siteName: "olivox.ro",
   domain: "https://olivox.ro",
-  tagline: "Ulei de masline extravirgin — direct de la producator",
+  tagline: "Suplimente alimentare si cosmetice naturale — catalog Snep in Romania",
   logoHtml: "oli<span>vox</span>.ro",
 
   currency: "RON",
@@ -52,8 +52,8 @@ export const DEFAULT_CONFIG: SiteConfig = {
   iban: "",
   banca: "",
 
-  metaTitle: "Olivox.ro — Ulei de masline extravirgin premium",
-  metaDescription: "Ulei de masline extravirgin, suplimente naturale si produse premium. Livrare rapida in toata Romania.",
+  metaTitle: "Olivox.ro — Suplimente alimentare si cosmetice naturale Snep",
+  metaDescription: "Catalog complet Snep in Romania: suplimente alimentare pe baza de plante, programe nutritionale, alimente functionale, cosmetice naturale. Livrare rapida in 3-5 zile lucratoare.",
 };
 
 let cachedConfig: SiteConfig | null = null;
