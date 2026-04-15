@@ -1,0 +1,2502 @@
+[
+  {
+    "name_raw": "VEGAN PLUS CACAO",
+    "name_normalized": "VEGAN PLUS CACAO",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30201"
+  },
+  {
+    "name_raw": "VEGAN PLUS ANANAS",
+    "name_normalized": "VEGAN PLUS ANANAS",
+    "description": "cu proteine de lupin",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30206"
+  },
+  {
+    "name_raw": "VEGAN PLUS COCOS",
+    "name_normalized": "VEGAN PLUS COCOS",
+    "description": "cu proteine de lupin",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30207"
+  },
+  {
+    "name_raw": "PLUS VANILIE",
+    "name_normalized": "PLUS VANILIE",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30202"
+  },
+  {
+    "name_raw": "PLUS CAPPUCCINO",
+    "name_normalized": "PLUS CAPPUCCINO",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30203"
+  },
+  {
+    "name_raw": "PLUS CREM I BISCUITE",
+    "name_normalized": "PLUS CREM I BISCUITE",
+    "description": "cu proteine de lupin i soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30208"
+  },
+  {
+    "name_raw": "PLUS PASSION FRUIT",
+    "name_normalized": "PLUS PASSION FRUIT",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30205"
+  },
+  {
+    "name_raw": "PLUS GOJI & ACAI",
+    "name_normalized": "PLUS GOJI & ACAI",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30204"
+  },
+  {
+    "name_raw": "VEGAN PLUS-Z CACAO",
+    "name_normalized": "VEGAN PLUS-Z CACAO",
+    "description": "cu proteine de soia\nFR ADAOS DE ZAHR",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30209"
+  },
+  {
+    "name_raw": "PLUS-Z VEGAN COCOS",
+    "name_normalized": "PLUS-Z VEGAN COCOS",
+    "description": "cu proteine de lupin\nFR ADAOS DE ZAHR",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30211"
+  },
+  {
+    "name_raw": "PLUS-Z VANILIE",
+    "name_normalized": "PLUS-Z VANILIE",
+    "description": "cu proteine de soia\nFR ADAOS DE ZAHR",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30210"
+  },
+  {
+    "name_raw": "MIX SUPA VEGANA",
+    "name_normalized": "MIX SUPA VEGANA",
+    "description": "Cu proteine din soia, fasole verde, linte, nut i fasole (fasole borlotti i fasole cannellini).",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30213"
+  },
+  {
+    "name_raw": "SALTY VEGAN PLUS CIUPERCI",
+    "name_normalized": "SALTY VEGAN PLUS CIUPERCI",
+    "description": "cu proteine de soia",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "30212"
+  },
+  {
+    "name_raw": "CROCKIS",
+    "name_normalized": "CROCKIS",
+    "description": "Mas pentru o diet care are ca obiectiv controlul greutii.\nSnep Crockis este un produs care �nlocuiete mesele i asigur un aport echilibrat\nde proteine, vitamine i minerale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "00306"
+  },
+  {
+    "name_raw": "BATOANE PENTRU �NLOCUIREA MESII",
+    "name_normalized": "BATOANE PENTRU NLOCUIREA MESII",
+    "description": "Cocos i Ciocolat\n\n�nlocuitorul de mas care ajut la slbit i a rm�ne �n form,\nfurniz�nd nutrieni sntoi pentru sntatea psihic i fizic pe\nperioad �ndelungat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "00230K"
+  },
+  {
+    "name_raw": "BATOANE PENTRU �NLOCUIREA MESII",
+    "name_normalized": "BATOANE PENTRU NLOCUIREA MESII",
+    "description": "Alune de padure i Ciocolat\n\n�nlocuitorul de mas care ajut la slbit i a rm�ne �n form,\nfurniz�nd nutrieni sntoi pentru sntatea psihic i fizic pe\nperioad �ndelungat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "00231K"
+  },
+  {
+    "name_raw": "BATOANE PENTRU �NLOCUIREA MESII",
+    "name_normalized": "BATOANE PENTRU NLOCUIREA MESII",
+    "description": "Banana i Ciocolat\n\n�nlocuitorul de mas care ajut la slbit i a rm�ne �n form,\nfurniz�nd nutrieni sntoi pentru sntatea psihic i fizic pe\nperioad �ndelungat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NLOCUITOR",
+    "code": "00236K"
+  },
+  {
+    "name_raw": "BATOANE PENTRU �NLOCUIREA MESII",
+    "name_normalized": "BATOANE PENTRU NLOCUIREA MESII",
+    "description": "Crema i Biscuite\n\n�nlocuitorul de mas care ajut la slbit i a rm�ne �n form,\nfurniz�nd nutrieni sntoi pentru sntatea psihic i fizic pe\nperioad �ndelungat.\n\n\"Trupurile noastre sunt grdinile noastre, dorinele noastre sunt adevraii\ngrdinari.\"\n\n                                                                                 W. Shakespeare\nBasic, Strong, Extra Strong i Detox sunt programele g�ndite pentru a\nte introduce �n lumea Snep �n mod simplu i imediat. Alege-l pe cel care\ncorespunde cel mai mult cerinelor tale i �ncepe imediat programul\npentru a putea regsi cea mai bun versiune a ta.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": "00237K"
+  },
+  {
+    "name_raw": "BASIC",
+    "name_normalized": "BASIC",
+    "description": "� 1x �nlocuitor de mas*, 1000g\n                        � 1x Th�*, cutie de 120g",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "STRONG",
+    "name_normalized": "STRONG",
+    "description": "� 1x �nlocuitor de mas*, 1000g\n                                                                � 1x Th�*, cutie de 120g\n                                                                � 1x Burner, confecie de 60 de capsule",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "EXTRA STRONG",
+    "name_normalized": "EXTRA STRONG",
+    "description": "� 1x �nlocuitor de mas*, 1000g\n                                                                � 1x Th�*, cutie de 120g\n                                                                � 1x Burner, confecie de 60 de capsule\n                                                                � 1x Realcomplex, confecie de 30 de pliculee\n\n                                                   + SHAKER FREE\n\n*La alegere dintre cele disponibile",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "BASIC-CROCKIS",
+    "name_normalized": "BASIC-CROCKIS",
+    "description": "� 2x Crockis\n               � 1x Th�*, cutie de 120g",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "STRONG - CROCKIS",
+    "name_normalized": "STRONG - CROCKIS",
+    "description": "� 2x Crockis\n                                                            � 1x Th�*, cutie de 120g\n                                                            � 1x Burner, confecie de 60 de capsule\n\n EXTRA STRONG - CROCKIS\n\n                                                            � 2x Crockis\n                                                            � 1x Th�*, cutie de 120g\n                                                            � 1x Burner, confecie de 60 de capsule\n                                                            � 1x Realcomplex, confecie de 30 de pliculee\n\n*La alegere dintre cele disponibile",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "REAL - DETOX",
+    "name_normalized": "REAL - DETOX",
+    "description": "� 1x Butur*, sticl de 1 litru\n                                     � 1x Th�*, confecie de 30 de pliculee\n                                     � 1x Realfibre, cutie de 120g\n                                     � 1x Realvita, confecie de 30 de pliculee\n                                     � 1x Realcomplex, confecie de 30 de pliculee",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "INIZIA DA QUI - STARTING POINT",
+    "name_normalized": "INIZIA DA QUI - STARTING POINT",
+    "description": "� 1x �nlocuitor de mas*, 1000g (o Crockis)\n                                     � 1x Butur*, sticl de 1 litru\n                                     � 1x Th�*, cutie de 120g\n                                     � 1x Realcomplex, confecie de 30 de pliculee\n\n                                     + SHAKER FREE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "FIT9-BASE",
+    "name_normalized": "FIT9-BASE",
+    "description": "� 2x Butur*, sticl de 1 litru\n                                     � 1x �nlocuitor de mas*,\n\n                                        confecie de 30 de pliculee\n                                     � 1x Burner, confecie de 60 de capsule\n                                     � 1x Total Energy, confecie de 90 de capsule\n                                     � 1x Realfibre, cutie de 120g\n\n                                     + SHAKER FREE\n\n*La alegere dintre cele disponibile",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "FIT9-COMPLETE",
+    "name_normalized": "FIT9-COMPLETE",
+    "description": "� 2x Butur*, sticl de 1 litru\n                                  � 1x Butur*, sticl de 1 litru\n                                  � 1x �nlocuitor de mas*, 1000g\n                                  � 1x Burner, confecie de 60 de capsule\n                                  � 1x Total Energy, confecie de 90 de capsule\n                                  � 1x Realfibre, cutie de 120g\n\n                                  + SHAKER FREE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PROGRAME",
+    "code": null
+  },
+  {
+    "name_raw": "DETOX-ZKIT",
+    "name_normalized": "DETOX-ZKIT",
+    "description": "� 2x �nlocuitor de mas*, 520g\n                                  � 1x Butur*, sticl de 1 litru\n                                  � 1x Kalosnep, confecie de 34 de pliculee\n                                  � 1x Realcomplex, confecie de 30 de pliculee\n                                  � 1x Burner, confecie de 60 de capsule\n                                  � 1x L.M. Maca, cutie de 120g\n\n                                  + SHAKER FREE\n\nCOMPUNE-TI PROPRIUL PROGRAM,\nALEG�ND DIN URMTOARELE AROME:\n\n1) �NLOCUITOR                     2) BUTUR                   3) TH�\n    DE MESE\n                                       � Oliv�x                   � Th� Mix\n     � Vegan Plus Ananas               � Oliv�x 40                � Th� Lemon\n     � Vegan Plus Cacao                � Aloe 100\n     � Vegan Plus Cocos                � Aloe Miere Drink\n     � Plus Cappuccino                 � Aloe Piersic Drink\n     � Plus Crem i biscuite            � Aloe 7 Fructe\n     � Plus Goji i Acai                � Aloe Glucosamina\n     � Plus Passion Fruit\n     � Plus Vanilie               CHOOSE\n     � Vegan Plus-Z Cacao         YOUR\n     � Vegan Plus-Z Cocos         PROGRAM\n     � Plus-Z Vanilie\n     � Salty Vegan Plus ciuperci\n     � Crockis\n\n*La alegere dintre cele disponibile\n\n\"Ai grij de corpul tu, pentru c este singurul loc unde va trebui s trieti.\"\n                                                                                           Jim Rohn\n\nSnep ofer o gam complet de suplimente alimentare, excelente datorit\ncalitii materiilor prime i a amestecului lor tiinific, care furnizeaz toate\nsubstanele nutritive utile pentru a ajuta la atingerea i meninerea unei\nbun stri fizice i mentale complet.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": null
+  },
+  {
+    "name_raw": "REALCOMPLEX",
+    "name_normalized": "REALCOMPLEX",
+    "description": "Anghinare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00122K"
+  },
+  {
+    "name_raw": "REALFIBRE",
+    "name_normalized": "REALFIBRE",
+    "description": "acestor nutrieni.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00240"
+  },
+  {
+    "name_raw": "KALOSNEP",
+    "name_normalized": "KALOSNEP",
+    "description": "Poate ajuta la �mbuntirea i reglarea metabolismului, acion�nd\nasupra pailor cheie, cre�nd astfel condiiile pentru o bunstare\nfizic re�nnoit.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00145"
+  },
+  {
+    "name_raw": "KALOSNEP CAPSULE",
+    "name_normalized": "KALOSNEP CAPSULE",
+    "description": "Poate ajuta la �mbuntirea i reglarea metabolismului, acion�nd\nasupra pailor cheie, cre�nd astfel condiiile pentru o bunstare\nfizic re�nnoit.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00209"
+  },
+  {
+    "name_raw": "REALVITA KIDS",
+    "name_normalized": "REALVITA KIDS",
+    "description": "Realvita Kids este suplimentul alimentar sub form de jeleuri\ngumate conceput pentru a rspunde nevoilor nutriionale ale\ncopiilor, oferind o formul echilibrat care susine creterea i\nbunstarea zilnic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00167"
+  },
+  {
+    "name_raw": "VITUP",
+    "name_normalized": "VITUP",
+    "description": "Vitup este un supliment alimentar conceput pentru a-i susine\nbunstarea zilnic, datorit unui amestec de vitamine eseniale\ncare contribuie la metabolismul energetic normal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00120K"
+  },
+  {
+    "name_raw": "REALVITA",
+    "name_normalized": "REALVITA",
+    "description": "care contribuie la metabolismul energetic normal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00120"
+  },
+  {
+    "name_raw": "MOOD UP",
+    "name_normalized": "MOOD UP",
+    "description": "favorizeaz gestionarea stresului zilnic, contribuind la o stare de calm\ni bunstare. Vitamina B6 susine funcionarea psihologic normal.                            31\nDatorit ingredientelor sale, Mood Up este util pentru promovarea\nbunstrii mentale, reducerea sentimentelor de stres i susinerea\nstrii de spirit.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "300100"
+  },
+  {
+    "name_raw": "TH� MIX",
+    "name_normalized": "TH MIX",
+    "description": "Ganoderma, A�ai, Goji, Mangostan, Maces, Brahmi, Gotu kola",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00118K"
+  },
+  {
+    "name_raw": "TH� LEMON",
+    "name_normalized": "TH LEMON",
+    "description": "Ganoderma, Mangostan, Rosa Canina, Bacopa, Centella i",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00119K"
+  },
+  {
+    "name_raw": "BURNER",
+    "name_normalized": "BURNER",
+    "description": "Echilibrul greutii corporale. Gymnema sylvestre favorizeaz\nmetabolismul carbohidrailor i a lipidelor i a senzaiei dei foame.\nCromul contribuie la �ntreinerea livelelor normale de glucoz �n\ns�nge.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00164"
+  },
+  {
+    "name_raw": "GLUCOSAMINA",
+    "name_normalized": "GLUCOSAMINA",
+    "description": "aport redus sau de nevoi fiziologice crescute.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00168"
+  },
+  {
+    "name_raw": "KALOGEL",
+    "name_normalized": "KALOGEL",
+    "description": "plante, cum ar fi Ispagul, care contribuie la metabolismul\n\nfermeni lactici vii care susin echilibrul florei intestinale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00118K"
+  },
+  {
+    "name_raw": "VINC�",
+    "name_normalized": "VINC",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00342"
+  },
+  {
+    "name_raw": "ALOE DRINK 7 FRUCTE",
+    "name_normalized": "ALOE DRINK 7 FRUCTE",
+    "description": "Aloe Drink 7 fructe este un supliment alimentar pe baz de suc i pulp de Aloe Vera 100%\nbiologic care combin proprietile regularizante, calmante i emoliente ale Aloei cu\nproprietile gsite �n Acai, Noni, Blueberry, Mangosteen i Goji i ceai verde.\nProprietile ingredientelor:\n� Acai: proprieti antioxidante. Menine metabolismul regulat al lipidelor i buna\n      funcionare a tractului intestinal.\n� Noni: proprieti tonice care ajut la reducerea oboselii fizice i mentale.\n� Ceai verde: plant cu proprieti de drenare a fluidelor corporale; contribuie la\n      funcionarea normal a intestinului.\n� Afine: proprieti antioxidante. Contribuie la microcirculaie i la funcia tractului urinar.\n� Mangosteen: proprieti antioxidante. Susine aprarea natural a organismului.\n� Goji: proprieti antioxidante.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00116"
+  },
+  {
+    "name_raw": "ALOE 100 BIO",
+    "name_normalized": "ALOE 100 BIO",
+    "description": "IT-BIO-007-A45L\n                              AGRICOLTURA SPAGNA\n\nAloe pur 100% biologic. Supliment alimentar pe baz de Aloe Vera Biologic Suc i pulp\nde Aloe Vera obinut din parenchimul intern al frunzelor de aloe vera.\nConinut de Aloin < 10 ppm.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00301"
+  },
+  {
+    "name_raw": "ALOE & PIERSIC DRINK",
+    "name_normalized": "ALOE & PIERSIC DRINK",
+    "description": "Aloe Piersic Drink este bogat �n fibre de Aloe, care pot ajuta funcionalitatea intestinului\nnostru ajut�nd la purificare i regularitatea acestuia din urm.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00172"
+  },
+  {
+    "name_raw": "ALOE + GLUCOZAMIN DRINK",
+    "name_normalized": "ALOE + GLUCOZAMIN DRINK",
+    "description": "Aloe + Glucozamin este un Supliment alimentar pe baz de Aloe vera, Vitamina C, Sulfat de\nglucozamin i MSM, care este util �n toate cazurile de nevoie crescut sau aport redus al\nacestor substane nutritive.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00131"
+  },
+  {
+    "name_raw": "OLIMIND",
+    "name_normalized": "OLIMIND",
+    "description": "4000176x2 - 2X500ml\n\nSupliment alimentar lichid pe baz de extracte de plante care poate �mbunti memoria i\nfunciile cognitive. Cu edulcorant.\nFrunzele de mslin promoveaz: metabolismul glucidelor i lipidelor; circulaia normal a\ns�ngelui; regularitatea tensiunii arteriale; antioxidant.\nPlanta Bacopa promoveaz: memoria i funciile cognitive. Relaxare (somn), bunstare\nmental.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00176X2"
+  },
+  {
+    "name_raw": "OLIVESSEL PRO",
+    "name_normalized": "OLIVESSEL PRO",
+    "description": "Supliment alimentar lichid pe baz de vitamine i extracte de plante care poate promova\nfuncia circulatorie i regularitatea tensiunii arteriale. Frunzele de mslin promoveaz:\nmetabolismul glucidelor i lipidelor; circulaia normal a s�ngelui; regularitatea tensiunii\narteriale; antioxidant Fructul de v�nt african are o aciune de susinere, de tonifiere i\nde promovare a regularitii tensiunii arteriale. Tuberculul de cartof dulce promoveaz:\nmetabolizarea carbohidrailor. Metabolismul trigliceridelor i colesterolului. Modularea/\nlimitarea absorbiei nutrienilor. Cu edulcorant.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00246"
+  },
+  {
+    "name_raw": "OL�VER",
+    "name_normalized": "OLVER",
+    "description": "4000173x2 - 2X500ml\nSupliment alimentar lichid pe baz de extracte de plante care poate contribui la �mbuntirea\nfunciei hepatice. Cu edulcorant.\nFrunzele de mslin promoveaz: metabolismul glucidelor i lipidelor; circulaia normal a\ns�ngelui; regularitatea tensiunii arteriale; antioxidant.\nRdcina de ppdie promoveaz: Funcie digestiv; Funcia hepatic; regularitatea\ntranzitului intestinal; funciile de purificare a organismului; drenarea fluidelor corporale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00173"
+  },
+  {
+    "name_raw": "OLIPROX",
+    "name_normalized": "OLIPROX",
+    "description": "4000174x2 - 2X500ml\nSupliment alimentar lichid pe baz de extracte din plante care poate promova bunstarea\nprostatei. Cu edulcorant.\nFrunzele de mslin promoveaz: metabolismul glucidelor i lipidelor; circulaia normal a\ns�ngelui; regularitatea tensiunii arteriale; antioxidant.\nPlanta Epilobium promoveaz: regularitatea tranzitului intestinal; funcia prostatei.\nSeminele de dovleac promoveaz: drenarea fluidelor corporale; Funcia tractului\nurinar; funcia prostatei.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00174"
+  },
+  {
+    "name_raw": "OLIVOX",
+    "name_normalized": "OLIVOX",
+    "description": "Supliment alimentar pe baz de extracte titrate de msline, anghinare i tamarind:\n� Mslin: metabolismul glucidelor i lipidelor; circulaia normal a s�ngelui; regularitatea\n\n      tensiunii arteriale; antioxidant.\n� Anghinare: funcie digestiv; funcia hepatic; eliminarea gazelor intestinale; funciile\n\n      de purificare a organismului; metabolismul lipidic; antioxidant.\n� Tamarind: regularitatea tranzitului intestinal; volumul normal i consistena scaunului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00313"
+  },
+  {
+    "name_raw": "OLIVOX 40",
+    "name_normalized": "OLIVOX 40",
+    "description": "Butur amar preparat din extracte de plante, cum ar fi:\n� Rozmarin: Funcia digestiv; funcia hepatic. Motilitate gastro intestinal normal i\n\n      eliminarea gazelor. Antioxidant. Funcionare normal a aparatului cardiovascular.\n� Mslin: Metabolismul carbohidrailor i lipidelor; circulaia normal a s�ngelui;\n\n      regularitatea presiunii arteriale; Antioxidant.\n� Curcuma: Funcia digestiv; funcia sistemului digestiv. Antioxidant. Funcia articular.\n\n      Ajut la combaterea tulburrilor ciclului menstrual.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00316"
+  },
+  {
+    "name_raw": "OLIV�",
+    "name_normalized": "OLIV",
+    "description": "Supliment alimentar pe baz de extracte de msline:\n� Mslin: Metabolismul carbohidrailor i lipidelor; circulaia normal a s�ngelui; regularitatea\npresiunii arteriale; antioxidant.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00322"
+  },
+  {
+    "name_raw": "OMEGA TRIS",
+    "name_normalized": "OMEGA TRIS",
+    "description": "Supliment alimentar bazat pe acizii grai Omega-3 (EPAi DHA), Omega 6 i 9 ( uleiul\nde Enotera tit. �n GLA - acid linolenic gamma i ulei dein.). Uleiul de Enotera i uleiul de\nin contribuie la integritatea i funcionalitatea membranelor celulare. Uleiul de Enotera\ncontribuie, de asemenea, la funcia normal a pielii, ajut la combaterea tulburrilor ciclului\nmenstrual i contribuie la funcionarea �n comun.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00151"
+  },
+  {
+    "name_raw": "REDRIS",
+    "name_normalized": "REDRIS",
+    "description": "Produsul este un supliment alimentar pe baz de orez rou fermentat i extracte din plante.\nBerberis favorizeaz funcia digestiv i hepatic; regularitatea tranzitului intestinal i\nfuncionalitatea sistemului digestiv i funcionalitatea regulat a sistemului cardiovascular.\nSchinduful promoveaz funcia digestiv, metabolismul glucidelor, trigliceridelor i\ncolesterolului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00193"
+  },
+  {
+    "name_raw": "COLLAGEN",
+    "name_normalized": "COLLAGEN",
+    "description": "Supliment alimentar de colagen hidrolizat, vitamina C, vitamina E, acid folic, biotin i seleniu,\nutil pentru furnizarea unei porii suplimentare din aceti nutrieni �n cazurile de aport redus\nsau necesar crescut fiziologic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00186K"
+  },
+  {
+    "name_raw": "MARINE COLLAGEN",
+    "name_normalized": "MARINE COLLAGEN",
+    "description": "Supliment alimentar pe baz de colagen marin. Cu edulcorant.\nFormulat �n Europa. Ambalat �n Taiwan.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00340"
+  },
+  {
+    "name_raw": "VEGAN COLLAGEN ALTERNATIVE",
+    "name_normalized": "VEGAN COLLAGEN ALTERNATIVE",
+    "description": "Colagenul vegan alternativ este un precursor al colagenului care imit perfect grupul de\naminoacizi al colagenului uman. Cu edulcorant.\nFormulat �n Europa. Ambalat �n Taiwan.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00341"
+  },
+  {
+    "name_raw": "XFETTA",
+    "name_normalized": "XFETTA",
+    "description": "Supliment alimentar pe baz de extracte de trifoi rou, angelic chinezeasc i salvie, cu\nvitamina D.\nTrifoiul rou: combaterea tulburrilor legate de menopauz.\nAngelica chinezeasc: combaterea tulburrilor legate de menopauz; menine circulaia\nnormal a s�ngelui.\nSalvia: combate tulburrile legate de menopauz; regularizarea procesului de transpiraie,\nantioxidant; tonifiant �n caz de oboseal fizic i psihic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00348"
+  },
+  {
+    "name_raw": "CYSTOBEN",
+    "name_normalized": "CYSTOBEN",
+    "description": "Supliment alimentar pe baz de D-manoz, oleuropein, bromelain, afine, urzic i vitamina\nC, util pentru a aduce un aport suplimentar de aceste ingrediente �n dieta zilnic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "300010"
+  },
+  {
+    "name_raw": "OMEGA 3",
+    "name_normalized": "OMEGA 3",
+    "description": "CHOOSE YOUR  CHOOSE YOUR\n                             LANGUAGE     LANGUAGE\n\nSupliment alimentar bazat pe acizii     Supliment alimentar bazat pe ulei de\ngrai Omega-3 (EPA i DHA). Prin          germeni de gr�u util ca antioxidant i\nadministrarea a cel puin 2 capsule      pentru metabolizarea lipidelor.\npe zi, EPA i DHA contribuie la funcia\ncardiac normal. DHA contribuie,\nde asemenea, la meninerea funciei\nnormale a creierului i la meninerea\nviziunii normale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00150"
+  },
+  {
+    "name_raw": "AM & PM",
+    "name_normalized": "AM & PM",
+    "description": "Supliment alimentar bazat pe fermeni lactici vii i fibre prebiotice, util �n toate cazurile cu\nnecesiti crescute sau aport redus de nutrieni. Fermentii lactici i fibrele prebiotice pot\npromova echilibrul florei intestinale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00190"
+  },
+  {
+    "name_raw": "SNEP KRILL",
+    "name_normalized": "SNEP KRILL",
+    "description": "Supliment alimentar di ulei pur de KRILL, care furnizeaz acizi grai omega �ntr-o form\nfosfolipidic. Uleiul de Krill conine i antioxidani precum retinol (Vitamina A), tocoferoli\n(Vitamina E) i anstaxantin (carotenoid precursor al vitaminei A).\n\nL&Z\n\nSupliment alimentar pe baz de lactoferin i zinc.\nZincul contribuie la funcionarea normal a sistemului imunitar i la protejarea celulelor\n�mpotriva stresului oxidativ.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00140"
+  },
+  {
+    "name_raw": "VITAMINA C",
+    "name_normalized": "VITAMINA C",
+    "description": "� Vitamina C contribuie:\n� La meninerea funciei normale a sistemului imunitar �n timpul i dup un exerciiu fizic\n\n      intens.\n� La formarea normal de colagen necesar pentru funcionalitat ea normal a vaselor\n\n      de s�nge, cartilaj, oase, piele i dini.\n� La metabolismul energetic normal.\n� Vitamina C contribuie la reducerea oboselii.\n� Crete absorbimentul fierului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00194"
+  },
+  {
+    "name_raw": "EXTRA-D",
+    "name_normalized": "EXTRA-D",
+    "description": "Supliment alimentar pe baz de astragalus i extracte de poligoniu cu ulei esenial de Tea\ntree i Vitamina D.\nAstragalus: aprarea natural a organismului, tonic-adaptogen.\nPolygonum: antioxidant, fluiditatea secreiilor bronice.\nTea tree: funcionalitatea tractului respirator superior.\n\nECDefense                                 QUERCETINA MAX\n\n           CHOOSE YOUR                                    CHOOSE YOUR\n             LANGUAGE                                       LANGUAGE\n\nSupliment alimentar pe baz de extracte    Suplimente alimentare pe baz de Quercetin.\nde plante.\nMcee: prezint aciune de susinere i de\nrestabilire, precum i antioxidant.\nEchinacea purpurea: ajut funcionalitatea\ntractului respirator superior.\nUncaria: contribuie la aprarea natural a\norganismului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00235"
+  },
+  {
+    "name_raw": "ALKALYNE",
+    "name_normalized": "ALKALYNE",
+    "description": "Supliment alimentar de sruri minerale alcalizante (carbonat de Calciu, bicarbonat de Sodiu\ni hidroxid de Magneziu), care poate fi util �n toate cazurile cu necesiti crescute sau cu un\naport redus de nutrieni.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00163"
+  },
+  {
+    "name_raw": "ERGOVIR",
+    "name_normalized": "ERGOVIR",
+    "description": "Supliment alimentar pe baz de arginin, citrulin, turmeric, maca, mslin, ginseng, serenoa,\ncoenzima Q10, zinc, piper negru i vitamina D3.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00344"
+  },
+  {
+    "name_raw": "BUONANOTTE",
+    "name_normalized": "BUONANOTTE",
+    "description": "Supliment alimentar pe baz de melatonin, cu extracte titrate de pducel i balsam de\nlm�ie care promoveaz relaxarea i bunstarea mental. Administrarea a 1 mg de\nMelatonin chiar �nainte de culcare contribuie la reducerea timpului necesar adormirii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00321"
+  },
+  {
+    "name_raw": "TATAPROS",
+    "name_normalized": "TATAPROS",
+    "description": "Supliment alimentar pe baz de extracte vegetale titrate uscate de Serenoa, Ortosifon i\nurzic.\nSerenoa: funcionalitatea prostatei; drenarea lichidelor corporale; Funcia tractului urinar.\nOrtosifon: drenarea fluidelor corporale; Funcia tractului urinar.\nUrzica: funcia prostatei.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00320"
+  },
+  {
+    "name_raw": "TRIBUX BLUE",
+    "name_normalized": "TRIBUX BLUE",
+    "description": "Tribux Blue este un supliment alimentar din L- Citrulline i Acetil carnitin, cu extracte de\nTribulus terrestris, Ashwagandha, Muira puama i Gingko biloba.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00169"
+  },
+  {
+    "name_raw": "NIGHT",
+    "name_normalized": "NIGHT",
+    "description": "Snep Night este un supliment pe baz de L-Arginin, L-Citrulin, L-Taurin, Vitamina C i\nVitamina E i acid folic formulat pentru a susine sntatea sistemului cardiovascular.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00124K"
+  },
+  {
+    "name_raw": "SUPER-CAL",
+    "name_normalized": "SUPER-CAL",
+    "description": "Supliment de calciu i de vitaminele C, K2 i D3.\nComponenetele prezente �n Super-cal pot favoriza meninerea normal a oaselor (calciu,\nvitamina d i vitamina k), favoriza normala absorbie de calciu i fosfor (vitamina d) i\ncontribui la normala formare a colagenului pentru normala funcionare a oaselor (Vitamina\nC).",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00162"
+  },
+  {
+    "name_raw": "INTELLI-G",
+    "name_normalized": "INTELLI-G",
+    "description": "Supliment alimentar sub form de capsule pe baz de extracte vegetale titrate (Bacopa\nmonnieri, Olea Europaea, Withania somnifera, ofran i piper negru), glutation lipozomal,\ninozitol i vitaminele B, D3 i E. Bacopa monnieri stimuleaz memoria i funciile cognitive.\nUleiul de msline contribuie la circulaia normal a s�ngelui.\nWithania este util ca tonic-adaptogen. ofranul favorizeaz starea de spirit normal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "300020"
+  },
+  {
+    "name_raw": "REISHI",
+    "name_normalized": "REISHI",
+    "description": "Supliment alimentar pe baz de Ganoderma lucidum care stimuleaz mecanismele naturale\nde aprare ale organismului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00130"
+  },
+  {
+    "name_raw": "AGARICUS",
+    "name_normalized": "AGARICUS",
+    "description": "Supliment alimentar bazat pe Agaricus care promoveaz aprarea natural a organismului\ni metabolismul carbohidrailor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00215"
+  },
+  {
+    "name_raw": "MAITAKE",
+    "name_normalized": "MAITAKE",
+    "description": "Supliment alimentar pe baz de Maitake care promoveaz aprarea natural a organismului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00216"
+  },
+  {
+    "name_raw": "SHIITAKE",
+    "name_normalized": "SHIITAKE",
+    "description": "Supliment alimentar pe baz de Shiitake care promoveaz aprarea natural a organismului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00217"
+  },
+  {
+    "name_raw": "AURI-C",
+    "name_normalized": "AURI-C",
+    "description": "Supliment alimentar pe baz de extract Auricularia i extract de mce.\n� Auricularia: aprarea natural a organismului.\n� Mcee: aciune de susinere i restaurare; antioxidant.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00220"
+  },
+  {
+    "name_raw": "CORDY-C",
+    "name_normalized": "CORDY-C",
+    "description": "Supliment alimentar pe baz de extract de Cordyceps i extract de Mce.\n� Cordyceps: funcionalitatea tractului respirator superior; aprarea natural a\n\n      organismului; aciune de susinere tonic i metabolic.\n� Mcee: aciune de susinere i restaurare; antioxidant.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00219"
+  },
+  {
+    "name_raw": "HERI-C",
+    "name_normalized": "HERI-C",
+    "description": "Supliment alimentar pe baz de extract de Hericium i extract de mce.\n� Mcee: aciune de susinere i restaurare; antioxidant.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00218"
+  },
+  {
+    "name_raw": "MORINDA",
+    "name_normalized": "MORINDA",
+    "description": "Supliment alimentar pe baz de suc liofilizat de Noni are o aciune antioxidant i tonic,\ndeosebit de util �n caz de oboseal fizic i mental.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00354"
+  },
+  {
+    "name_raw": "MORINDA PI�",
+    "name_normalized": "MORINDA PI",
+    "description": "Zinc, Crom i Coenzima Q10.\nNoni: are o aciune antioxidant i tonic, deosebit de util �n caz de oboseal\nfizic i mental.\nVitamina B1/B3: contribuie la metabolismul energetic normal i la reducerea\noboselii i extenurii.\nZinc: contribuie la protejarea celulelor de stresul oxidativ.\nCrom: contribuie la meninerea nivelurilor normale ale glicemiei.\n\nMORINGA OLEIFERA Capsule\n\nSupliment alimentar pe baz de extract uscat de frunze de Moringa i pudr de semine\nde Moringa. Seminele de moringa ajut funcia digestiv, fluiditatea secreiilor bronice\ni regularitatea procesului de transpiraie; de asemenea, promoveaz circulaia normal a\ns�ngelui, metabolismul lipidelor i meninerea echilibrului greutii corporale.\n\nMORINGA OLEIFERA Powder lipfilizat\n\nSupliment alimentar pe baz de extract uscat de frunze de Moringa i pudr de semine\nde Moringa. Seminele de moringa ajut funcia digestiv, fluiditatea secreiilor bronice\ni regularitatea procesului de transpiraie; de asemenea, promoveaz circulaia normal a\ns�ngelui, metabolismul lipidelor i meninerea echilibrului greutii corporale.\n\n           ULEIURI ESENTIALE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00355"
+  },
+  {
+    "name_raw": "ISOP",
+    "name_normalized": "ISOP",
+    "description": "ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei esenial de isop.\nEfecte fiziologice: fluiditatea secreiilor bronice. Buna funcionare a cilor respiratorii\nsuperioare. Funcie digestiv. Eliminarea gazelor intestinale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00373"
+  },
+  {
+    "name_raw": "MANDARIN",
+    "name_normalized": "MANDARIN",
+    "description": "ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de Ulei esenial de mandarin.\nEfecte fiziologice: Funcie digestiv. Motilitatea gastrointestinal regulat i eliminarea\ngazelor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00374"
+  },
+  {
+    "name_raw": "MONTE BIANCO LAVENDER",
+    "name_normalized": "MONTE BIANCO LAVENDER",
+    "description": "ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei esenial de lavand Mont Blanc.\nEfecte fiziologice: Relaxare (somn; �n caz de stres). Stare de spirit normal. Funcie digestiv.\nReglarea motilitii gastro-intestinale i eliminarea gazelor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00363"
+  },
+  {
+    "name_raw": "MENT",
+    "name_normalized": "MENT",
+    "description": "ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei esenial de ment.\nEfecte fiziologice: Reglarea motilitii gastro-intestinale i eliminarea gazelor. Funcie\ndigestiv. Funcie hepatic. Efect balsamic. Descongestionarea nasului i g�tului.\n\n           ULEIURI ESENTIALE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00365"
+  },
+  {
+    "name_raw": "SAGE",
+    "name_normalized": "SAGE",
+    "description": "ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei esenial de salvie.\nEfecte fiziologice: Funcie digestiv. Eliminarea gazelor. Combaterea tulburrilor ale\nmenopauzei. Reglarea procesului de transpiraie. Descongestionarea nasului i g�tului.\nAntioxidant. Tonic (oboseal fizic, mintal).",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00366"
+  },
+  {
+    "name_raw": "ARBOR DE CEAI",
+    "name_normalized": "ARBOR DE CEAI",
+    "description": "Efecte fiziologice: Buna funcionare a cilor respiratorii superioare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00361"
+  },
+  {
+    "name_raw": "CIMBRU ROSU                                 IENUPR YUGO",
+    "name_normalized": "CIMBRU ROSU IENUPR YUGO",
+    "description": "CHOOSE YOUR                                              CHOOSE YOUR\n  LANGUAGE                                                 LANGUAGE\n\nULEI ESENIAL PURITATE 100%                  ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei          Supliment alimentar pe baz de ulei\nesenial de Cimbru rou.                      esenial de ienupr.\nEfecte fiziologice: Fluiditatea secreiilor  Efecte fiziologice: funcie digestiv.\nbronice. Funcie digestiv. Reglarea          Drenarea fluidelor corporale.\nmotilitii gastro-intestinale i eliminarea   Funcionarea tractului urinar.\ngazelor. Antioxidant. Descongestionarea     Funcionarea articulaiilor.\nnasului i g�tului.\n\nULEI ESENIAL PURITATE 100%                  ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei          Supliment alimentar pe baz de ulei\nesenial de mirt.                            esenial de Origan.\nEfecte fiziologice: fluiditatea secreiilor  Efecte fiziologice: Funcie digestiv.\nbronice. Descongestionarea nasului i        Reglarea motilitii gastro-intestinale i\ng�tului. Efect balsamic.                    eliminarea gazelor. Fluiditatea secreiilor\n                                            bronice. Efect balsamic.\n\n                     ULEIURI ESENTIALE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00367"
+  },
+  {
+    "name_raw": "ROZMARIN                                       LM�IE",
+    "name_normalized": "ROZMARIN LMIE",
+    "description": "CHOOSE YOUR                                    CHOOSE YOUR\n  LANGUAGE                                       LANGUAGE\n\nULEI ESENIAL PURITATE 100%                     ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei esenial     Supliment alimentar pe baz de ulei\nde Rozmarin.                                   esenial de Lm�ie.\nEfecte fiziologice: Funcie digestiv. Funcie    Efecte fiziologice: Funcie digestiv.\nhepatic. Reglarea motilitii gastrointestinale  Reglarea motilitii gastro-intestinale i\ni eliminarea gazelor. Antioxidant. Funcionare  eliminarea gazelor.\nnormal a aparatului cardiovascular.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00369"
+  },
+  {
+    "name_raw": "PORTOCAL AMAR                                  EUCALIPT",
+    "name_normalized": "PORTOCAL AMAR EUCALIPT",
+    "description": "CHOOSE YOUR                                                             CHOOSE YOUR\n   LANGUAGE                                                                LANGUAGE\n\nULEI ESENIAL PURITATE 100%                     ULEI ESENIAL PURITATE 100%\nSupliment alimentar pe baz de ulei             Supliment alimentar pe baz de ulei\nesenial de portocal amar.                      esenial de eucalipt.\nEfecte fiziologice: Funcie digestiv.           Efecte fiziologice: Efect balsamic. Aciune\nReglarea motilitii gastro-intestinale i        emolient i calmant pentru mucoasa\neliminarea gazelor.                            orofaringian i pentru tonalitatea vocii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00362"
+  },
+  {
+    "name_raw": "VENERE",
+    "name_normalized": "VENERE",
+    "description": "Supliment alimentar pe baz de vitamine i minerale cu colagen,\n    MSM, glutation i hialuronat de sodiu i cu gel de aloe i extracte\n    de Karkad� i msline.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00290"
+  },
+  {
+    "name_raw": "MARINE VENERE",
+    "name_normalized": "MARINE VENERE",
+    "description": "Supliment alimentar pe baz de vitamine i minerale cu colagen\nmarin, MSM, hialuronat de sodiu i cu extract de piersici i de\nhibiscus sabdariffa.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00347"
+  },
+  {
+    "name_raw": "VEGAN LUPINE PROTEIN",
+    "name_normalized": "VEGAN LUPINE PROTEIN",
+    "description": "Orange i Raspberry\n\nProtein vegan Mix este un supliment de pulbere cu coninut ridicat de proteine, util\npentru creterea coninutului de proteine care contribuie la meninerea i creterea masei\nmusculare. Este un produs formulat cu proteine vegetale exclusiv din lupin. Se potrivete\nbine cu buturi reci sau calde.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00156"
+  },
+  {
+    "name_raw": "VEGAN RISO E LUPINO PROTEIN",
+    "name_normalized": "VEGAN RISO E LUPINO PROTEIN",
+    "description": "Cacao\n\nSupliment pudrat cu un coninut ridicat de proteine, util pentru creterea coninutului\nde proteine care contribuie la meninerea i creterea masei musculare. Este un produs\nformulat cu proteine vegetale, orez i lupin. Se potrivete bine cu buturi reci sau calde.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00157"
+  },
+  {
+    "name_raw": "PROTEIN VEGAN MIX",
+    "name_normalized": "PROTEIN VEGAN MIX",
+    "description": "Supliment de pulbere cu un coninut ridicat de proteine, util pentru creterea coninutului de\nproteine care contribuie la meninerea i creterea masei musculare. Vegan Protein Mix este\nun produs formulat exclusiv cu proteine vegetale, soia i orez. Se combin uor cu buturi\nreci sau calde.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00155"
+  },
+  {
+    "name_raw": "BCAA - AMINOACIDI",
+    "name_normalized": "BCAA - AMINOACIDI",
+    "description": "Supliment alimentar pe baz de aminoacizi ramificai, util �n toate cazurile cu nevoi crescute\nsau cu aport redus de nutrieni.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00191"
+  },
+  {
+    "name_raw": "MACA",
+    "name_normalized": "MACA",
+    "description": "Supliment pur pe baz de Maca. Maca acioneaz ca un tonic adaptogen (oboseal fizic,\nmental) i are o aciune de susinere tonic i metabolic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00192"
+  },
+  {
+    "name_raw": "BRAIN",
+    "name_normalized": "BRAIN",
+    "description": "Produs preparat cu un amestec de plante tonice adaptogene utile pentru toate sporturile\ncare implic concentrare. Este util �n toate activitile care implic abiliti de coordonare\n(oculo-motorie, anticipare motric, echilibru, sincronizare) i tactice.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00330"
+  },
+  {
+    "name_raw": "TOTAL ENERGY",
+    "name_normalized": "TOTAL ENERGY",
+    "description": "Total Energy este un supliment alimentar conceput i formulat pentru bunstarea psiho-\nfizic cu principalele sale componente MACA, DAMIANA, GANODERMA i GUARANA.\n\nQ10 - 200\n\nQ10 - Snep200 este un supliment alimentar bazat pe Coenzima Q10 (CoQ10), LCarnitina\ntartrat, Acid folic, Vitaminele B6 i B12.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00153"
+  },
+  {
+    "name_raw": "SPORT ELEVEN",
+    "name_normalized": "SPORT ELEVEN",
+    "description": "\"Sportul const �n delegarea ctre corp a unora dintre cele mai �nalte virtui\nale sufletului.\"\n\n              Jean Giraudoux\n\nO linie de produse unic, formulat de sportivi pentru nevoile reale a\nsportivilor. Crete performana ta la cel mai �nalt nivel i optimizeaz-i\nfaza de recuperare muscular cu Sport Eleven.\n               SPORT\n               ELEVEN",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": null
+  },
+  {
+    "name_raw": "START",
+    "name_normalized": "START",
+    "description": "Supliment alimentar pe baz de proteine, trigliceride cu lan mediu, L-glutation, redus, cu\nvitamine, minerale i fermeni lactici. Snep Start este un produs conceput pentru a oferi\naportul nutriional corect i complet indispensabil (macro- i micronutrieni, vitamine,\nantioxidani specifici) sportivului, maximiz�nd absorbia, disponibilitatea i utilizarea\nacestuia.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00331"
+  },
+  {
+    "name_raw": "POWERFECT",
+    "name_normalized": "POWERFECT",
+    "description": "Supliment alimentar pe baz de Maltodextrin, Creatin monohidrat, L-arginin, AKG, BCAA,\nTaurin, Beta-alanin i Vitamina B6. Aminoacizii cu lan ramificat BCAA, beta alanina, taurina,\ncarbohidrai cu eliberare medie/lung, arginina i creatinina sunt protagonitii acestei\nformule pentru toate sporturile, individuale i de echip, care prin natura lor implic sisteme\nenergetice pe termen scurt.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00332"
+  },
+  {
+    "name_raw": "ATHLETIVE",
+    "name_normalized": "ATHLETIVE",
+    "description": "Supliment alimentar pe baz de Maltodextrin, trigliceride cu lan mediu, Larginin AKG,\nBCAA, Beta-alanin, fier i vitamine C, B1, B5 i B6. Pentru o cretere a rezervelor de glicogen\n�nainte de antrenament, produsul ofer o doz relevant de carbohidrai pentru sporturile\ncu o component aerob ridicat i rezisten ridicat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00333"
+  },
+  {
+    "name_raw": "HYDRA",
+    "name_normalized": "HYDRA",
+    "description": "Supliment alimentar care conine sruri minerale. Supliment energetic conceput pentru a\nacoperi necesarul de carbohidrai �n momentele de solicitare crescut a organismului, cum\nar fi un antrenament intens.\n\n               SPORT\n               ELEVEN",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00334"
+  },
+  {
+    "name_raw": "UPGRATE",
+    "name_normalized": "UPGRATE",
+    "description": "Supliment alimentar pe baz de proteine, HMB, L-glutamin, BCAA, L-carnozin i Vitamina\nB6. Upgrate este un produs conceput pentru a garanta o recuperare rapid a rezervelor de\nglicogen i pentru a limita c�t mai bine descompunerea proteinelor post-antrenament.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00336"
+  },
+  {
+    "name_raw": "REVELOP",
+    "name_normalized": "REVELOP",
+    "description": "Supliment alimentar pe baz de proteine cu L-glutamin i L-triptofan. Revelop, un produs\ncare promoveaz etapa de cretere muscular i garanteaz odihna din timpul nopii.\nProteinele cu eliberare lent, o doz mic de carbohidrai i glutamin asigur o acoperire\noptim pentru recuperarea proteinelor pe timp de noapte.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00337"
+  },
+  {
+    "name_raw": "CREATINA",
+    "name_normalized": "CREATINA",
+    "description": "Supliment alimentar pe baz de creatin monohidrat �n form pur care ajut la creterea\nperformanelor fizice �n cazul activitilor repetitive, de intensitate mare i de scurt durat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00338"
+  },
+  {
+    "name_raw": "ENERGY BOOST",
+    "name_normalized": "ENERGY BOOST",
+    "description": "Supliment alimentar pe baz de maltodextrin cu D-glucoz, fructoz, BCAA, carnitin, beta-\nalanin i cofein. Energy Boost Sport 11 este un gel energetic avansat care combin sinergia\ncarbohidrailor cu BCAA, carnitin, beta-alanin i cofein. Datorit ingredientelor sale,\nEnergy Boost este potrivit pentru susinerea funciei musculare, creterea energiei �n timpul\nactivitii fizice i facilitarea recuperrii dup exerciii fizice intense. Carbohidraii contribuie\nla meninerea funciei cerebrale normale i faciliteaz recuperarea funciei musculare\nnormale.\n\n               SPORT\n               ELEVEN",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00350"
+  },
+  {
+    "name_raw": "ENERGY BAR",
+    "name_normalized": "ENERGY BAR",
+    "description": "Baton energizant care poate activitilor de anduran, chiar i al celor mai intense. Formula\nsa pe baz de fin de orez, maltodextrin, sirop de glucoz-fructoz, past de mere i caise,\neste conceput pentru a v oferi un nivel ridicat de carbohidrai per baton (32g per baton de\n40g) cu un nivel sczut de grsimi (2,2g per baton). Mult energie �ntr-o soluie convenabil\nfr gluten i fr OMG.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "SUPLIMENTE",
+    "code": "00349"
+  },
+  {
+    "name_raw": "PROTEIN BAR",
+    "name_normalized": "PROTEIN BAR",
+    "description": "Baton proteic cu ciocolat cu lapte, arom de crem i biscuii.\nPreparat cu ciocolat belgian de �nalt calitate, �mbogit cu colagen hidrolizat, inulin i\nfibre de cicoare. �ndulcit natural cu stevia, fr OMG-uri i ingrediente artificiale.\nUoar, delicioas i nutritiv, Protein Bar este gustarea ideal dup antrenament sau �n\norice moment al zilei, pentru a v menine �n form fr a renuna la plcere.\n\n\"Sunt un om cu gusturi simple. Sunt �ntotdeauna mulumit de ce este mai\nbun.\"\n\n                                                                                       Oscar Wilde\nCu toii avem nevoie de o mic recompens zilnic.\nOprete-te puin, ia o pauza si ofer-i un moment de plin gust, totul\npentru tine.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "300200"
+  },
+  {
+    "name_raw": "CHOCO CUP",
+    "name_normalized": "CHOCO CUP",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00199"
+  },
+  {
+    "name_raw": "CHOCO MOON",
+    "name_normalized": "CHOCO MOON",
+    "description": "Supliment alimentar cu melatonin, floarea pasiunii, Griffonia i Ganoderma. Util pentru\nreglarea strii de spirit, reducerea timpului de adormire i ameliorarea simptomelor jet leg.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00198"
+  },
+  {
+    "name_raw": "CHOCO BLOCK",
+    "name_normalized": "CHOCO BLOCK",
+    "description": "Baton de ciocolat cu ceai negru, mr, Cassia nomame, Gymnema sylvestre.\nCeai negru: drenarea fluidelor corporale. Echilibreaz greutatea corporal.\nCassia nomame: susine metabolismul trigliceridelor i colesterolului. Contribuie la\nechilibrarea greutii corporale.\nGymnema sylvestre: susine metabolismul carbohidrailor i lipidelor i controlul foamei.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00200"
+  },
+  {
+    "name_raw": "SNACK PLUS",
+    "name_normalized": "SNACK PLUS",
+    "description": "Batonul combin cereale crocante precum ovzul, alacul i gr�ul cu dulceaa mierii i a\nfructelor roii. Bogat �n mod natural �n fibre, proteine vegetale i oligoelemente eseniale,\nSnack Plus este fr conservani i colorani artificiali. Fabricat din ingrediente naturale de\n�nalt calitate, este excelent pentru un mic dejun rapid, o gustare �ntineritoare sau o gustare\ncare taie foamea.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00123"
+  },
+  {
+    "name_raw": "BR�NZ                      BARBEQUE",
+    "name_normalized": "BRNZ BARBEQUE",
+    "description": "CHOOSE YOUR                                         CHOOSE YOUR\n         LANGUAGE                                            LANGUAGE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00277"
+  },
+  {
+    "name_raw": "CHIPSURI PROTEICE                                          CHIPSURI PROTEICE",
+    "name_normalized": "CHIPSURI PROTEICE CHIPSURI PROTEICE",
+    "description": "Snacks-uri din legume cu arom de br�nz.                    Snacks-uri din legume cu arom de bar-\nSURSA DE OMEGA 3; COAPTE LA CUPTOR;                        beque.\nBOGATE �N FIBRE 100% leguminoase 20%                       SURSA DE OMEGA 3; COAPTE LA CUPTOR;\nproteine; 10% fibre                                        BOGATE �N FIBRE 100% leguminoase 20%\n                                                           proteine; 10% fibre\n\n       IERBURI AROMATICE\n\n       CHIPSURI PROTEICE\n       Gustare din leguminoase cu cu arom de\n       ierburi.\n       SURS DE OMEGA 3\n       COAPTE LA CUPTOR\n       BOGATE �N FIBRE\n       100% leguminoase 20% proteine 10% fibre\n\n               FUNCIONALE                                       LANGUAGE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00275"
+  },
+  {
+    "name_raw": "SPAGHETTI",
+    "name_normalized": "SPAGHETTI",
+    "description": "Pastele proteice Snep sunt produse �n Italia, cu ingrediente\nnaturale i cu adaos de extract de Ganoderma Lucidum.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00272"
+  },
+  {
+    "name_raw": "GINSENG",
+    "name_normalized": "GINSENG",
+    "description": "Supliment alimentar pe baz de ginseng i cafea solubil cu extract de ganoderma.\nCutie cu 30 plicuri.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00189"
+  },
+  {
+    "name_raw": "ORZO",
+    "name_normalized": "ORZO",
+    "description": "Supliment alimentar pe baz de orz solubil cu extract de ganoderma lucidum.\nCutie cu 30 plicuri.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00188"
+  },
+  {
+    "name_raw": "CAFF� SPECIAL",
+    "name_normalized": "CAFF SPECIAL",
+    "description": "Supliment alimentar pe baz de cafea solubil cu extracte de ganoderma, mce, bacopa,\ncentella i rhodiola.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00125"
+  },
+  {
+    "name_raw": "CAPPUCCINO",
+    "name_normalized": "CAPPUCCINO",
+    "description": "Supliment alimentar pe baz de lapte i cafea solubil cu extracte de Ganoderma, mce,\nBacopa, centella i rhodiola.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00126"
+  },
+  {
+    "name_raw": "MOKACCINO",
+    "name_normalized": "MOKACCINO",
+    "description": "Supliment alimentar pe baz de cafea solubil, lapte i cacao cu extracte de ganoderma,\nmce, bacopa, centella i rhodiola.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00127"
+  },
+  {
+    "name_raw": "CAFEA MOKA",
+    "name_normalized": "CAFEA MOKA",
+    "description": "Cafea mcinat pentru espressor, cu adaos de Ganoderma lucidum.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00129"
+  },
+  {
+    "name_raw": "PADURI ESE 44MM",
+    "name_normalized": "PADURI ESE 44MM",
+    "description": "Un amestec de cafea 100% Arabica, o manifestare a cafelei italiene clasice.\nArom intens, gust fin i delicat, coninut redus de cofein, �mbogit cu extract de\nGanoderma sau extract de Oleuropein, care poate contribui la o trezire energetic a\nsimurilor i la �mbuntirea proceselor oxidative.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00135"
+  },
+  {
+    "name_raw": "CAPSUL",
+    "name_normalized": "CAPSUL",
+    "description": "Un amestec de cafea 100% Arabica, o manifestare a cafelei italiene clasice.\n\nArom intens, gust fin i delicat, coninut redus de cofein, �mbogit cu extract de\n\nGanoderma sau extract de Oleuropein, care poate contribui la o trezire energetic a\n\nsimurilor i la �mbuntirea proceselor oxidative.\n\nKIT PROMO: \"2 ESPRESSO\", CAPSULA NESPRESSO\n\nOdat cu achiziionarea acestui pachet promoional, plteti cafeaua i primeti gratuit\naparatul care devine proprietatea ta fr obligaii lunare de cumprare, cu doar 20.\nCu achiziionarea la 3 pachete de capsule de cafea, vei primi espressorul in capsule.\n\n� Aparatul este nou-nou i are o garanie de 2 ani.\n� 3 cutii cu de cafea.\n� Aparat de cafea cu capsule compatibil Nespresso \"2Espresso\".",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "ALIMENTE",
+    "code": "00128"
+  },
+  {
+    "name_raw": "KIT DE SERVICII DE CAFEA",
+    "name_normalized": "KIT DE SERVICII DE CAFEA",
+    "description": "Set de serviciu de cafea format din\n                          100 de cni transparente de 80cc,\n                          100 de lingurie, 100 de plicuri de\n                          zahr.\n                          Greutatea net total a zahrului\n                          500gr. Zahr din UE.\n\n\"Pielea este organul cel mai expus la stimuli externi, cel mai mare din corpul\nnostru i cu o capacitate senzorial de neegalat. �ngrijirea pielii este unul\ndintre secretele meninerii unui aspect sntos, t�nr i �ngrijit i v ajut s\ncontracarai cel mai bine efectele timpului.\"\nPasiunea cu care lucrm este unul dintre ingredientele cheie ale produselor\nnoastre, pentru c tu i pielea ta meritai doar ce e mai bun.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "90203"
+  },
+  {
+    "name_raw": "BEAUTY DREAM PRO",
+    "name_normalized": "BEAUTY DREAM PRO",
+    "description": "radiofrecven (RF) pentru �ngrijirea termic de mare frecven a\npielii, �nafar de tehnologia EMS pentru tratarea muchilor faciali.  CHOOSE YOUR",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75200K"
+  },
+  {
+    "name_raw": "BEAUTY DREAM BODY                            BEAUTY DREAM FACE",
+    "name_normalized": "BEAUTY DREAM BODY BEAUTY DREAM FACE",
+    "description": "Datorit unei compoziii unice de principii    Beauty Dream face este o emulsie\nfuncionale de origine vegetal, Beauty Dream  mtsoas, uoar, extrem de hrnitoare,\nbody tonific pielea i ajut la combaterea     careajut pielea feei, fc�nd-o mai\nimperfeciunilor cauzate de celulit, ajut�nd  uniform i mai tonifiat, duc�nd la\nla rec�tigarea siluetei.                     atenuarea ridurilor.\n\nCHOOSE YOUR                                  CHOOSE YOUR\n  LANGUAGE                                     LANGUAGE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75033"
+  },
+  {
+    "name_raw": "DREAM VISION",
+    "name_normalized": "DREAM VISION",
+    "description": "Acest dispozitiv de masaj al ochilor �nclzit, cu\n                          vibraii i fotoni, include o vibraie de frecven\n                          ridicat, include compresii fierbini i lumin\n                          roie, i se folosete �mpreun cu crema de\n                          ochii i alte produse de �ngrijire a pielii pentru\n                          o piele radiant i ferm �n jurul ochilor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75198"
+  },
+  {
+    "name_raw": "NAT- SPECIAL GIFT BOX",
+    "name_normalized": "NAT- SPECIAL GIFT BOX",
+    "description": "Nat BOX, tot ce este mai bun din gama Skincare Corean Made in Italy, coninut �ntr-o cutie\npreioas!\nConine cele trei produse ale liniei Nat, eseniale pentru parcurgerea �n cel mai bun mod\nposibil a tuturor etapelor de dubl curare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71053X"
+  },
+  {
+    "name_raw": "NAT 1 - CLEANSING BALM",
+    "name_normalized": "NAT 1 - CLEANSING BALM",
+    "description": "Unt demachiant delicat, formulat cu uleiuri preioase hrnitoare, �ndeprteaz machiajul,\ncur i purific pielea. Poate fi folosit at�t ca demachiant, c�t i ca produs detergent, dou\naciuni care, �n combinaie, cur pielea �n profunzime printr-un singur gest.\nPoate fi folosit pe fa, pe zona ochilor i pe buze. Potrivit pentru toate tipurile de piele.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71090"
+  },
+  {
+    "name_raw": "NAT 2 - PINK MOUSSE",
+    "name_normalized": "NAT 2 - PINK MOUSSE",
+    "description": "Spum demachiant cu textur moale i cremoas, cu extract de aloe vera i mueel. Cur\ndelicat i �ndeprteaz ultimele reziduuri de machiaj, impuritile i excesul de sebum de pe\nfa i ochi, ls�nd pielea curat, hidratat i moale.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71091"
+  },
+  {
+    "name_raw": "NAT 3 - CANDY SCRUB",
+    "name_normalized": "NAT 3 - CANDY SCRUB",
+    "description": "Exfoliantul de fa cu zahr alb i aloe vera este un tratament exfoliant bl�nd care readuce\nstrlucirea pielii feei i restabilete echilibrul hidrolipidic natural al epidermei. Profit de\naciunea de netezire i hidratare a zahrului, care asigur o curare profund i rafineaz\npielea, uniformiz�nd tenul. �ndeprteaz celulele moarte de pe suprafaa pielii, favoriz�nd\nregenerarea natural a pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71092"
+  },
+  {
+    "name_raw": "SNEPLUMAX - SPECIAL GIFT BOX",
+    "name_normalized": "SNEPLUMAX - SPECIAL GIFT BOX",
+    "description": "�ntregul potenial coninut de SnapLumax Slime, �n cutia SnepLumax!\n�n interiorul acesteia, vei gsi toate produsele SnepLumax, necesare pentru un tratament\nfacial complet. Menine-i tenul t�nr, cu ajutorul gamei SnepLumax, pentru bunstarea pe\ntermen lung a tenului tu.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71052X"
+  },
+  {
+    "name_raw": "SNEPLUMAX - FACE CREAM",
+    "name_normalized": "SNEPLUMAX - FACE CREAM",
+    "description": "Crema de fa cu mucin de melc cu aloe vera i ap de trandafiri, cu parfum natural delicat,\nconine o serie de ingrediente active naturale i componente de origine vegetal eficiente �n\nreducerea aspectului ridurilor i �mbuntirea elasticitii pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71083"
+  },
+  {
+    "name_raw": "SNEPLUMAX - EYE CREAM",
+    "name_normalized": "SNEPLUMAX - EYE CREAM",
+    "description": "Crema de ochi cu mucin de melc, cu aloe vera i ap de trandafiri, cu parfum delicat, este\nideal pentru contracararea efectelor stresului, climei, polurii i �mbtr�nirii, conferind\nluminozitate i prospeime ochilor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71085"
+  },
+  {
+    "name_raw": "SNEPLUMAX - SERUM",
+    "name_normalized": "SNEPLUMAX - SERUM",
+    "description": "Ser de fa cu 80% mucin de melc i aloe vera, �mbogit cu alantoin, acid glicolic i sodiu\nhialuronat. Fr silicon, parabeni, petrolai, alcool.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71084"
+  },
+  {
+    "name_raw": "3.0 - SPECIAL GIFT BOX",
+    "name_normalized": "3.0 - SPECIAL GIFT BOX",
+    "description": "3.0 Box: elixirul de frumusee pentru faa ta!                CHOOSE YOUR\nCutia elegant cu Cream 3.0, Aqua 3.0, Elixir 3.0, produse     LANGUAGE\ncosmetice cu formulri unice i inovatoare. Linia 3.0 asigur",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71100X"
+  },
+  {
+    "name_raw": "ELIXIR 3.0",
+    "name_normalized": "ELIXIR 3.0",
+    "description": "Ser pentru fa, ideal pentru toate tipurile de piele care are un efect de hidratare, volum i\nde lifting. Pielea are un aspect mai compact.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71009"
+  },
+  {
+    "name_raw": "CREAM 3.0",
+    "name_normalized": "CREAM 3.0",
+    "description": "O textur delicat care implic simurile �ntr-un ritual de bunstare, cu un complex antistres\ninovator la baza formulei care insufl un sentiment de stare de bine plin de plcere.\nCONINUT: Complex antistres ,,Bunstarea fericirii\", Extract de alge Efect de lifting,\nAcid hialuronic cu greutate molecular mic, medie, mare, Complex de detoxifiere anti-\n�mbtr�nire, Ap de trandafiri organic de Damasc.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71082"
+  },
+  {
+    "name_raw": "AQUA 3.0",
+    "name_normalized": "AQUA 3.0",
+    "description": "Un spray studiat pentru a furniza moleculele de acid hialuronic, oligoelementele i elementele\nactive prezente �n formul. Un produs exclusiv, ideal pentru toate tipurile de piele, �n orice\nmoment al zilei, i ca �nlocuitorul al tonicului. Datorit faptului c este uor, acoper pielea,\nav�nd un efect hidratant care ofer confort.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71010"
+  },
+  {
+    "name_raw": "LIPLIFT 3.0",
+    "name_normalized": "LIPLIFT 3.0",
+    "description": "Balsam de buze cu efect de umplere, cu arom delicat de ciree, pe baz de acid hialuronic,\ncolagen i elastin.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71081"
+  },
+  {
+    "name_raw": "GOLD MASK - MASC DE AUR PEEL OFF",
+    "name_normalized": "GOLD MASK - MASC DE AUR PEEL OFF",
+    "description": "Este un tratament cosmetic inovator, ideal pentru �ndeprtarea celulelor epidermice\nsuperficiale, �ndeprteaz toate impuritile i confer un nou luciu i strlucire tuturor\ntipurilor de piele, �n special pielii grase i impure. Hidrateaz i �ndeprteaz petele,\nasigur�nd un rezultat de durat �n timp.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75510"
+  },
+  {
+    "name_raw": "LAPTE DEMACHIANT PH NEUTR - CLEANSING MILK",
+    "name_normalized": "LAPTE DEMACHIANT PH NEUTR - CLEANSING MILK",
+    "description": "Conine ap de trandafiri de damasc, detergeni naturali, ulei de migdale, cu aciune de\nhrnire i �nmuiere i un complex polipeptidic exclusiv �n asociere cu acidul tiotic i coenzima\nQ10, care stimuleaz re�nnoirea celular.\n\nSER - PT. CONTURUL OCHILOR I BUZELOR\n\nSer pentru conturul ochilor i buzelor, cu textur delicat i luxuriant, care confer pielii o\nsenzaie de susinere i �ntrire, cu un efect mtsos la atingere. Aciunea produsului este\n�mbuntit de aplicatorul termoforetic, renumit pentru proprietile sale stimulatoare.\nCu gel de aloe pur, extract de ganoderma, acid hialuronic, cafein.\nFr parabeni, Sls, petrolatum, colorani sintetici.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75030"
+  },
+  {
+    "name_raw": "CREM DE FA AGELESS EL/EA",
+    "name_normalized": "CREM DE FA AGELESS EL/EA",
+    "description": "Crema biostimulant de zi pentru fa pentru brbai i femei, cu o textur lejer i non-\ngras, cu aciune hidratant i de iluminare. �mbogit cu extract de Ganoderma Lucidum,\naloe vera, vitamina E, acid hialuronic, ulei de jojoba i Luminescine bio lichefi at vegetal,\nasigur un nivel echilibrat de hidratare pentru toate tipurile de piele i confer o luminozitate\nexcepional. Protejeaz pielea de razele solare (UVA i UVB), motivul �mbtr�nirii foto-indus.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75002"
+  },
+  {
+    "name_raw": "CREM-GEL AFTERSHAVE CU EFECT DE CALMARE",
+    "name_normalized": "CREM-GEL AFTERSHAVE CU EFECT DE CALMARE",
+    "description": "Crem-gel non gras, special pentru calmarea roeii pielii dup brbierit. Las piele moale,\nhidratat i protejat. Plcut parfumat, confer imediat i pentru o lung perioad de timp\no senzaie uoar de senzaie de bine.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75006"
+  },
+  {
+    "name_raw": "SINCERA",
+    "name_normalized": "SINCERA",
+    "description": "MAST DETOXIFICAT i PURIFICAT cu crbune\nMAST HIDRATAN I HRANIT cu ceai verde           103\nMAST REVITALIZANT I ANTI-�MBtr�nire",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75355"
+  },
+  {
+    "name_raw": "CREM PENTRU FA DE ZI BIOSTIMULATOARE",
+    "name_normalized": "CREM PENTRU FA DE ZI BIOSTIMULATOARE",
+    "description": "Crema de fa de zi Biostimulant este o crem de zi hidratant cu efect de iluminare, cu\nconsisten uoar, absorbie rapid i excelent ca baz de machiaj. �mbogit cu extract\nde Ganoderma lucidum, Vitamina E, Acid Hialuronic i Luminiscine extract vegetal cu efect\nde iluminare, asigur un nivel echilibrat de hidratare pe toate tipurile de piele i confer o\nstrlucire excepional.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "00147"
+  },
+  {
+    "name_raw": "SER ANTI �MBTR�NIRE - FA I DECOLLETE'",
+    "name_normalized": "SER ANTI MBTRNIRE - FA I DECOLLETE'",
+    "description": "Serul pentru Fa Anti-�mbtr�nire* cu coninut de extract de ganoderma lucidum, acid\nhialuronic, gluconolactona i luminescin. Este unt tratament puternic anti-�mbtr�nire,\nformulat special pentru atenuarea liniilor i cutelor de expresie care apar cu expresiile faciale,\ncum ar fi ridurile profunde ale frunii, conturul ochilor i liniile subiri din jurul buzelor.\n*formul cu substane care contracareaz formarea ridurilor pielii",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "00149"
+  },
+  {
+    "name_raw": "CREM DE NOAPTE PENTRU FA ANTI-AGE",
+    "name_normalized": "CREM DE NOAPTE PENTRU FA ANTI-AGE",
+    "description": "Crem de noapte pentru fa anti-age* conceput pentru pielea deosebit de stresat, ridat\nsau fr tonus. Aceast crem-tratament inovatoare conine un procent ridicat de extract de\nReishi (Ganoderma lucidum), bogat �n substane antioxidante, coenzima Q10 i ulei de ciree\nbogat �n vitamina A i vitamina E i acizi grai eseniali, capabili s restabileasc aspectul mai\nproaspt, mai neted i mai compact al feei.\n*formul cu substane care contracareaz formarea ridurilor pielii",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "00148"
+  },
+  {
+    "name_raw": "MASTER",
+    "name_normalized": "MASTER",
+    "description": "Gelul-ser multifuncional este un concentrat de ingrediente active naturale cu proprieti\nrevigorante, calmante i balsamice. Formulat cu substane vegetale active cu aciuni\ndecongestionante marcate. Prin aciunea sa cald/rece asupra pielii, acest produs este\ndeosebit de potrivit pentru combaterea �mbtr�nirii premature a pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71011"
+  },
+  {
+    "name_raw": "CREM DE CORP HIDRATANT",
+    "name_normalized": "CREM DE CORP HIDRATANT",
+    "description": "Crem cu absorbie rapid, optim dup baie, conine un complex inovator cu aciune\nmulti-activ, hidratant i de iluminare. Este indicat pentru toate tipurile de piele uscat,\ncrpat, delicat i uor iritabil care necesit o aciune hidratant emolient, de calmare a\nroeii, rcoritoare i re-epitelizant. Chiar de la primele aplicaii, piele pare mai �ntins, mai\nluminoas i mai hidratat. Fr parabeni, SLS, derivai de petrol, colorani sintetici.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75007"
+  },
+  {
+    "name_raw": "SCRUB CORP PENTRU NETEZIRE",
+    "name_normalized": "SCRUB CORP PENTRU NETEZIRE",
+    "description": "Tratament de netezire care re�nnoiete epiderma eliber�nd-o de celulele moarte i impuriti.\nGaranteaz un aport ridicat de hidratare esuturilor, favoriz�nd penetrarea tratamentelor\ncosmetice ulterioare. Ajut la stimularea micro-circulaiei superficiale, datorit aciunii\nmecanice a masajului exfoliant. Fr parabeni, SLS, derivai de petrol, colorani sintetici.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75009"
+  },
+  {
+    "name_raw": "GEL DE DU REDUCTOR",
+    "name_normalized": "GEL DE DU REDUCTOR",
+    "description": "Extractele de Drosera i de cafea verde activeaz metabolismul bazal, favoriz�nd drenarea\nlichidelor �n exces i facilit�nd remodelarea siluetei pe zona �n cauz. Ajut la contracararea\nimperfeciunilor cutanate ale celulitei i adipozitii localizate.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75018"
+  },
+  {
+    "name_raw": "CELL-UP",
+    "name_normalized": "CELL-UP",
+    "description": "Bandaje formulate cu o soluie de ingrediente active funcionale, cu efect drenant i de\nslbire care ajut la tratarea imperfeciunilor pielii legate de retenia hidric i celulit.\n�mbogite cu sruri Epsom, escin, extract de ieder i ulei esenial de chiparos, foarte utile\npentru a favoriza compactarea i tonifierea pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71039"
+  },
+  {
+    "name_raw": "CREM ANTICELULITIC",
+    "name_normalized": "CREM ANTICELULITIC",
+    "description": "Crem cu absorbie rapid, are aciune cosmetic\n                                                           cu efect reductor asupra grsimii localizate pe\n                                                           abdomen, olduri i zonele rebele. Formulat cu\n                                                           extract de Drosera ramentacea, o plant carnivor\n                                                           care are capacitatea de a reduce �ntr-un timp\n                                                           scurt imperfeciunea pielii cauzat de celulit.\n                                                           Cafein i glaucin, molecule care reduc vizibil\n                                                           imperfeciunile pielii caracteristice esuturilor\n                                                           dup pierderea �n greutate. Ganoderma, cafeina\n                                                           i arginina acioneaz �n sinergie pentru un efect\n                                                           de fermitate.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75008"
+  },
+  {
+    "name_raw": "EPSOM CREAM                                                              4071041",
+    "name_normalized": "EPSOM CREAM 4071041",
+    "description": "Crem cu aciune detoxifiant i tonifiant.\n             Crem de corp formulat cu ingrediente vegetale\n             active ideale pentru susinerea tratamentului\n             cosmetic �mpotriva imperfeciunilor cauzate\n             de celulit i a adipozitilor localizate, precum\n             complexul pe baza de fructe de Longan i\n             de sruri Epsom. Potrivit pentru vegani, fr\n             substane de origine animal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71041"
+  },
+  {
+    "name_raw": "REINATURE BOX",
+    "name_normalized": "REINATURE BOX",
+    "description": "Box care conine:\n\n� Reinature Spray\n� Reinature Stick\n� Reinature Drop\n� Reinature Cream",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71037X"
+  },
+  {
+    "name_raw": "REINATURE - SERUM",
+    "name_normalized": "REINATURE - SERUM",
+    "description": "Ser pentru fa cu substane active av�nd caliti de echilibrare a sebumului i de iluminare,\ncum ar fi: acidul salicilic, oetul balsamic i extract de afine. Vitamina PP hrnete i hidrateaz\npielea conferindu-i un aspect sntos i completeaz formula.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71030"
+  },
+  {
+    "name_raw": "REINATURE - SPRAY",
+    "name_normalized": "REINATURE - SPRAY",
+    "description": "Tonic pentru fa creat pentru a oferi un aspect mat al pielii cu tendin de exces de sebum\ni cu impuriti. Este �mbogit cu oet balsamic i vitamina PP, cu substane active nutritive\ni calmante, cu extract de lemn dulce i ap de ceai verde, av�nd aciune astringent i de\nreechilibrare a sebumului, necesare pentru a oferi un aspect opac.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71031"
+  },
+  {
+    "name_raw": "REINATURE - CREAM                             REINATURE",
+    "name_normalized": "REINATURE - CREAM REINATURE",
+    "description": "Crem de fa cu ulei de bumbac, hidratant i hrnitoare, cu oet balsamic i extract de\nlemn dulce, care ajut la crearea unui efect mat i opac. Conine de asemenea un complex cu\naciune de reechilibrare a microbiomului pielii, pe baz de alge, care contribuie la meninerea\nechilibrului fiziologic al pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71032"
+  },
+  {
+    "name_raw": "REINATURE - STICK                             REINATURE - DROP",
+    "name_normalized": "REINATURE - STICK REINATURE - DROP",
+    "description": "Gel pe baz de aloe vera i turmeric, cu        Produs pe baz de aloe vera, ap de Rosa\naciune hidratant, exfoliant i calmant,        Damascena i de Rosa Centifolia, are o aciune\nindicat pentru tratamentul pielii imperfecte  exfoliant, hidratant i calmant.\ncu acnee, couri i furuncule.\n\nCHOOSE YOUR                                   CHOOSE YOUR\n  LANGUAGE                                      LANGUAGE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71035"
+  },
+  {
+    "name_raw": "KIT MANDORLE DOLCI-MUSCOLEASE-EXVASI-TOP FINGER",
+    "name_normalized": "KIT MANDORLE DOLCI-MUSCOLEASE-EXVASI-TOP FINGER",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71005"
+  },
+  {
+    "name_raw": "MANDORLE DOLCI",
+    "name_normalized": "MANDORLE DOLCI",
+    "description": "Extras prin presare la rece, uleiul de migdale dulci bogat �n vitaminele E, B, glucide i\naminoacizi are numeroase proprieti benefice pentru piele. Este un ajutor valoros �n\ncontracararea i prevenirea apariiei vergeturilor, datorit proprietilor sale elastice. Fiind\nbogat �n acizi grai, este deosebit de potrivit pentru tratamentul pielii uscate i iritate i ca un\nexcelent adjuvant �n prevenirea ridurilor i �mbtr�nirii pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71001"
+  },
+  {
+    "name_raw": "EXVASI                                                     MUSCOLEASE",
+    "name_normalized": "EXVASI MUSCOLEASE",
+    "description": "CHOOSE YOUR                                                CHOOSE YOUR\n              LANGUAGE                                                   LANGUAGE\n\nUlei cu concentraie ridicat de ingrediente                 Ulei cu concentraie ridicat de principii\nactive naturale, precum Arnica Montana,                    active naturale, cum ar fi Arnica Montana i\nCentella Asiatica, Gingko Biloba i castan                  Gheara Diavolului, care fac ca acest produs\nslbatic, formulat pentru a contracara                      s fie potrivit pentru tonifierea esuturilor\numflarea i �ngreunarea picioarelor i                       i calmarea pielii. Tratament ideal pentru\npentru a �mbunti circulaia. Asigur un                      v�nti, entorse, dureri cervicale i musculare.\nefect imediat de drenare, ls�nd picioarele                 Ideal pentru destinderea muchilor dup\nuoare, proaspete i energice.                               activitate fizic intens.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71004"
+  },
+  {
+    "name_raw": "TOP FINGER",
+    "name_normalized": "TOP FINGER",
+    "description": "Produs pe baz de uleiuri eseniale specifice, precum arborele de ceai i neem, ideal pentru\ntratamentul unghiilor slabe, subiri sau exfoliate. Utilizat frecvent, ajut la combaterea\napariiei micozelor unghiilor de la m�ini i de la picioare, cre�nd un mediu nefavorabil\npentru proliferarea acesteia.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71002"
+  },
+  {
+    "name_raw": "GEL ALOE",
+    "name_normalized": "GEL ALOE",
+    "description": "Gel formulat cu ingrediente care confer catifelare i elasticitate pielii. Datorit extractului\nde Ganoderma, o ciuperc cu caliti antioxidante preioase, calmante i anti-�mbtr�nire,\ndatorit sucului organic de aloe vera i extractului organic de glbenele, hidratant i\nrevigorant, pielea va prea foarte sntoas. Ideal pentru toate tipurile de piele, chiar i\npentru cele mai delicate. Testat dermatologic.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75010"
+  },
+  {
+    "name_raw": "ALOE SILVER SPRAY",
+    "name_normalized": "ALOE SILVER SPRAY",
+    "description": "Spray cu Ganoderma, o ciuperc preioas cu caliti antioxidante deosebite, calmant e i\nanti-�mbtr�nire, cu suc de aloe vera biologic i cu extract de mueel, cu efecte de hidratare\ni prospeime; pielea va avea un aspect sntos. Ideal pentru toate tipurile de piele, chiar i\ncea delicat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71033"
+  },
+  {
+    "name_raw": "VERA CREAM",
+    "name_normalized": "VERA CREAM",
+    "description": "Crem creat pentru a avea o piele moale i catifelat. Conine substane active cu aciune\nhidratant i antioxidant, cum ar fi amidonul din orez i extractul de propolis, cu aciune\nde �mprosptare i calmant*, dar i extractul de mueel, ideale i pentru pielea delicat.\n*activitate raportat la ingredientele coninute �n aceasta",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71034"
+  },
+  {
+    "name_raw": "ORYGEN",
+    "name_normalized": "ORYGEN",
+    "description": "Ap de gur pe baz de aloe vera i hialuronat de sodiu, care susine regenerarea gingiilor\ninflamate, �mbogit cu extracte naturale de glbenele, nalb i uleiuri eseniale ce ajut\nla prevenirea formrii plcii bacteriene, cu arom proaspt i plcut, care dureaz mult\ntimp. Conine arginin, un aminoacid esenial, care s-a dovedit a fi un prebiotic util pentru\nprevenirea cariilor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71018"
+  },
+  {
+    "name_raw": "FANFRESH",
+    "name_normalized": "FANFRESH",
+    "description": "Pasta de dini tip gel, formulat cu ingrediente de origine natural, precum silice, cu aciune\nde iluminare, cu crbune vegetal, care �n sinergie cu uleiul esenial de ment i salvie confer\no senzaie de prospeime, �n final sucul de aloe vera biologic, are o aciune linititoare.\nProdus potrivit pentru vegani, fabricat fr substane de origine animal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71017"
+  },
+  {
+    "name_raw": "FANPASTE",
+    "name_normalized": "FANPASTE",
+    "description": "Past de dini formulat cu principii vegetale 100% naturale.\nFormulat numai cu ingrediente de origine vegetal i mineral, are un efect de albire,\nastringent i rcoritor, restabilete sistemul hidrolipidic al gingiilor, reduc�nd apariia\nplciibacteriene i red�nd albul natural al dinilor. Ofer o senzaie de prospeime plcut,\nde lung durat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71020"
+  },
+  {
+    "name_raw": "PERIU DE DINI DIN BAMBUS",
+    "name_normalized": "PERIU DE DINI DIN BAMBUS",
+    "description": "Natural - Durabil - Biodegradabil\nRecipientul i m�nerul periuei de dini sunt 100% compostabile i biodegradabile.\nDe ce Snep a ales bambusul? Pe l�ng faptul c este un material 100% biodegradabil,\nbambusul are caracteristica de a fi antibacterian.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71019"
+  },
+  {
+    "name_raw": "HERPAX",
+    "name_normalized": "HERPAX",
+    "description": "Lipogeldermatologic formulat cu ingrediente naturale atent selecionate pentru a crea o\nbarier protectoare �mpotriva agenilor externi. Herpax poate fi utilizat i pentru tratarea\nbuzelor uscate i crpate din cauza v�ntului i temperaturilor sczute. Aciunea sa eudermic\nfavorizeaz procesul de reparare fiziologic a pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71045"
+  },
+  {
+    "name_raw": "SABANA                                       GEL DE DU",
+    "name_normalized": "SABANA GEL DE DU",
+    "description": "CHOOSE YOUR                                  CHOOSE YOUR\n  LANGUAGE                                     LANGUAGE\n\nSpun lichid creat pentru a cura m�inile,     Gel de du delicat pe piele, conceput cu ap\nalturi de un mix de uleiuri eseniale, ca de  activ din bambus, ulei esenial i extract de\nexemplu tea tree oil, roini i cimbru alb,    portocale dulci, cunoscute pentru calitile\ningrediente care ajut ca pielea s devin      lor tonifiante, netezitoare i antioxidante,\ncurat i hidratat.                            �mbogite, de asemenea, cu suc biologic\n                                             de aloe vera, cu efect calmant i hidratant.\n118                                          �n sinergie ofer o piele moale i catifelat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71008"
+  },
+  {
+    "name_raw": "VIMANA",
+    "name_normalized": "VIMANA",
+    "description": "Crem care rsfa m�inile, conine ulei de argan, unt de karit� i extract de ovz biologic\ncare confer pielii elasticitate i un aspect t�nr datorit proprietilor antioxidante, anti-\n�mbtr�nire i emoliente. Crema se absoarbe uor i las pielea catifelat i hidratat.\nProdus potrivit pentru vegani, fabricat fr substane de origine animal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71006"
+  },
+  {
+    "name_raw": "HERMES",
+    "name_normalized": "HERMES",
+    "description": "Crem pentru picioare, ideal pentru a obine un efect de �mprosptare i regenerare.\nPielea devine catifelat i, datorit prezenei unui mix de uleiuri eseniale, ajut la tratarea\nmirosului ur�t. Produs potrivit pentru vegani, fabricat fr substane de origine animal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71007"
+  },
+  {
+    "name_raw": "DEOACQUA",
+    "name_normalized": "DEOACQUA",
+    "description": "Cu Ap aromatic deodorant aromatizat cu Uleiuri eseniale. Asigur o aciune deodorant\nde lung durat, neutraliz�nd mirosurile corporale fr a altera echilibrul fiziologic\nal pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75011"
+  },
+  {
+    "name_raw": "DEOLATTE",
+    "name_normalized": "DEOLATTE",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71012"
+  },
+  {
+    "name_raw": "DEOLATTE - ROLL-ON",
+    "name_normalized": "DEOLATTE - ROLL-ON",
+    "description": "Extract organic de Calendula Biologica, Amidon de orez, Complex natural Deo, Ulei de\nc�nep, Ulei de bumbac. Formul cremoas conceput cu ingrediente active calmante i\nhidratante pentru o senzaie plcut i de lung durat de prospeime.\nProdus potrivit pentru vegani, fabricat fr substane de origine animal.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "BELOVE",
+    "name_normalized": "BELOVE",
+    "description": "Spun intim realizat cu tensioactivi delicai care respect pH-ul pielii, conine suc de aloe\nvera i acid hialuronic care, �mpreun, contribuie la obinerea unei aciuni emoliente,\nhidratante i calmante. �n plus, conine extract de salvie care este ideal pentru o senzaie\nde prospeime.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71014"
+  },
+  {
+    "name_raw": "PINK",
+    "name_normalized": "PINK",
+    "description": "Plasturi cu aciune relaxant asupra musculaturii uterine, av�nd ca rezultat o reducere a\n\nsimptomelor tipice durerilor menstruale.\n\nLuxury Hair Care\n\n La nuova vita\ndei tuoi capelli",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "00550"
+  },
+  {
+    "name_raw": "SCRUB PURIFICATOR                      SOLUTION",
+    "name_normalized": "SCRUB PURIFICATOR SOLUTION",
+    "description": "Scrub cu formul pentru curarea i purificarea �n profunzime a scalpului. Datorit\nefectului purificator al oleuropeinei, echilibreaz producia de sebum care este o surs de\nmtrea. Glutationul, cu activitate antioxidant ridicat, i Omega 3 hrnesc i fortific\npielea. Microgranulele garanteaz exfolierea mecanic, eliber�nd porii, facilit�nd oxigenarea\ncorect a bulbilor i creterea prului sntos i robust.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71065"
+  },
+  {
+    "name_raw": "AMPON SPLARE FRECVENT",
+    "name_normalized": "AMPON SPLARE FRECVENT",
+    "description": "Formul �mbogit cu extract de aloe care regenereaz, hidrateaz i hrnete pielea,\nextract de calendula care o calmeaz, permi�nd splarea frecvent a prului, fr a crea\niritaii. Formul pe baz de glutation care favorizeaz �ntrirea fiziologic a prului i\noleuropein care menine echilibrul i calmeaz scalpul.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71060"
+  },
+  {
+    "name_raw": "AMPON PENTRU PR CU MTREA",
+    "name_normalized": "AMPON PENTRU PR CU MTREA",
+    "description": "Formul �mbogit cu ingrediente active naturale cu proprieti puternice de stimulare i\ntonifiere precum rozmarinul i eucaliptul, un puternic purificator natural. De asemenea,\nmentolul stimuleaz microcirculaia pielii, oferind osenzaie de prospeime i uurare.\nFormul pe baz de glutation care promoveaz �ntrirea fiziologic a prului i Oleuropein\ncare echilibreaz i calmeaz scalpul.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71063"
+  },
+  {
+    "name_raw": "AMPON PENTRU PR GRAS",
+    "name_normalized": "AMPON PENTRU PR GRAS",
+    "description": "Formul �mbogit cu extract de castan slbatic, portocal, lm�ie i cofein care, �n\nsinergie �ntre ele, ajut la producerea corect de sebum, evit�nd excesul. Formul pe baz\nde glutation care favorizeaz �ntrirea fiziologic a prului i oleuropein care menine\nechilibrul i calmeaz scalpul.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71062"
+  },
+  {
+    "name_raw": "AMPON ANTI-CDEREA PRULUI                                       SOLUTION",
+    "name_normalized": "AMPON ANTI-CDEREA PRULUI SOLUTION",
+    "description": "Formul �mbogit cu extract de mesteacn, bogat �n vitamina B, care, �n sinergie cu\nextractul de urzic, stimuleaz microcirculaia scalpului, ajut�nd la creterea fiziologic\na prului. Formul pe baz de glutation care favorizeaz �ntrirea fiziologic a prului i\noleuropein care menine echilibrul i calmeaz scalpul.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71061"
+  },
+  {
+    "name_raw": "LOIUNE REDENSIFANT                         BALSAM DE PR",
+    "name_normalized": "LOIUNE REDENSIFANT BALSAM DE PR",
+    "description": "CHOOSE YOUR                                              CHOOSE YOUR\n  LANGUAGE                                                 LANGUAGE\n\nTratament care stimuleaz fiziologic        Balsam de desc�lcire i restructurare cu\ncreterea prului. Hrnete scalpul, combate   gel organic de Aloe. Hidrateaz i �ntrete\nsubierea i promoveaz �ngroarea fibrei      structura prului. Formula uoar descurc\ncapilare. Promoveaz �ntrirea fiziologic a  i face prul neted i uor de pieptnat.\nprului i echilibrul scalpului.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71064"
+  },
+  {
+    "name_raw": "ULEI DE ARGAN",
+    "name_normalized": "ULEI DE ARGAN",
+    "description": "Un ulei cu proprieti preioase regeneratoare i protectoare, care hrnete �n profunzime,\nnetezind v�rfurile despicate. Ofer strlucire imediat, face prul mai uor de pieptnat,\nelimin efectul de �ncreire, fr a-l �ngreuna.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71068"
+  },
+  {
+    "name_raw": "MASC HIDRATANT",
+    "name_normalized": "MASC HIDRATANT",
+    "description": "Formul bogat i preioas pentru frumuseea prului tu.\nCu ulei de argan biocertificat, colagen i proteine din mtase. Hrnete �n profunzime prul\nfr a-l �ngreuna, oferindu-i catifelare i strlucire, ls�ndu-l elastic i mtsos.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71067"
+  },
+  {
+    "name_raw": "AMPON HIDRATANT",
+    "name_normalized": "AMPON HIDRATANT",
+    "description": "Formul bogat i preioas pentru frumuseea prului tu.Cu ulei de argan, colagen i\nproteine din mtase",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71066"
+  },
+  {
+    "name_raw": "LOIUNE �MPOTRIVA CDERII PRULUI",
+    "name_normalized": "LOIUNE MPOTRIVA CDERII PRULUI",
+    "description": "Tratament cosmetic special pentru pr cu cdere excesiv, descuamare, grsime.\nRecomandat �n tratamentul preventiv �mpotriva cderii prului, acesta poate fi utilizat i �n\ntratarea pielii grase, impure i a mtreii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75017"
+  },
+  {
+    "name_raw": "DEVA",
+    "name_normalized": "DEVA",
+    "description": "Unic, strluceste i parfumeaz prul chiar i atunci c�nd nu este splat.\nConine: extract natural de urzic, extract natural de Altea, extract natural de Quercia Marina,\nextract natural de coada calului, extract natural de mueel.\nParfum oral proaspt �norit.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75024"
+  },
+  {
+    "name_raw": "AMPON ANTI-GALBEN",
+    "name_normalized": "AMPON ANTI-GALBEN",
+    "description": "Pentru pr blond natural i decolorat, alb i argintiu cu PIGMENT ULTRA VIOLET, EXTRACT DE\nLAVAND, COMPLEX DE PROTEINE VEGETALE I CERAMIDE.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71095"
+  },
+  {
+    "name_raw": "ANTI-GALBEN",
+    "name_normalized": "ANTI-GALBEN",
+    "description": "Pentru pr blond natural i decolorat, alb i argintiu cu PIGMENT ULTRA VIOLET, EXTRACT DE\nLAVAND, COMPLEX DE PROTEINE VEGETALE I CERAMIDE. Masc �mbogit cu pigment\nviolet care neutralizeaz reflexiile galbene/portocalii ale prului blond, gri i alb, natural i\ndecolorat.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71096"
+  },
+  {
+    "name_raw": "BALSAM LEAVE-IN ANTI FRIZZ",
+    "name_normalized": "BALSAM LEAVE-IN ANTI FRIZZ",
+    "description": "PENTRU TOATE TIPURILE DE PR. Cu EXTRACT DE LAVAND, COMPLEX DE PROTEINE\nVEGETALE I CERAMIDE. Descurc, ofer catifelare i strlucire prului fr a-l �ncrca.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "71097"
+  },
+  {
+    "name_raw": "BRONZE PREPARE",
+    "name_normalized": "BRONZE PREPARE",
+    "description": "Este pielea ta pregtit pentru bronz?\n\nSnep Bronze-Prepare este un supliment avansat care combin o sinergie de ingrediente\nselectate pentru a pregti pielea pentru soare i a o menine protejat. Datorit formulei sale\ncu capsule gastrorezistente, ingredientele active sunt eliberate acolo unde sunt necesare,\nasigur�nd eficacitate i biodisponibilitate maxime.\n\nGlbenele: Contribuie la trofismul i funcionalitatea pielii.\nVi de vie roie: Aciune antioxidant.\nVitamina A (beta-caroten): Contribuie la meninerea sntii pielii.\nVitamina C: Contribuie la formarea normal a colagenului pentru funcia pielii i la protecia\ncelulelor �mpotriva stresului oxidativ. De asemenea, contribuie la regenerarea formei reduse\nde vitamin E.\nVitamina E: Contribuie la protejarea celulelor �mpotriva stresului oxidativ.\nZinc: Contribuie la metabolizarea normal a vitaminei A, la meninerea sntii pielii i la\nprotejarea celulelor �mpotriva stresului oxidativ.\nCupru: Contribuie la meninerea esuturilor conjunctive normale, la pigmentarea normal a\npielii i la protejarea celulelor �mpotriva stresului oxidativ.\nSeleniu: Contribuie la protejarea celulelor �mpotriva stresului oxidativ.\n\nSuport nutriional pentru piele �n timpul expunerii la soare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72207"
+  },
+  {
+    "name_raw": "PROTECIE SOLAR SPF 50+",
+    "name_normalized": "PROTECIE SOLAR SPF 50+",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72201"
+  },
+  {
+    "name_raw": "SPRAY TRANSPARENT PENTRU PROTECIE SOLAR SPF 50 +.",
+    "name_normalized": "SPRAY TRANSPARENT PENTRU PROTECIE SOLAR SPF 50 +.",
+    "description": "Protecie foarte ridicat cu spectru larg. Produs creat folosind tehnologii de ultim generaie,\ncu filtre avansate care ofer protecie cu spectru larg �mpotriva razelor UVB UVA. Un spray\ntransparent, uor de aplicat, se �ntinde rapid pe piele, fr a lsa reziduuri. Textur non-\ngras, invizibil. Previne arsurile solare, eritemul i petele, oferind un bronz uniform i de\nlung durat. Ajut la combaterea foto-�mbtr�nirii. REZISTENT LA AP.\nTEXTUR INVIZIBIL, APLICARE UOAR. Cu vitamina E, ulei de Macadamia, pantenol, ulei de\navocado, ulei de in, extract gliceric de glbenele organice, extract de Correggiola.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "PROTECIE SOLAR SPF 25",
+    "name_normalized": "PROTECIE SOLAR SPF 25",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72202"
+  },
+  {
+    "name_raw": "SPRAY TRANSPARENT PENTRU PROTECIE SOLAR SPF 25.",
+    "name_normalized": "SPRAY TRANSPARENT PENTRU PROTECIE SOLAR SPF 25.",
+    "description": "Protecie foarte ridicat cu spectru larg. Produs creat folosind tehnologii de ultim generaie,\ncu ltre avansate care ofer protecie cu spectru larg �mpotriva razelor UVB UVA. Un spray\ntransparent, uor de aplicat, se �ntinde rapid pe piele, fr a lsa reziduuri. Textur non-\ngras, invizibil. Previne arsurile solare, eritemul i petele, oferind un bronz uniform i de\nlung durat. Ajut la combaterea foto-�mbtr�nirii. REZISTENT LA AP.\nTEXTUR INVIZIBIL, APLICARE UOAR. Cu vitamina E, ulei de Macadamia, pantenol, ulei de\navocado, ulei de in, extract gliceric de glbenele organice, extract de Correggiola.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "CREM DE PROTECIE SOLAR SPF 50 +",
+    "name_normalized": "CREM DE PROTECIE SOLAR SPF 50 +",
+    "description": null,
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72203"
+  },
+  {
+    "name_raw": "CREM DE PROTECIE SOLAR PENTRU FA I DECOLTEU - AGE REPAIR SPF 50 +.",
+    "name_normalized": "CREM DE PROTECIE SOLAR PENTRU FA I DECOLTEU - AGE REPAIR SPF 50 +.",
+    "description": "Protecie foarte ridicat cu spectru larg. Produs formulat cu tehnologii de ultim generaie,\ncu filtre solare avansate, fotosensibile, care ofer protecie cu spectru larg �mpotriva razelor\nUVB UVA. O crem valoroas, pentru protecia zonelor delicate precum faa i decolteul,\ncare se aplic uor, nu �ngra pielea i nu las reziduuri. REZISTENT LA AP. AGE REPAIR.\nHIDRATANT, ANTIOXIDANT, ANTI-PETE PIGMENTARE cu vitamina E, extract de Alchechengi,\nextract de Correggiola, ectoin.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "STICK TRANSPARENT PENTRU ZONE SENSIBILE",
+    "name_normalized": "STICK TRANSPARENT PENTRU ZONE SENSIBILE",
+    "description": "STICK TRANSPARENT PENTRU ZONE SENSIBILE pentru fa i corp. TEXTUR INVIZIBIL,\nFR REZIDUURI. Cu unt de shea, ulei de afin i vitamina E. Produs creat folosind tehnologii\nde ultim generaie, cu filtre avansate care ofer protecie cu spectru larg �mpotriva razelor\nUVB UVA. Un stick cu protecie foarte ridicat, formulat pentru a proteja zonele sensibile\nde la nivelul feei i corpului (nas, buze, alunie, cicatrici, tatuaje). Aplicai produsul pe ecare\nzon care trebuie protejat �NAINTE i �N TIMPUL expunerii la soare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72204"
+  },
+  {
+    "name_raw": "TANNING PRO",
+    "name_normalized": "TANNING PRO",
+    "description": "Confer o senzaie plcut de prospeime datorit extractelor de ment verde i lactat de\nmentol, amelior�nd senzaia de cldur �n timpul expunerii la soare. Datorit tirozinei, un\nprecursor al melaninei, accelereaz pigmentarea natural a pielii i favorizeaz bronzul. De\nasemenea, adaosul de eritruloz garanteaz intensitatea bronzului, asigur�nd o pigmentare\nmai omogen i fr dungi. Acidul hialuronic prezent �n formul combate deshidratarea,\nasigur�nd hidratarea optim a pielii expuse la soare, �ntrit de aciunea Hydropuntil�, un\ncactus hidratant sicilian, eficient �n prevenirea �nroirii pielii.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72205"
+  },
+  {
+    "name_raw": "CREM DE CORP DUP PLAJ",
+    "name_normalized": "CREM DE CORP DUP PLAJ",
+    "description": "O crem cu o textur catifelat, formulat cu un amestec unic de antioxidani naturali (Q10,\nacid alfa lipoic) i substane hidratante i reparatoare (acid hialuronic, sodiu PCA, alantoin,\naextracte de aloe, malva i mueel). Conceput special pentru a compensa pierderea de\nhidratare cauzat de expunerea la soare. �mbogit cu luminescine�, un ingredient activ\ncomplet vegetal care confer pielii un aspect radiant, strlucitor i sntos. Calmeaz\nroeaa pielii, fixeaz i ajut la meninerea bronzului pentru mai mult timp. Noul parfum\nfr alergeni ofer o senzaie plcut de prospeime i stare de bine.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72206"
+  },
+  {
+    "name_raw": "GEL DE DU I AMPON REPARATOR DUP PLAJ",
+    "name_normalized": "GEL DE DU I AMPON REPARATOR DUP PLAJ",
+    "description": "Textura sa mtsoas i parfumul �mbttor �nvluie simurile, oferind o experien\nsenzorial care aduce cu sine toat bucuria verii. Cur delicat pielea i prul afectate de\nsoare, sare, clor i nisip, red�ndu-le catifelarea i strlucirea natural, restabilind gradul\noptim de hidratare. Cu Aloe vera, vitamina E, ulei de cocos, ulei de avocado i ulei de mango.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72101"
+  },
+  {
+    "name_raw": "MASC REPARATOARE DUP PLAJ",
+    "name_normalized": "MASC REPARATOARE DUP PLAJ",
+    "description": "Datorit formulei sale cu ingrediente active cu proprieti hrnitoare, repar, hidrateaz i\nhrnete prul stresat de expunerea la soare, sare, clor, v�nt i nisip, red�ndu-i catifelarea i\nstrlucirea natural pentru un aspect sntos i regenerat. Ideal pentru toate tipurile de pr.\nCu vitamina E, ulei de cocos, ulei de avocado, ulei de mango.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72102"
+  },
+  {
+    "name_raw": "ULEI PENTRU PROTECIA PRULUI",
+    "name_normalized": "ULEI PENTRU PROTECIA PRULUI",
+    "description": "Un ulei cu textur extrem de plcut i parfum captivant care �ntruchipeaz toate notele\nverii. Creeaz o barier protectoare care apr prul de deteriorarea cauzat de soare, sare,\nclor, v�nt i nisip, �mpiedic�nd uscarea acestuia. Nu �ncarc prul. Ulei de cocos, ulei de\navocado, ulei de mango, vitamina E.\n\nGEANT & POCHETTE SUNCARE\n\n                             CHOOSE YOUR  CHOOSE YOUR\n                               LANGUAGE     LANGUAGE\n\n                     MAKE UP\n\n\"Machiajul este �ncrederea �n sine aplicat direct pe fa.\"\n                                                                                            Anonim\n\nPentru machiajul de zi cu zi, sau pentru cele mai importante momente,\nprodusele din linia profesional Snep Luxury Makeup sunt performante\ni perfecte pentru a v pune �n valoare frumuseea. Urmeaz-i stilul,\ncreeaz look-ul care i se potrivete cel mai bine.\n     MAKE UP",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "72103"
+  },
+  {
+    "name_raw": "NATURAL SILICON PRIMER",
+    "name_normalized": "NATURAL SILICON PRIMER",
+    "description": "Baz transparent pentru\n                                                               a pregti faa pentru        CHOOSE YOUR\n                                                               machiaj. Minimizeaz          LANGUAGE\n                                                               vizibil ridurile i micile\n                                                               imperfeciuni cu un\n                                                               polisiliciu. Pielea apare\n                                                               imediat uniform i mai\n                                                               moale pentru a primi mai\n                                                               bine i pentru a �mbogi\n                                                               culoarea.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "GLOW PRIMER",
+    "name_normalized": "GLOW PRIMER",
+    "description": "crei formul, delicat pe\n\n                                       piele, las un finish unic i                          LANGUAGE\n\n                                       sofisticat pe machiaj.\n\n                                       Efectul natural este\n\n                                       �mbuntit de puncte\n\n                                       de        lumin         care\n\n                                       �nfrumuseeaz faa i\n\n                                       decolteul,      ascunz�nd\n\n                                       umbrele i petele.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75137"
+  },
+  {
+    "name_raw": "COVER 5K",
+    "name_normalized": "COVER 5K",
+    "description": "Totul �ntr-un singur\n\n                                       gest, acest anticearcn                             CHOOSE YOUR\n\n                                       practic pentru lumin\n\n                                       i acoperire ridicat\n\n                                       ascunde i minimizeaz\n\n                                       pungile,        cearcnele,\n\n                                       liniile fine, decolorarea i\n\n                                       imperfeciunile.\n\n     01       02       03                  01      02     03",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75500"
+  },
+  {
+    "name_raw": "PRO-DUAL FOUNDATION",
+    "name_normalized": "PRO-DUAL FOUNDATION",
+    "description": "Fond compact, de folosit\n                                                           �n special pentru pielea\n                                                           gras, udat cu ap sau\n                                                           uscat pentru a modula\n                                                           rezultatul �n funcie de\n                                                           nisajul dorit: opac i\n                                                           fin, dac este aplicat pe\n                                                           uscat, mai dens dac este\n                                                           umezit, dar �ntotdeauna\n                                                           uor.\n\n01           02            03",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75060"
+  },
+  {
+    "name_raw": "FLUID HD",
+    "name_normalized": "FLUID HD",
+    "description": "V�rful gamei de fonduri                                     CHOOSE YOUR\n                           de ten, cele mai bune                                         LANGUAGE\n                           performane care se\n\n                           toate tipurile de piele,\n             01            dar perfect pentru +35,\n                           conine un procent mare\n\n                           perfect.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75130"
+  },
+  {
+    "name_raw": "GET READY",
+    "name_normalized": "GET READY",
+    "description": "�ncercai     erveelele                                      CHOOSE YOUR\n\n                           matifiante pentru ten\n\n                           GET READY pentru a\n\n                           absorbi excesul de sebum\n\n                           i a contracara efectul\n\n                           strlucitor, tamponai\n\n                           pe zonele care tind s\n\n                           strluceasc. Pachet de\n\n                           50 de foi �ntr-un recipient\n\n                           elegant cu oglind.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "90103"
+  },
+  {
+    "name_raw": "MAGIC TOWEL",
+    "name_normalized": "MAGIC TOWEL",
+    "description": "10 erveele comprimate pentru\n                                     cltorie. Compacte, practice i\n                                     moi, erveelele Magic Towel sunt\n                                     completarea perfect a vieii tale\n                                     dinamice.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": null
+  },
+  {
+    "name_raw": "EYELINER",
+    "name_normalized": "EYELINER",
+    "description": "versiune matic cu aplicator, cu v�rf\n                                     din silicon pentru a putea trasa      CHOOSE YOUR\n                                     margini �n mod foarte natural;          LANGUAGE\n                                     datorit emulsiei, previne efectul\n                                     crack.\n\nEYE & EYEBROW                        Formulare de �nalt calitate,          CHOOSE YOUR\nPENCIL                               cu elastomeri naturali fac              LANGUAGE\n                                     ca aceste creioane s fie\n                                     rezistente la temperatur i\n                                     de lung durat.\n\n     08                 10           09           07",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75156"
+  },
+  {
+    "name_raw": "MATT SHADOW",
+    "name_normalized": "MATT SHADOW",
+    "description": "Pudr umbr comprimat cu cantitate\n                         foarte mare de pigment mineral.\n                         Se pot folosi at�t �n form uscat c�t i\n                         udate, perfecte pentru efecte smokey\n                         eyes.\n\n             01                         02            03",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75080"
+  },
+  {
+    "name_raw": "PEARL SHADOW",
+    "name_normalized": "PEARL SHADOW",
+    "description": "Umbrele de vibraii de culori care                        CHOOSE YOUR\n                         ofer un aspect mai luminos i                               LANGUAGE\n                         profund, cre�nd efecte de lumin i\n                         culori magice, fr sf�rit. Structur\n                         cu o not de crem i catifelat, ader\n                         perfect la piele, cu rezultate de durat,\n                         efect long lasting.\n\n             01                         02                          05",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75070"
+  },
+  {
+    "name_raw": "HD SHADOW",
+    "name_normalized": "HD SHADOW",
+    "description": "Umbr ultrametalic, efect iridescent,                     CHOOSE YOUR\n                         este una aliat minunat pentru a oferi                      LANGUAGE\n                         luminozitate tenului.\n                         Tonurile de culoare care pot fi create\n                         sunt diferite, de la mat la foarte perlat.\n                         Se poate folosi cu ap.\n\n              01             02            04            06\n\n             MAKE UP",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75110"
+  },
+  {
+    "name_raw": "LIP PENCIL",
+    "name_normalized": "LIP PENCIL",
+    "description": "Formula deosebit cu elastomeri naturali face ca aceste creioane s                                    CHOOSE YOUR\nfie fluide, rezistente la temperatur, de lung durat.                                                   LANGUAGE\n\n   01           03                 04           05            06            07",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75150"
+  },
+  {
+    "name_raw": "MASCARA                                      NATURAL VOLUME",
+    "name_normalized": "MASCARA NATURAL VOLUME",
+    "description": "�nclzii �n m�n �nainte de utilizare                       LANGUAGE\n\n                                             cear i extracte vegetale. Efect\n                                             extravolum fr a lipi genele.\n\n                                             WATERPROOF\n\n                                             Noua formula de rimel cu rini\n                                             naturale, potrivit pentru femei\n                                             exigente, care doresc s rm�n\n                                             �n ordine cu Makeup-ul toat ziua,\n                                             chiar i �n ap.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75100"
+  },
+  {
+    "name_raw": "MATT LIP",
+    "name_normalized": "MATT LIP",
+    "description": "Formul de rujuri cu vitamine, soluii                    CHOOSE YOUR\n                                             hidratante �n 9 culori opace actuale,                     LANGUAGE\n                                             cu efect de lung durat.\n\n                                                01            02            03            07",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75090"
+  },
+  {
+    "name_raw": "EXTREME LIP WATERPROOF",
+    "name_normalized": "EXTREME LIP WATERPROOF",
+    "description": "Revoluia �n domeniul rujului,                         CHOOSE YOUR\n                                                               formul rezistent sub form                               LANGUAGE\n                                                               de crem lichid, ideal pentru\n                                                               persoanele care nu mai doresc s se\n                                                               ating de ruj �n timpul zilei dar s se\n                                                               simt mereu bine.\n\n                                                    01            02           03            04           06",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75170"
+  },
+  {
+    "name_raw": "LIP FIXER",
+    "name_normalized": "LIP FIXER",
+    "description": "O textur cu un finish radiant i\n                                                               luminos care garanteaz buze mai\n                                                               fine i ofer plasticitate acestora\n                                                               i o senzaie de confort �n timpul\n                                                               aplicrii. Buzele �i vor recpta\n                                                               strlucirea cu o lumin nou i mai\n                                                               intens.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "�NGRIJIRE",
+    "code": "75185"
+  },
+  {
+    "name_raw": "SHIMMER",
+    "name_normalized": "SHIMMER",
+    "description": "O perl luminiscent care adaug\n                                                               o not final unic machiajului tu.\n                                                               O explozie de strlucire cu c�teva\n                                                               atingeri de pulbere pentru a spori\n                                                               cele mai preioase puncte ale feei.\n                                                               Formularea exclusiv permite\n                                                               aderarea la machiaj fr adaosuri\n                                                               sau liani.\n\n\"Parfumul este accesoriul de baz, de neuitat al modei, nevzut, cel care �i\nanun sosirea i �i prelungete plecarea.\"\n\n                                                                                      Coco Chanel\nDescopera intensitatea i prospeimea parfumurilor noastre. Parfumuri\nevocatoare, ameitoare i atemporale. Pentru o trezire intangibil a\nsimurilor.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "POUR HOMME",
+    "name_normalized": "POUR HOMME",
+    "description": "20101 N.101  20110 N.110           20116 N.116\n              20102 N.102  20111 N.111           20118 N.118\n              20103 N.103  20112 N.112           20119 N.119\n              20105 N.105  20114 N.114           20120 N.120\n              20106 N.106  20115 N.115           20121 N.121\n              20109 N.109\n                           Citrice - Floral\n150                        Condimentat - Lemnos\n                           Vanilie - Ambrat",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "POUR FEMME",
+    "name_normalized": "POUR FEMME",
+    "description": "20201 N. 201   20208 N. 208     20223 N. 223\n20202 N. 202   20211 N. 211     20224 N. 224\n20203 N. 203   20213 N. 213     20225 N. 225\n20204 N. 204   20216 N. 216     20226 N. 226\n20205 N. 205   20219 N. 219     20227 N. 227\n20206 N. 206   20221 N. 221     20228 N. 228\n20207 N. 207   20222 N. 222     20229 N. 229\n\n              Floral - Citrice                               151\n              Vanilie - Lemnos\n              Floral - Proaspt",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "PARFUMURI DE CAMER",
+    "name_normalized": "PARFUMURI DE CAMER",
+    "description": "250 ml 500 ml           1l",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "PORTO AZZURRO",
+    "name_normalized": "PORTO AZZURRO",
+    "description": "Parfum de camer\n                 cu arom de briz de mare.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "ESTATE AL FORTE",
+    "name_normalized": "ESTATE AL FORTE",
+    "description": "Parfum de camer\n                 cu arom de smochine i mosc.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "LIMONAIA",
+    "name_normalized": "LIMONAIA",
+    "description": "Un parfum de camer\n                 cu arom de lm�i siciliene.\n\n               250 ml 500 ml                                                                                   1l\n\n               Parfum de camer\n               cu arom de rou nobil.\n\n               Parfum de camer\n               cu arom oriental.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": "00641"
+  },
+  {
+    "name_raw": "PRATO FIORITO",
+    "name_normalized": "PRATO FIORITO",
+    "description": "Parfum de camer\n               cu arom floral.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "COLLINE SENESI",
+    "name_normalized": "COLLINE SENESI",
+    "description": "Parfum de camer                       CHOOSE YOUR\n                          cu arom de flori de in.                 LANGUAGE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "FIESOLE",
+    "name_normalized": "FIESOLE",
+    "description": "Un parfum de camer cu arom de\n                          lemn de santal i piersic.\n\n                          8 mostre de 10 ml\n                          �n aromele disponibile.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": "00650"
+  },
+  {
+    "name_raw": "REZERV",
+    "name_normalized": "REZERV",
+    "description": "Parfumuri de camer - REZERV\n\n PORTO      ESTATE           LIMONAIA     CASTELLI",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "AZZURRO    AL FORTE          DEI MEDICI  IN CHIANTI",
+    "name_normalized": "AZZURRO AL FORTE DEI MEDICI IN CHIANTI",
+    "description": "GIARDINO    PRATO            COLLINE     FIESOLE",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "PARFUMURI",
+    "code": null
+  },
+  {
+    "name_raw": "DI BOBOLI  FIORITO            SENESI",
+    "name_normalized": "DI BOBOLI FIORITO SENESI",
+    "description": "\"Rutile mici sunt sursele durerii noastre. Oamenii nu se �mpiedic �n muni,\nci �n pietre.\"\n\n                                                                                     Proverb Antic\nArticolele de �mbrcminte din linia EaseLine sunt fabricate dintr-un fir\ninovator care reflect razele infraroii emise de organism i le returneaz\ncu aceeai lungime de und, uur�nd astfel durerea i inflamaia. Studiile\nclinice arat c acestea sunt active i asupra celulitei.\nPentru bunstarea zilnic �ntr-o form purtabil.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": null
+  },
+  {
+    "name_raw": "PANTS",
+    "name_normalized": "PANTS",
+    "description": "S-M-L\n\n                      DISPONIBIL �N MRIMILE\n                      XS - S - M - L - XL",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": "4000502"
+  },
+  {
+    "name_raw": "MAIOU",
+    "name_normalized": "MAIOU",
+    "description": "DISPONIBIL �N MRIMILE\n                      S-M-L",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": null
+  },
+  {
+    "name_raw": "PANTS",
+    "name_normalized": "PANTS",
+    "description": "DISPONIBIL �N\n                      MRIMILE M - L",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": null
+  },
+  {
+    "name_raw": "TRICOU",
+    "name_normalized": "TRICOU",
+    "description": "de �mbrcminte a fost produs\n                     DISPONIBIL �N       cu un fir inovator care acioneaz\n                     MRIMILE M - L - XL  asupra durerii i inflamaiei prin\n                                         reflectarea razelor infraroii emise\n                           CHOOSE YOUR   de organism i returnarea lor cu\n                             LANGUAGE    aceeai lungime de und. Studiile\n                                         clinice arat c firul este activ\n                                         asupra celulitei.\n                                         Recomandat �n cazul durerilor\n                                         cauzate de artrit, artroz,\n                                         inflamaii articulare i traumatisme.\n\n                                         Acesta transform cldura emis\n                                         de corpul uman �n energie vital\n                                         nou.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": null
+  },
+  {
+    "name_raw": "EARFA",
+    "name_normalized": "EARFA",
+    "description": "�nregistrat la Ministerul Sntii ca\n                                         suport de activitate. �mbuntete\n                                         performana sportiv. Dispozitiv\n                                         medical FR contraindicaii.\n\n                                                                DISPONIBIL �N MRIMILE\n                                                                M-L",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO MOLECOLE",
+    "code": "4000506"
+  },
+  {
+    "name_raw": "�NCLZITOR DE G�T",
+    "name_normalized": "NCLZITOR DE GT",
+    "description": "DISPONIBIL �N MRIMILE\n                   M-L\n\n          A                                     PANTS WOMAN              Msuri\n           L\n\n                            H                                         25,5 cm   38 cm  12 cm\n B                                      00501FS  S           25 cm                     13 cm\n                                                                                       14 cm\n         A                              00501FM  M           27 cm    30 cm 40 cm\n         L\n                                        00501FL  L           29 cm    32 cm 42 cm\n                            H\nB                                                PANTS MEN               Msuri\n\n     L\n                                        00501MM  M           28 cm    31 cm 44 cm 12,5 cm\n                          H\n                                        00501ML  L           30 cm    33,5 cm 46,5 cm 14 cm\n   A\n    L                                            MAIOU                   Msuri\n\n                                        00503S      S        17 cm       30 cm          53 cm\nB                                       00503M     M         17 cm       32 cm         56,5 cm\n         A                              00503L      L        21 cm       36 cm          60 cm\n\n                                     H           LEGGINGS                Msuri\n\n                                                                                       8 cm\n                                        00502XS  XS          24 cm 28 cm 70 cm         9 cm\n                                                                                       9 cm\n                                        00502S   S           24 cm 28,5 cm 75 cm       10 cm\n                                                                                       11 cm\n                                        00502M   M           27 cm 30,5 cm 76 cm\n\n                                        00502L   L           30,5 cm 33 cm 79 cm\n                                        00502XL\n                                                 XL          30,5 cm 37,5 cm 82 cm\n\n                                        00504M               39,5 cm        L          60 cm\n                                        00504L    Size        43 cm      44 cm         65 cm\n                                        00504XL     M                    49 cm         69 cm\n                                                    L                    49 cm\n\n                                                 XL          43 cm\n\n                    BE\n\n\"Cred c a avea pm�nt i a nu-l strica este cea mai frumoas form\nde art pe care i-o poi dori.\"\n\n                                                                                     Andy Warhol\nBazat pe microorganisme eficiente, acest detergent probiotic este perfect\npentru curarea �ntregii case. Organic i lipsit de efecte toxice asupra\nsntii noastre, acesta contracareaz �n mod natural germenii patogeni,\nmirosurile neplcute i alergenii, fc�nd camerele mai sntoase i mai\ncurate.\n\"Combinaia de aproximativ 80 de microorganisme este capabil s\ndescompun materia organic �ntr-un mod care promoveaz viaa\"\n\n                                                                                        Teruo Higa",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO EFFECTIVE",
+    "code": "4000509"
+  },
+  {
+    "name_raw": "BIO EFFECTIVE",
+    "name_normalized": "BIO EFFECTIVE",
+    "description": "CHOOSE YOUR                    CHOOSE YOUR\n                      LANGUAGE                       LANGUAGE\n\n                 HOME                              GARDEN",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "BIO EFFECTIVE",
+    "code": "00556"
+  },
+  {
+    "name_raw": "TRAVEL SET SPRAY                 PETS",
+    "name_normalized": "TRAVEL SET SPRAY PETS",
+    "description": "6 sticle de 100 ml marca Snep pentru\n                                      a le �mprti i a purta mereu cu tine\n                                      produsele tale preferate chiar i �n\n                                      avion.\n\nTREI CATEGORII DE MICROORGANISME\n\n1. Microorganisme patogene i de putrefacie\n2. Microorganisme regenerative sau fermentative\n3. Microorganisme neutre, oportuniste\nPotrivit prof. Higa exist doar c�teva familii de microorganisme care decid dac �ntr-un\nmediu trebuie s se dezvolte procese regenerative sau procese degenerative.\n\nMajoritatea microorganismelor se comport ca oportuniste, adic sprijin �ntotdeauna\ngrupul cel mai numeros. �ntr-un mediu neutru raportul este echilibrat i niciun grup nu este\ndominant. Aceast situaie este �ns foarte rar �n natur, dac apare, este doar pentru scurt\ntimp. Un mediu nesntos este dominat de bacterii patogene i de putrefacie care atrag\noportunitii de partea lor. Acesta este cazul multor terenuri cultivate cu o ampl utilizare\na erbicidelor i a �ngrmintelor sintetice care distrug microorganismele. �n aceast\nsituaie,germenii patogeni devin mai puternici.\n\nTerenurile sunt srace i permit creterea doar a unor plante slab dezvoltate sau bolnave.\nPrin urmare, pentru a obine o recolt sigur trebuie utilizate multe �ngrminte i erbicide.\n\nAcest lucru nu se �nt�mpl doar �n agricultur. Chiar i �n casele noastre, i �n toate mediile\n�nchise, prezena microorganismelor patogene �n aer i pe suprafee, precum i folosirea\nproduselor chimice de curare sau a dezinfectanilor, au favorizat dezvoltarea tulpinilor\npatogene rezistente. Cu ajutorul microorganismelor efective, putem �mbuntii orice mediu:\n�ntr-adevr nu au contraindicaii, nu provoac alergii i sunt sigure pentru om i pentru\nanimale Poluarea prezent �n interiorul locuinelor noastre, poate fi de 50 de ori mai mare\ndec�t poluarea extern.\n\nAcest lucru se datoreaz unor diferii factori: prezena prafului, a alergenilor, mucegaiului,\nviruilor, bacteriilor i reziduurilor chimice derivate din folosirea detergenilor i a\ndezinfectanilor. Unele persoane sufer de alergii, durere de cap, dermatite care se\nmanifest �n special �n interiorul propriei locuine sau la locul de munc. Este vorba despre\nSindromul cldirii bolnave, patologie care este �ntr-o cretere rapid. �n plus, unele produse\nchimice provoac rezistena bacterian, ceea ce face ca mediul s devin contaminat chimic\ni bacteriologic.\n\nCe putem face s ne �ntoarcem la un mediu sntos?\nMicroorganismele Efective vin �n ajutorul nostru, control�nd germenii patogeni, mirosurile\nneplcute, i alergenii i fc�nd ca mediuls devin mai sntos i mai curat. Cu\nMicroorganismele efective este posibil curarea i dezinfectarea mediilor i a suprafeelor\nprin utilizarea unui produs biologic, natural i fr efecte toxice pentru sntatea noastr.\n\nHydropura �i face apa de la robinet pur, sntoas i indispensabil\npentru bunstarea ta.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "HYDROPURA",
+    "code": "90105"
+  },
+  {
+    "name_raw": "HYDROPURA",
+    "name_normalized": "HYDROPURA",
+    "description": "WWW.HYDROPURA.IT\n\nOSMOZ INVERS\nProcesul de osmoz invers nu acioneaz ca un simplu filtru. Este\nsingurul sistem capabil s elimine 95%-99% din substanele toxice, viruii\ni bacterii, fac�nd ca apa de la rubinet s fie la fel de pur i lejer ca apa\nde la izvor.\n\nHYDROGENERATOR\nO adevrat inovaie �n domeniul hidrogenrii. Conceput pentru a produce\nap cu o concentraie mare de hidrogen, fr a modifica pH-ul.\n\nFILTRU EXTERN\nPrezena unui filtru extern, pentru impuriti de p�n la 5 microni, care\nnu numai c microfiltreaz, ci i protejeaz �ntregul sistem. Filtru care\nse poate �nlocui cu uurin datorit poziiei sale externe care faciliteaz\n�ntreinerea.\n\nHydropura este instalat de un tehnician profesionist sub chiuvet, care �i va\nanaliza apa.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "HYDROPURA",
+    "code": "90050"
+  },
+  {
+    "name_raw": "FILTRU HYDROPURA",
+    "name_normalized": "FILTRU HYDROPURA",
+    "description": "Filtrul trebuie �nlocuit aproximativ la fiecare\n                  5.000/6.000 de litri i cel puin o dat pe an. Dac\n                  aparatul nu este utilizat mai mult de 20 de zile, v\n                  recomandm s �nlocuii filtrul.",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "HYDROPURA",
+    "code": "90550"
+  },
+  {
+    "name_raw": "STICLA SNEP HYDROPURA",
+    "name_normalized": "STICLA SNEP HYDROPURA",
+    "description": "PUNE HYDROPURA PE MASA\n                  Sticl de 75 cl din sticl franuzeasc extra-alb -\n                  Clasa A - certificat CEE - 100% reciclabil\n\nLista de preuri\n     Price list\n\nwww.mysnep.com\n\n                Ediie: Noiembrie 2025\n  NOTES\n\nSNEP SPA\nViale Italia 1, - 56038 - Ponsacco (PI)\nItaly - +39 0587 466220\nwww.mysnep.com\n  NOTES\n\nSNEP SPA\nViale Italia 1, - 56038 - Ponsacco (PI)\nItaly - +39 0587 466220\nwww.mysnep.com\n  NOTES\n\nSNEP SPA\nViale Italia 1, - 56038 - Ponsacco (PI)\nItaly - +39 0587 466220\nwww.mysnep.com\nYour well being solution",
+    "ingredients": null,
+    "usage_info": null,
+    "warnings": null,
+    "category_hint": "HYDROPURA",
+    "code": "90108V"
+  }
+]
