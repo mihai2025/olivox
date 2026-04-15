@@ -43,7 +43,7 @@ export async function GET(request: Request) {
 
   let query = supabase
     .from("products")
-    .select("id, name, slug, r2_image_url, image_url, print_image_url, price, category_slugs, short_description", { count: "exact" });
+    .select("id, name, slug, r2_image_url, image_url, price, currency, category_slugs, short_description, sku, stock_status", { count: "exact" });
 
   if (category) {
     query = query.contains("category_slugs", [category]);
