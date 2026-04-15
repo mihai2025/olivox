@@ -121,10 +121,13 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
       const inBad = (el: Element) => BAD_ANCESTORS.some(sel => el.closest(sel));
 
       let description = "";
+      const looksLikeProductCard = (el: HTMLElement) => !!el.querySelector("a[href*='-A'][href*='.html']");
+
       for (const sel of [".descrizione", ".cat-desc", ".intro", "#intro", "#contenuto > p", "main > p"]) {
         const els = Array.from(document.querySelectorAll(sel)) as HTMLElement[];
         for (const c of els) {
           if (inBad(c)) continue;
+          if (looksLikeProductCard(c)) continue;
           const t = (c.textContent || "").trim();
           if (t.length > 40 && !BAD_TEXT.test(t)) { description = c.innerHTML || t; break; }
         }
@@ -134,6 +137,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
         const ps = Array.from(document.querySelectorAll("p"));
         for (const p of ps) {
           if (inBad(p)) continue;
+          if (looksLikeProductCard(p)) continue;
           const t = (p.textContent || "").trim();
           if (t.length > 40 && !BAD_TEXT.test(t)) { description = p.outerHTML; break; }
         }
@@ -185,31 +189,32 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
     }
 
     const items = await page.$$eval("a[href*='-A']", (as) => {
+      // First pass: collect codes of anchors whose text contains "Cod: NNNN" (main grid signature)
+      const codesWithLabel = new Set<string>();
+      for (const a of as as HTMLAnchorElement[]) {
+        if (a.href.startsWith("javascript:")) continue;
+        if (/-AC\d+/i.test(a.href)) continue;
+        const m = a.href.match(/\/([a-z0-9-]+)-A(\d+)/i);
+        if (!m) continue;
+        const txt = (a.textContent || "").trim();
+        if (/Cod:\s*\d+/i.test(txt)) codesWithLabel.add(`A${m[2]}`);
+      }
+
+      // Second pass: keep ONE anchor per product code (prefer the one with the product name text)
       const results: { href: string; text: string }[] = [];
       const seen = new Set<string>();
       for (const a of as as HTMLAnchorElement[]) {
         if (a.href.startsWith("javascript:")) continue;
+        if (/-AC\d+/i.test(a.href)) continue;
         const m = a.href.match(/\/([a-z0-9-]+)-A(\d+)/i);
         if (!m) continue;
-        if (/-AC\d+/i.test(a.href)) continue;
         const code = `A${m[2]}`;
+        if (!codesWithLabel.has(code)) continue;
         if (seen.has(code)) continue;
-
-        // Require: anchor has product image, OR nearby EUR price, OR nearby nel_carrello button
-        let isProduct = false;
-        if (a.querySelector("img[src*='Articoli/big']")) isProduct = true;
-        if (!isProduct) {
-          let cur: Element | null = a.parentElement;
-          for (let i = 0; i < 5 && cur && !isProduct; i++) {
-            if (cur.querySelector("[onclick*='nel_carrello'], [href*='nel_carrello']")) isProduct = true;
-            else if (/EUR\s*\d/.test((cur as HTMLElement).innerText || cur.textContent || "")) isProduct = true;
-            cur = cur.parentElement;
-          }
-        }
-        if (!isProduct) continue;
-
+        const txt = (a.textContent || "").trim();
+        if (!txt) continue;
         seen.add(code);
-        results.push({ href: a.href, text: (a.textContent || "").trim() });
+        results.push({ href: a.href, text: txt });
       }
       return results;
     });
