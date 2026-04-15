@@ -265,7 +265,10 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
 type ProdData = {
   source_id: string; slug: string; name: string; sku: string | null;
   quantity: string | null; points: number | null; stock_status: string;
-  price: number | null; short_description: string; description: string;
+  price: number | null; currency: string;
+  short_description: string; description: string;
+  ingredients: string | null; warnings: string | null;
+  datasheet_url: string | null;
   image_src: string | null; source_url: string; category_codes: string[];
   variants: { id: string; name: string }[];
 };
@@ -317,11 +320,17 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       let bodyText = "";
       const main = document.querySelector("main") || document.querySelector("#contenuto") || document.body;
       bodyText = (main as HTMLElement).innerText || "";
-      const priceMatch = bodyText.match(/EUR\s*([\d.,]+)/);
-      const price = priceMatch ? Number(priceMatch[1].replace(/\./g, "").replace(",", ".")) : null;
-
       const allText = document.body.innerText || "";
-      const skuMatch = bodyText.match(/Cod:\s*(\w+)/i) || allText.match(/Cod:\s*(\w+)/i);
+      const priceMatch = bodyText.match(/(EUR|RON|USD)\s*([\d.,]+)/i) || allText.match(/(EUR|RON|USD)\s*([\d.,]+)/i);
+      const currency = priceMatch ? priceMatch[1].toUpperCase() : "EUR";
+      const price = priceMatch ? Number(priceMatch[2].replace(/\./g, "").replace(",", ".")) : null;
+
+      // SKU: prefer longer "Cod produs: NNNNNNN" from product detail page; fallback to short "Cod: NNN" from listing
+      const skuMatch =
+        bodyText.match(/Cod\s*produs[:\s]*(\w+)/i) ||
+        allText.match(/Cod\s*produs[:\s]*(\w+)/i) ||
+        bodyText.match(/Cod:\s*(\w+)/i) ||
+        allText.match(/Cod:\s*(\w+)/i);
       const sku = skuMatch ? skuMatch[1] : null;
 
       // Quantity: .small > p (e.g. "8 ml", "1 Litru", "60 gummies")
@@ -403,9 +412,9 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
           .trim();
       };
 
-      // Description: prefer dedicated containers (mysnep uses #one as the "Descrizione" tab)
+      // Description: pull text from the "Descriere" tab (usually #one) and similar
       let description = "";
-      for (const sel of ["#one", "#descrizione", ".descrizione", "#scheda-prodotto", ".scheda-prodotto", ".product-description", ".tab-content"]) {
+      for (const sel of ["#one", "#descrizione", ".descrizione", "#scheda-prodotto", ".scheda-prodotto", ".product-description"]) {
         const el = document.querySelector(sel) as HTMLElement | null;
         if (el && !inBad(el)) {
           const h = el.innerHTML || "";
@@ -413,7 +422,6 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         }
       }
 
-      // Fallback: walk all <p>, skip cookie/privacy/empty
       if (!description) {
         const ps = Array.from(document.querySelectorAll("p"));
         const good = ps.filter(p => {
@@ -427,6 +435,39 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       }
 
       if (description) description = cleanHtml(description);
+
+      // Other tabs: "Ce este înăuntru" / "Ingredienti" = ingredients, "Avertismente" / "Avvertenze" = warnings
+      // Tabs on mysnep are typically #two, #three, #four — map by tab-link label text
+      let ingredients: string | null = null;
+      let warnings: string | null = null;
+
+      const tabLinks = Array.from(document.querySelectorAll("a[href^='#']")) as HTMLAnchorElement[];
+      for (const link of tabLinks) {
+        const href = link.getAttribute("href") || "";
+        if (!/^#\w+$/.test(href)) continue;
+        const target = document.querySelector(href) as HTMLElement | null;
+        if (!target || inBad(target)) continue;
+        const label = (link.textContent || "").trim().toLowerCase();
+        const html = (target.innerHTML || "");
+        const clean = cleanHtml(html);
+        const plainLen = clean.replace(/<[^>]+>/g, "").trim().length;
+        if (plainLen < 20) continue;
+
+        if (/ce este [îi]n[ăa]untru|cosa c['']?[èe] dentro|ingredient|compozi[țt]/i.test(label)) {
+          if (!ingredients || clean.length > ingredients.length) ingredients = clean;
+        } else if (/avertismente|avvertenze|warning|aten[țt]/i.test(label)) {
+          if (!warnings || clean.length > warnings.length) warnings = clean;
+        }
+      }
+
+      // Datasheet: find PDF link (technical specifications / scheda tecnica)
+      let datasheet_url: string | null = null;
+      const pdfLinks = Array.from(document.querySelectorAll("a[href$='.pdf'], a[href*='.pdf?']")) as HTMLAnchorElement[];
+      for (const a of pdfLinks) {
+        if (inBad(a)) continue;
+        datasheet_url = a.href;
+        break;
+      }
 
       // Short: derive from the description we just extracted (its first paragraph)
       let short = "";
@@ -446,7 +487,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
         }
       }
 
-      return { name, price, sku, quantity, points, stock_status, image_src, description, short, variants };
+      return { name, price, currency, sku, quantity, points, stock_status, image_src, description, short, variants, ingredients, warnings, datasheet_url };
     });
 
     const codeMatch = url.match(/-A(\d+)/);
@@ -461,8 +502,12 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fall
       points: data.points,
       stock_status: data.stock_status,
       price: data.price,
+      currency: data.currency || "EUR",
       short_description: data.short,
       description: data.description,
+      ingredients: data.ingredients,
+      warnings: data.warnings,
+      datasheet_url: data.datasheet_url,
       image_src: data.image_src,
       source_url: url,
       category_codes: [],
@@ -489,26 +534,38 @@ async function upsertCategory(cat: CatRef, imageR2: string | null, description: 
   if (error) console.error("  category upsert:", error.message);
 }
 
-async function upsertProduct(p: ProdData, imageR2: string | null, categorySlug: string) {
-  if (DRY_RUN) { console.log("  [dry] product", p.slug); return; }
-  const { error } = await supabase.from("products").upsert({
+async function upsertProduct(p: ProdData, imageR2: string | null, datasheetR2: string | null, categorySlug: string) {
+  if (DRY_RUN) { console.log("  [dry] product", p.slug, p.sku ? `(sku=${p.sku})` : "", p.variants.length ? `(${p.variants.length} variants)` : "", p.datasheet_url ? "(pdf)" : ""); return; }
+  const build = (slug: string) => ({
     source_id: p.source_id,
     name: p.name,
-    slug: p.slug,
+    slug,
     sku: p.sku,
     quantity: p.quantity,
     points: p.points,
     stock_status: p.stock_status,
     price: p.price,
+    currency: p.currency,
     short_description: p.short_description,
     description: p.description,
+    ingredients: p.ingredients,
+    warnings: p.warnings,
+    datasheet_url: p.datasheet_url,
+    datasheet_r2_url: datasheetR2,
     r2_image_url: imageR2,
     image_url: p.image_src,
     source_url: p.source_url,
     variants: p.variants,
     category_slugs: [categorySlug],
-    currency: "EUR",
-  }, { onConflict: "slug" });
+  });
+  // Upsert on source_id (mysnep product code is authoritative)
+  let { error } = await supabase.from("products").upsert(build(p.slug), { onConflict: "source_id" });
+  if (error && /duplicate key|unique constraint|23505/i.test(error.message)) {
+    // Slug collides with a different source_id — suffix and retry
+    const uniqueSlug = `${p.slug}-${p.source_id.toLowerCase()}`;
+    const retry = await supabase.from("products").upsert(build(uniqueSlug), { onConflict: "source_id" });
+    error = retry.error;
+  }
   if (error) console.error("  product upsert:", error.message);
 }
 
@@ -560,7 +617,13 @@ async function main() {
         imageR2 = await uploadImageToR2(data.image_src, key);
       }
 
-      await upsertProduct(data, imageR2, cat.slug);
+      let datasheetR2: string | null = null;
+      if (data.datasheet_url) {
+        const key = `${R2_UPLOAD_PREFIX}/datasheets/${data.source_id.toLowerCase()}.pdf`;
+        datasheetR2 = await uploadImageToR2(data.datasheet_url, key);
+      }
+
+      await upsertProduct(data, imageR2, datasheetR2, cat.slug);
       await sleep(600);
     }
   }
