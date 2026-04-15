@@ -89,7 +89,7 @@ export default function Header() {
                 )}
                 {categories.map((cat) => (
                   <a key={cat.id} href={`/produse/${cat.slug}`} className="cat-nav__item">
-                    {cat.name.toUpperCase()}
+                    {cat.name}
                   </a>
                 ))}
               </div>

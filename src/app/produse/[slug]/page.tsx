@@ -7,6 +7,15 @@ interface Props {
 
 const PER_PAGE = 24;
 
+async function getCategory(slug: string) {
+  const { data } = await supabase
+    .from("product_categories")
+    .select("name, description")
+    .eq("slug", slug)
+    .single();
+  return data;
+}
+
 async function getProducts(categorySlug: string, page: number) {
   const from = (page - 1) * PER_PAGE;
   const to = from + PER_PAGE - 1;
@@ -30,10 +39,25 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const sp = await searchParams;
   const page = Math.max(1, parseInt(sp.page || "1", 10));
 
-  const { products, totalPages } = await getProducts(slug, page);
+  const [category, { products, totalPages }] = await Promise.all([
+    getCategory(slug),
+    getProducts(slug, page),
+  ]);
+
+  const plainDesc = (category?.description || "").replace(/<[^>]+>/g, "").trim();
+  const titleCase = (s: string) => (s || "").toLowerCase().split(" ").map((w: string) => w.length ? w[0].toUpperCase() + w.slice(1) : w).join(" ");
+  const displayName = titleCase(category?.name || slug);
 
   return (
     <>
+      <nav className="breadcrumb">
+        <a href="/">Acasa</a> / <a href="/categorii">Produse</a> / <span>{displayName}</span>
+      </nav>
+      <div className="cat-header">
+        <h1 className="cat-header__title">{displayName}</h1>
+        {plainDesc && <p className="cat-header__desc">{plainDesc}</p>}
+      </div>
+
       {products.length === 0 ? (
         <div className="products-loading">Niciun produs in aceasta categorie.</div>
       ) : (

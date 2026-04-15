@@ -2394,9 +2394,9 @@ a.pagination__btn {
    PRODUCT DETAIL — premium natural layout
    ======================================================================= */
 .pd-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 20px 80px;
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 0 60px;
 }
 
 .pd-hero {
@@ -2542,21 +2542,48 @@ a.pagination__btn {
 .pd-form__summary {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 14px 0;
-  margin-top: 8px;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 16px 0 12px;
+  margin-top: 10px;
   border-top: 1px solid var(--color-border);
-  font-size: 0.82rem;
+}
+.pd-form__qty { display: flex; flex-direction: column; gap: 6px; max-width: 140px; flex: 0 0 auto; }
+.pd-form__qty label {
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
-.pd-form__summary strong {
+.pd-form__qty input {
+  font-family: var(--font);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  width: 100%;
+}
+.pd-form__qty input:focus { outline: none; border-color: var(--color-primary); background: #fff; }
+.pd-form__total {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pd-form__total span {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.pd-form__total strong {
   font-family: var(--font-serif);
   font-size: 1.6rem;
   color: var(--color-primary);
-  text-transform: none;
-  letter-spacing: 0;
+  line-height: 1;
 }
 
 .pd-form__submit {

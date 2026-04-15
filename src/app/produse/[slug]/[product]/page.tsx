@@ -37,7 +37,6 @@ export default function ProductPage() {
   const [address, setAddress] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [observations, setObservations] = useState("");
-  const [shippingMethod, setShippingMethod] = useState("Sameday curier");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -72,7 +71,6 @@ export default function ProductPage() {
           customer_email: customerEmail,
           address,
           observations,
-          shipping_method: shippingMethod,
           order_value: Number(product.price) * Number(quantity),
         }),
       });
@@ -143,24 +141,13 @@ export default function ProductPage() {
               <label>Telefon *</label>
               <input type="tel" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
             </div>
-            <div className="pd-form__row">
+            <div className="pd-form__row pd-form__row--full">
               <label>Email</label>
               <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />
-            </div>
-            <div className="pd-form__row">
-              <label>Metoda livrare</label>
-              <select value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
-                <option value="Sameday curier">Sameday curier</option>
-                <option value="Sameday easybox">Sameday easybox</option>
-              </select>
             </div>
             <div className="pd-form__row pd-form__row--full">
               <label>Adresa livrare *</label>
               <textarea required rows={2} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Judet, localitate, strada, numar" />
-            </div>
-            <div className="pd-form__row">
-              <label>Cantitate</label>
-              <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
             </div>
             <div className="pd-form__row pd-form__row--full">
               <label>Observatii</label>
@@ -169,8 +156,14 @@ export default function ProductPage() {
           </div>
 
           <div className="pd-form__summary">
-            <span>Total</span>
-            <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
+            <div className="pd-form__qty">
+              <label>Cantitate</label>
+              <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} />
+            </div>
+            <div className="pd-form__total">
+              <span>Total</span>
+              <strong>{total.toFixed(2).replace(".", ",")} {currency}</strong>
+            </div>
           </div>
           {errorMsg && <p className="pd-form__error">{errorMsg}</p>}
           <button type="submit" className="pd-form__submit" disabled={submitting || !inStock}>

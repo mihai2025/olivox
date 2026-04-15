@@ -65,7 +65,6 @@ export default async function CategoryLayout({ params, children }: Props) {
   }
 
   const url = `https://olivox.ro/produse/${slug}`;
-  const plainDesc = (category.description || "").replace(/<[^>]+>/g, "").trim();
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -82,16 +81,10 @@ export default async function CategoryLayout({ params, children }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="page-wrapper">
         <Header />
-        <nav className="breadcrumb">
-          <a href="/">Acasa</a> / <a href="/categorii">Produse</a> / <span>{category.name}</span>
-        </nav>
-        <div className="cat-header">
-          <h1 className="cat-header__title">{category.name}</h1>
-          {plainDesc && <p className="cat-header__desc">{plainDesc}</p>}
-        </div>
         {children}
         <Footer />
       </div>
     </>
   );
 }
+

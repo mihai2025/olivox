@@ -62,7 +62,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductLayout({ params, children }: Props) {
   const { slug: categorySlug, product: productSlug } = await params;
   const product = await getProduct(productSlug);
-  const categoryName = await getCategoryName(categorySlug);
+  const rawCategoryName = await getCategoryName(categorySlug);
+  const categoryName = (rawCategoryName || "").toLowerCase().split(" ").map((w: string) => w.length ? w[0].toUpperCase() + w.slice(1) : w).join(" ");
 
   if (!product) return <>{children}</>;
 
