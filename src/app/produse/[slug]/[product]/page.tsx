@@ -114,9 +114,11 @@ export default function ProductPage() {
 
           <h1 className="pd-hero__name">{product.name}</h1>
 
-          {product.short_description && (
-            <p className="pd-hero__short">{product.short_description.replace(/<[^>]+>/g, "")}</p>
-          )}
+          {product.short_description && (() => {
+            const plain = product.short_description.replace(/<[^>]+>/g, "").trim();
+            const clipped = plain.length > 180 ? plain.slice(0, 177).replace(/\s+\S*$/, "") + "..." : plain;
+            return <p className="pd-hero__short">{clipped}</p>;
+          })()}
 
           <div className="pd-hero__price-row">
             <div className="pd-hero__price">
