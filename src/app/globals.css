@@ -8,21 +8,26 @@
 }
 
 :root {
-  --color-primary: #1a1a2e;
-  --color-accent: #e94560;
-  --color-accent-hover: #d63851;
-  --color-bg: #f8f9fc;
-  --color-surface: #ffffff;
-  --color-border: #e2e6ef;
-  --color-text: #1a1a2e;
-  --color-text-muted: #6b7280;
-  --color-success: #10b981;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  /* Olivox — natural / premium olive palette */
+  --color-primary: #2f4a36;        /* deep olive / forest green */
+  --color-primary-soft: #4a6b50;   /* muted sage for secondary surfaces */
+  --color-accent: #b8873a;         /* warm extra-virgin gold */
+  --color-accent-hover: #9a6f2b;   /* darker amber on hover */
+  --color-bg: #faf7ee;              /* warm ivory / unbleached cream */
+  --color-bg-soft: #f3eee0;        /* slightly deeper warm tone */
+  --color-surface: #ffffff;         /* pure white cards */
+  --color-border: #e2dac3;         /* warm beige border */
+  --color-text: #1e2820;            /* deep olive-tinted charcoal */
+  --color-text-muted: #6d7669;     /* muted sage-gray */
+  --color-success: #5a8a4d;        /* garden sage green */
+  --color-danger: #a94442;         /* muted terracotta, not bright */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-sm: 0 1px 2px rgba(30, 40, 32, 0.04);
+  --shadow-md: 0 4px 18px rgba(30, 40, 32, 0.07);
+  --shadow-lg: 0 12px 40px rgba(30, 40, 32, 0.10);
   --font: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --transition: 0.2s ease;
 }
 
@@ -41,6 +46,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Olivox: serif display for headings, gives premium editorial feel */
+h1, h2, .h-serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--color-primary);
+}
+
+h3, h4 {
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+.eyebrow {
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 /* ===== LAYOUT ===== */
@@ -2143,7 +2173,7 @@ a.pagination__btn {
   position: relative;
   width: 100%;
   height: 380px;
-  background: #1a1a2e;
+  background: var(--color-primary);
   flex: 1;
   min-height: 0;
 }
@@ -2333,7 +2363,7 @@ a.pagination__btn {
   border-radius: 4px;
   margin-bottom: 6px;
   background: rgba(16, 185, 129, 0.12);
-  color: #10b981;
+  color: var(--color-success);
 }
 .hp-grid-card__title {
   font-size: 0.92rem;
