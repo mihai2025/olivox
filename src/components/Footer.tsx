@@ -41,6 +41,10 @@ export default function Footer() {
         </div>
       </div>
 
+      <p className="footer-trademark">
+        Toate marcile comerciale afisate pe acest site, cu exceptia cazului in care se indica altfel, sunt proprietatea SNEP SpA.
+      </p>
+
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} {c.siteName} — Toate drepturile rezervate</p>
         <div className="footer-legal-links">
