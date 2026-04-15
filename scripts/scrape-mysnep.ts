@@ -185,7 +185,7 @@ async function fetchCategoryDetail(page: Page, catUrl: string): Promise<CatDetai
 }
 
 // --------------- List products in a category (with pagination) ---------------
-type ProdRef = { code: string; slug: string; url: string; name: string };
+type ProdRef = { code: string; slug: string; url: string; name: string; sku: string | null };
 async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdRef[]> {
   const out: ProdRef[] = [];
   const seen = new Set<string>();
@@ -212,19 +212,24 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
     }
 
     const items = await page.$$eval("a[href*='-A']", (as) => {
-      // First pass: collect codes of anchors whose text contains "Cod: NNNN" (main grid signature)
-      const codesWithLabel = new Set<string>();
+      // First pass: map code -> { sku, nameText } from the anchor whose text contains "Cod: NNNN"
+      const meta = new Map<string, { sku: string | null; nameText: string }>();
       for (const a of as as HTMLAnchorElement[]) {
         if (a.href.startsWith("javascript:")) continue;
         if (/-AC\d+/i.test(a.href)) continue;
         const m = a.href.match(/\/([a-z0-9-]+)-A(\d+)/i);
         if (!m) continue;
+        const code = `A${m[2]}`;
         const txt = (a.textContent || "").trim();
-        if (/Cod:\s*\d+/i.test(txt)) codesWithLabel.add(`A${m[2]}`);
+        const skuMatch = txt.match(/Cod:\s*(\w+)/i);
+        if (skuMatch) {
+          const nameText = txt.replace(/\s*Cod:\s*\w+\s*/i, "").trim();
+          meta.set(code, { sku: skuMatch[1], nameText });
+        }
       }
 
-      // Second pass: keep ONE anchor per product code (prefer the one with the product name text)
-      const results: { href: string; text: string }[] = [];
+      // Second pass: keep ONE anchor per product code
+      const results: { href: string; text: string; sku: string | null }[] = [];
       const seen = new Set<string>();
       for (const a of as as HTMLAnchorElement[]) {
         if (a.href.startsWith("javascript:")) continue;
@@ -232,12 +237,13 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
         const m = a.href.match(/\/([a-z0-9-]+)-A(\d+)/i);
         if (!m) continue;
         const code = `A${m[2]}`;
-        if (!codesWithLabel.has(code)) continue;
+        if (!meta.has(code)) continue;
         if (seen.has(code)) continue;
-        const txt = (a.textContent || "").trim();
+        const info = meta.get(code)!;
+        const txt = info.nameText || (a.textContent || "").trim();
         if (!txt) continue;
         seen.add(code);
-        results.push({ href: a.href, text: txt });
+        results.push({ href: a.href, text: txt, sku: info.sku });
       }
       return results;
     });
@@ -248,7 +254,7 @@ async function listProductsInCategory(page: Page, catUrl: string): Promise<ProdR
       const code = `A${m[2]}`;
       if (seen.has(code)) continue;
       seen.add(code);
-      out.push({ code, slug: slugify(m[1]), url: it.href.replace(/[?#].*$/, ""), name: it.text || m[1] });
+      out.push({ code, slug: slugify(m[1]), url: it.href.replace(/[?#].*$/, ""), name: it.text || m[1], sku: it.sku });
     }
     if (LIMIT && out.length >= LIMIT) break;
   }
@@ -262,7 +268,7 @@ type ProdData = {
   image_src: string | null; source_url: string; category_codes: string[];
 };
 
-async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Promise<ProdData | null> {
+async function scrapeProduct(page: Page, url: string, fallbackSlug: string, fallbackSku: string | null = null): Promise<ProdData | null> {
   try {
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await sleep(500);
@@ -312,7 +318,8 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
       const priceMatch = bodyText.match(/EUR\s*([\d.,]+)/);
       const price = priceMatch ? Number(priceMatch[1].replace(/\./g, "").replace(",", ".")) : null;
 
-      const skuMatch = bodyText.match(/Cod:\s*(\d+)/);
+      const allText = document.body.innerText || "";
+      const skuMatch = bodyText.match(/Cod:\s*(\w+)/i) || allText.match(/Cod:\s*(\w+)/i);
       const sku = skuMatch ? skuMatch[1] : null;
 
       // Image
@@ -412,7 +419,7 @@ async function scrapeProduct(page: Page, url: string, fallbackSlug: string): Pro
       source_id,
       slug: fallbackSlug,
       name: data.name || fallbackSlug,
-      sku: data.sku,
+      sku: data.sku || fallbackSku,
       price: data.price,
       short_description: data.short,
       description: data.description,
@@ -498,7 +505,7 @@ async function main() {
 
     for (const p of prods) {
       console.log("  →", p.slug);
-      const data = await scrapeProduct(page, p.url, p.slug);
+      const data = await scrapeProduct(page, p.url, p.slug, p.sku);
       if (!data) continue;
 
       let imageR2: string | null = null;
