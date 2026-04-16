@@ -72,7 +72,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     getProducts(slug, page),
   ]);
 
-  const plainDesc = (category?.description || "").replace(/<[^>]+>/g, "").trim();
+  const descriptionHtml = (category?.description || "").trim();
   const titleCase = (s: string) => (s || "").toLowerCase().split(" ").map((w: string) => w.length ? w[0].toUpperCase() + w.slice(1) : w).join(" ");
   const displayName = titleCase(category?.name || slug);
 
@@ -89,7 +89,6 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       </nav>
       <div className="cat-header">
         <h1 className="cat-header__title">{displayName}</h1>
-        {plainDesc && <p className="cat-header__desc">{plainDesc}</p>}
       </div>
 
       {products.length === 0 ? (
@@ -130,6 +129,13 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             <span className="pagination__btn pagination__btn--disabled">Inainte &rarr;</span>
           )}
         </div>
+      )}
+
+      {descriptionHtml && (
+        <section className="cat-seo">
+          <div className="eyebrow">Despre {displayName}</div>
+          <article className="cat-seo__body" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+        </section>
       )}
     </>
   );
