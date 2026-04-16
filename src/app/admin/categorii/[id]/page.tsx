@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 
 interface CategoryData {
   id: number;
-  woo_id: number;
   name: string;
   slug: string;
   image_url: string;
@@ -14,7 +13,7 @@ interface CategoryData {
   sort_order: number;
   meta_title?: string;
   meta_description?: string;
-  seo_text?: string;
+  parent_id?: number | null;
 }
 
 export default function EditCategoryPage() {
@@ -113,7 +112,7 @@ export default function EditCategoryPage() {
         sort_order: cat.sort_order,
         meta_title: cat.meta_title,
         meta_description: cat.meta_description,
-        seo_text: cat.seo_text || "",
+        parent_id: cat.parent_id ?? null,
       }),
     });
 
@@ -166,8 +165,17 @@ export default function EditCategoryPage() {
             <input type="text" value={cat.slug} onChange={(e) => setCat({ ...cat, slug: e.target.value })} />
           </div>
           <div className="admin-edit-field">
-            <label>Descriere</label>
-            <textarea rows={4} value={cat.description || ""} onChange={(e) => setCat({ ...cat, description: e.target.value })} />
+            <label>Descriere (HTML, afisata sub produse)</label>
+            <textarea
+              rows={14}
+              value={cat.description || ""}
+              onChange={(e) => setCat({ ...cat, description: e.target.value })}
+              style={{ fontFamily: "var(--font)", lineHeight: 1.5, fontSize: "0.82rem" }}
+              placeholder="<p class='lead'>Intro...</p><p>Context...</p><h2>Ce gasesti</h2><ul><li>...</li></ul>"
+            />
+            <p style={{ fontSize: "0.72rem", color: "var(--color-text-muted)", marginTop: 4 }}>
+              Suporta HTML: p, h2, h3, ul/li, strong, a. Apare sub grid-ul de produse, cu drop-cap pe primul paragraf.
+            </p>
           </div>
           <div className="admin-edit-field">
             <label>Ordine sortare (mai mare = prima)</label>
@@ -177,24 +185,11 @@ export default function EditCategoryPage() {
           <h3 style={{ marginTop: 20 }}>SEO</h3>
           <div className="admin-edit-field">
             <label>Meta Title</label>
-            <input type="text" value={cat.meta_title || ""} onChange={(e) => setCat({ ...cat, meta_title: e.target.value })} placeholder={`${cat.name} | Huse Personalizate`} />
+            <input type="text" value={cat.meta_title || ""} onChange={(e) => setCat({ ...cat, meta_title: e.target.value })} placeholder={`${cat.name} | olivox.ro`} />
           </div>
           <div className="admin-edit-field">
             <label>Meta Description</label>
             <textarea rows={3} value={cat.meta_description || ""} onChange={(e) => setCat({ ...cat, meta_description: e.target.value })} placeholder="Descriere SEO pentru Google..." />
-          </div>
-          <div className="admin-edit-field">
-            <label>Text SEO extins (afisat in pagina, sub produse)</label>
-            <textarea
-              rows={10}
-              value={cat.seo_text || ""}
-              onChange={(e) => setCat({ ...cat, seo_text: e.target.value })}
-              placeholder={`Scrie 300-500 cuvinte despre ${cat.name.toLowerCase()}: materiale, tehnologia de print, modele compatibile, beneficii, idei de personalizare, livrare. Acest text ajuta la pozitionarea pe Google pentru cuvintele cheie vizate.\n\nSuporta HTML: <p>, <h3>, <ul>, <li>, <strong>, <a>.`}
-              style={{ fontFamily: "var(--font)", lineHeight: 1.6 }}
-            />
-            <p style={{ fontSize: "0.72rem", color: "var(--color-text-muted)", marginTop: 4 }}>
-              Suporta HTML. Apare in pagina categoriei sub grid-ul de produse.
-            </p>
           </div>
         </div>
       </div>

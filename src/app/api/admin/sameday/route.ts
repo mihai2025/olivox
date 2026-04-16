@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 import { getSiteConfig } from "@/lib/site-config";
 
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "huse2024!";
+const ADMIN_PASS = process.env.ADMIN_PASS || "olivox2026!";
 
 function checkAuth(request: Request): boolean {
   const auth = request.headers.get("authorization");
@@ -174,7 +174,7 @@ export async function GET(request: Request) {
   const action = searchParams.get("action");
   const queryAuth = searchParams.get("auth");
   const headerAuth = checkAuth(request);
-  const validKey = queryAuth && queryAuth === (process.env.ADMIN_PASS || "huse2024!");
+  const validKey = queryAuth && queryAuth === (process.env.ADMIN_PASS || "olivox2026!");
   if (!headerAuth && !validKey) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const sd = await getSamedaySettings();

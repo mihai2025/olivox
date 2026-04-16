@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { getOrders, updateOrderStatus, deleteOrder } from "@/lib/db";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "huse2024!";
+const ADMIN_PASS = process.env.ADMIN_PASS || "olivox2026!";
 
 function checkAuth(request: Request): boolean {
   const auth = request.headers.get("authorization");

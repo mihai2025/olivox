@@ -232,7 +232,7 @@ async function trackSameday(token: string, baseUrl: string) {
 }
 
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "huse2024!";
+const ADMIN_PASS = process.env.ADMIN_PASS || "olivox2026!";
 
 function checkAdminAuth(req: NextRequest): boolean {
   const auth = req.headers.get("authorization");

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 
 const WOO_URL = "https://tablostar.ro/wp-json/wc/v3";
 const WOO_KEY = "ck_d9f31e7e54ed57ad244512b36752e240a4c6bde4";

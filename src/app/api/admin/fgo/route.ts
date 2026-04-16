@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 import crypto from "crypto";
 
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "huse2024!";
+const ADMIN_PASS = process.env.ADMIN_PASS || "olivox2026!";
 const FGO_PROD_URL = "https://api.fgo.ro/v1";
 const FGO_TEST_URL = "https://api-testuat.fgo.ro/v1";
 
