@@ -58,7 +58,10 @@ export default function Header() {
     <>
       <header className="site-header">
         <div className="site-header__inner">
-          <a href="/" className="site-header__logo" dangerouslySetInnerHTML={{ __html: config.logoHtml }} />
+          <a href="/" className="site-header__logo" aria-label="olivox.ro — pagina principala">
+            <span dangerouslySetInnerHTML={{ __html: config.logoHtml }} />
+            <span className="site-header__tagline">Produse naturiste</span>
+          </a>
           <div className={`site-search ${searchOpen ? "site-search--open" : ""}`}>
             <button className="site-search__icon" onClick={toggleSearch} type="button" aria-label="Cauta">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -68,7 +71,8 @@ export default function Header() {
               onKeyDown={(e) => { if (e.key === "Enter") handleSearchSubmit(); if (e.key === "Escape") { setSearchOpen(false); setSearchQuery(""); } }}
               onBlur={() => { if (!searchQuery) setSearchOpen(false); }} />
           </div>
-          <nav className="site-header__links" style={{ display: "flex", gap: 16, alignItems: "center" }}>
+          <nav className="site-header__links" style={{ display: "flex", gap: 16, alignItems: "center" }} aria-label="Navigare principala">
+            <a href="/ghid/suplimente-alimentare-naturale" className="site-header__link">Ghiduri</a>
             <a href="/articole" className="site-header__link">Articole</a>
             <a href="/contact" className="site-header__link">Contact</a>
           </nav>
@@ -95,7 +99,7 @@ export default function Header() {
               </div>
             </nav>
             {showOverflow && (
-              <button className="cat-nav__fade" onClick={() => isMobile ? setShowModal(true) : window.location.href = "/categorii"} title="Mai multe categorii">
+              <button className="cat-nav__fade" onClick={() => isMobile ? setShowModal(true) : window.location.href = "/categorii"} title="Mai multe categorii" aria-label="Mai multe categorii">
                 ›
               </button>
             )}
@@ -108,7 +112,7 @@ export default function Header() {
           <div className="cat-modal" onClick={(e) => e.stopPropagation()}>
             <div className="cat-modal__header">
               <h3>Categorii</h3>
-              <button className="cat-modal__close" onClick={() => setShowModal(false)}>✕</button>
+              <button className="cat-modal__close" onClick={() => setShowModal(false)} aria-label="Inchide meniul de categorii">✕</button>
             </div>
             <div className="cat-modal__grid">
               {categories.map((cat) => (

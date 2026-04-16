@@ -6,9 +6,20 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/api/"],
+        disallow: ["/admin", "/api/", "/cautare?"],
       },
+      // Allow AI crawlers for brand visibility in AI-generated answers.
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "CCBot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "anthropic-ai", allow: "/" },
     ],
-    sitemap: "https://olivox.ro/sitemap.xml",
+    sitemap: [
+      "https://olivox.ro/sitemap.xml",
+      "https://olivox.ro/sitemap-images.xml",
+    ],
+    host: "https://olivox.ro",
   };
 }

@@ -1,12 +1,32 @@
 "use client";
 
 import { useConfig } from "@/lib/use-config";
+import NewsletterCapture from "./NewsletterCapture";
 
 export default function Footer() {
   const c = useConfig();
 
   return (
     <footer className="site-footer">
+      <div className="footer-trust">
+        <div className="footer-trust__item">
+          <strong>Livrare 3-5 zile</strong>
+          <span>prin curier in toata Romania</span>
+        </div>
+        <div className="footer-trust__item">
+          <strong>Produse naturiste</strong>
+          <span>distribuitor oficial Snep</span>
+        </div>
+        <div className="footer-trust__item">
+          <strong>Catalog complet Snep</strong>
+          <span>suplimente &amp; cosmetice</span>
+        </div>
+        <div className="footer-trust__item">
+          <strong>Suport clienti 24h email</strong>
+          <span>raspuns rapid la intrebari</span>
+        </div>
+      </div>
+
       <div className="footer-grid">
         <div className="footer-col">
           <div className="footer-logo" dangerouslySetInnerHTML={{ __html: c.logoHtml }} />
@@ -27,6 +47,18 @@ export default function Footer() {
           <div className="footer-links">
             <a href="/categorii">Toate categoriile</a>
             <a href="/articole">Articole</a>
+            <a href="/ghid/suplimente-alimentare-naturale">Ghiduri</a>
+          </div>
+        </div>
+
+        <div className="footer-col">
+          <h4>Olivox</h4>
+          <div className="footer-links">
+            <a href="/despre">Despre</a>
+            <a href="/de-ce-snep">De ce Snep</a>
+            <a href="/livrare-si-retur">Livrare si retur</a>
+            <a href="/intrebari-frecvente">Intrebari frecvente</a>
+            <a href="/glosar">Glosar</a>
           </div>
         </div>
 
@@ -39,6 +71,10 @@ export default function Footer() {
             <a href="/contact">Contact</a>
           </div>
         </div>
+
+        <div className="footer-col footer-col--wide">
+          <NewsletterCapture />
+        </div>
       </div>
 
       <p className="footer-trademark">
@@ -50,7 +86,7 @@ export default function Footer() {
         <div className="footer-legal-links">
           <a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC</a>
           <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">SOL</a>
-          <a href="/admin" title="Admin" style={{ opacity: 0.3 }}>⚙</a>
+          <a href="/admin" title="Admin" aria-label="Panou administrare" style={{ opacity: 0.3 }}>⚙</a>
         </div>
       </div>
 

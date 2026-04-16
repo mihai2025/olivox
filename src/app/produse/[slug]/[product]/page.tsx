@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useParams } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 interface Product {
   id: number;
@@ -48,7 +50,14 @@ export default function ProductPage() {
       .then((r) => r.json())
       .then((data) => {
         const p = data?.product || (Array.isArray(data?.products) ? data.products[0] : null) || data;
-        if (p && p.id) setProduct(p as Product);
+        if (p && p.id) {
+          setProduct(p as Product);
+          trackEvent("view_item", {
+            currency: (p as Product).currency || "RON",
+            value: Number((p as Product).price) || 0,
+            items: [{ item_id: (p as Product).id, item_name: (p as Product).name, price: (p as Product).price }],
+          });
+        }
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -80,6 +89,20 @@ export default function ProductPage() {
         const d = await res.json().catch(() => ({}));
         throw new Error(d?.error || "Eroare la plasarea comenzii");
       }
+      const orderData = await res.json().catch(() => ({}));
+      const value = Number(product.price) * Number(quantity);
+      const currency = product.currency || "RON";
+      trackEvent("add_to_cart", {
+        currency,
+        value,
+        items: [{ item_id: product.id, item_name: product.name, quantity, price: product.price }],
+      });
+      trackEvent("purchase", {
+        transaction_id: orderData?.id ? String(orderData.id) : undefined,
+        currency,
+        value,
+        items: [{ item_id: product.id, item_name: product.name, quantity, price: product.price }],
+      });
       setSuccess(true);
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Eroare");
@@ -100,7 +123,26 @@ export default function ProductPage() {
     <div className="pd-wrap">
       <section className="pd-hero">
         <div className="pd-hero__media">
-          {image && <img src={image} alt={product.name} className="pd-hero__img" />}
+          {image && (() => {
+            let optimized = false;
+            try {
+              const h = new URL(image).hostname;
+              optimized = h === "media.ghidulfunerar.ro" || h === "huse.gravpoint.ro";
+            } catch {}
+            return optimized ? (
+              <Image
+                src={image}
+                alt={product.name}
+                width={640}
+                height={640}
+                sizes="(max-width: 768px) 100vw, 480px"
+                className="pd-hero__img"
+                priority
+              />
+            ) : (
+              <img src={image} alt={product.name} className="pd-hero__img" />
+            );
+          })()}
         </div>
 
         <div className="pd-hero__info">

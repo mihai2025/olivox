@@ -12,7 +12,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/articole`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/cautare`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${BASE}/despre`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/de-ce-snep`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/livrare-si-retur`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/intrebari-frecvente`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/glosar`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/brand/snep`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
+
+  const guides: MetadataRoute.Sitemap = [
+    "suplimente-alimentare-naturale",
+    "uleiuri-esentiale-utilizari",
+    "cum-alegi-supliment",
+    "cafea-functionala-ganoderma",
+  ].map((slug) => ({
+    url: `${BASE}/ghid/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
 
   const legal: MetadataRoute.Sitemap = [
     "termeni-si-conditii",
@@ -73,5 +91,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
   } catch {}
 
-  return [...core, ...categoryUrls, ...productUrls, ...articleUrls, ...legal];
+  return [...core, ...guides, ...categoryUrls, ...productUrls, ...articleUrls, ...legal];
 }
